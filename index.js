@@ -23,7 +23,7 @@
       for (var j = 0; j < prefix.length; j++) {
         result += (prefix[j] + 'animation:trans 1s;');
       }
-      result += '}'
+      result += '}';
       return result;
     })();
     style.html(css);
@@ -63,6 +63,8 @@
           });
         }
       }
+      //console.log(pages[idx]);
+      //$(pages[idx]).find('.title').addClass('title-animate');
     },
     onSlidePrev: function(e) {
       var idx = e.activeIndex;
