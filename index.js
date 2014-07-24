@@ -1,7 +1,9 @@
 (function() {
-
   var SwiperCover, SwiperPages, SwiperEnd;
+  var colors = ['#2fb86c', '#2eb1b3', '#27a0c0', '#26a3c3', '#2063b6']; //色彩集合
   var cover = $('#cover');
+  //当前过渡动画的className
+  var duractionClassName = '';
   SwiperCover = new Swiper('#cover', {
     mode: 'vertical',
     onSlideChangeEnd: function(e) {
@@ -37,6 +39,7 @@
           'zIndex': 3
         });
       }
+      //生成过渡动画
     },
     onSlideNext: function(e) {
       var idx = e.activeIndex;
