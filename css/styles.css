@@ -48,16 +48,12 @@ body {
 	z-index: 1;
 }
 .swiper-slide .title {
-  font-size: 42px;
-  margin-top: 80px;
+  font-size: 21px;
+  margin-top: 34px;
   margin-bottom: 0;
-  line-height: 45px;
-  padding-left: 24px;
-  border-left:36px solid #e9df38;
-}
-.swiper-slide p {
-  font-style: italic;
-  font-size: 25px;
+  line-height: 22px;
+  padding-left: 12px;
+  border-left:18px solid #e9df38;
 }
 .pagination {
   position: absolute;
@@ -80,8 +76,8 @@ body {
   background: #fff;
 }
 footer{
-	height: 38px;
-	padding: 36px 5%;
+	height: 19px;
+	padding: 18px 5%;
 	position: fixed;
 	bottom:0;
 	z-index: 30;
@@ -91,7 +87,7 @@ footer>.pull-right{
 	float: right;
 }
 footer>.pull-right>span{
-	font-size: 28px;
+	font-size: 14px;
 	color:white;
 	display: inline-block;
 }

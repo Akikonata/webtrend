@@ -1,6 +1,36 @@
 (function() {
   var SwiperCover, SwiperPages, SwiperEnd;
   var colors = ['', '#2fb86c', '#2eb1b3', '#27a0c0', '#26a3c3', '#2063b6']; //色彩集合
+  var gennerrateCssStyle = function(idx, direction, colors) {
+    var before;
+    if (direction === 'prev') {
+      before = idx + 1;
+    } else {
+      before = idx - 1;
+    }
+    var prefix = ['', '-webkit-', '-moz-', '-o-'];
+    var cssCont = '{from{background:' + colors[before] + '} to{background:' + colors[idx] + '}}';
+    duractionClassName = 'trans' + before + 'to' + idx;
+    var css = (function() {
+      var result = '';
+      for (var i = 0; i < prefix.length; i++) {
+        result += '@';
+        result += (prefix[i] + 'keyframes trans' + cssCont);
+      }
+      result += '.'
+      result += duractionClassName;
+      result += ('{');
+      for (var j = 0; j < prefix.length; j++) {
+        result += (prefix[j] + 'animation:trans 1s;');
+      }
+      result += '}'
+      return result;
+    })();
+    style.html(css);
+    console.log(css);
+    $(pages[before]).addClass(duractionClassName);
+    if (before > 0 && before < 6) $(pages[idx]).addClass(duractionClassName);
+  }
   var cover = $('#cover');
   //当前过渡动画的className
   var duractionClassName = '';
@@ -15,7 +45,7 @@
         SwiperCover.swipeTo(0, 0);
       }
     },
-    speed: 500
+    speed: 2000
   });
   var pages = $('#pages').find('.swiper-slide');
   SwiperPages = new Swiper('#pages', {
@@ -43,12 +73,12 @@
       }
     },
     onSlidePrev: function(e) {
-      console.log(e, 'prev');
+      gennerrateCssStyle(e.activeIndex, 'prev', colors);
     },
     onSlideNext: function(e) {
-      console.log(e, 'next');
+      gennerrateCssStyle(e.activeIndex, 'next', colors);
     },
-    speed: 500
+    speed: 1000
   });
   SwiperPages.swipeTo(1, 0);
   SwiperEnd = new Swiper('#end', {
