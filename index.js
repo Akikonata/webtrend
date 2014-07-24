@@ -64,7 +64,7 @@
       }
       //移除用于动画的class，将前后改成和当前page一样的颜色。
       for (var i = idx - 1; i <= idx + 1; i++) {
-        if (i > 0) {
+        if (i > 0 && i < 6) {
           var curPage = pages[i];
           $(curPage).removeClass(duractionClassName).css({
             background: colors[idx]
