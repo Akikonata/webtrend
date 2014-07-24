@@ -27,7 +27,7 @@
       return result;
     })();
     style.html(css);
-    $(pages[before]).addClass(duractionClassName);
+    if (before > 0 && before < 6) $(pages[before]).addClass(duractionClassName);
     if (idx > 0 && idx < 6) $(pages[idx]).addClass(duractionClassName);
   }
   var cover = $('#cover');
@@ -36,31 +36,24 @@
   var style = $('style');
   SwiperCover = new Swiper('#cover', {
     mode: 'vertical',
+    resistance: '100%',
     onSlideChangeEnd: function(e) {
       if (e.activeIndex === 1) {
         $('#cover').css({
-          'zIndex': 3
+          'zIndex': 0
         });
+        $('#end').hide();
         SwiperCover.swipeTo(0, 0);
       }
     },
-    speed: 500
+    speed: 1000
   });
   var pages = $('#pages').find('.swiper-slide');
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
+    resistance: '100%',
     onSlideChangeEnd: function(e) {
       var idx = e.activeIndex;
-      if (idx === 0) {
-        cover.css({
-          'zIndex': 10
-        });
-        SwiperPages.swipeTo(1, 0);
-      } else if (idx === 5) {
-        cover.css({
-          'zIndex': 0
-        });
-      }
       //移除用于动画的class，将前后改成和当前page一样的颜色。
       for (var i = idx - 1; i <= idx + 1; i++) {
         if (i > 0 && i < 6) {
@@ -72,10 +65,18 @@
       }
     },
     onSlidePrev: function(e) {
-      gennerrateCssStyle(e.activeIndex, 'prev', colors);
+      var idx = e.activeIndex;
+      if (idx <= 1) {
+        $('#end').hide();
+      }
+      gennerrateCssStyle(idx, 'prev', colors);
     },
     onSlideNext: function(e) {
-      gennerrateCssStyle(e.activeIndex, 'next', colors);
+      var idx = e.activeIndex;
+      if (idx > 5) {
+        $('#end').show();
+      }
+      gennerrateCssStyle(idx, 'next', colors);
     },
     speed: 1000
   });
