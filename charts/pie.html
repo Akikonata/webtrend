@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <title>2014Q2移动互联网趋势报告</title>
+        <link rel="stylesheet" href="../css/charts.css">
+        <script src="../js/kity.min.js"></script>
+        <script src="../../../build.js"></script>
+        <script src="../js/jquery-1.10.1.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+
+            <h2>Pie</h2>
+            <div id="pie-1" class="chart-container pie" onselect = "return false"></div>
+            <div id="pie-2" class="chart-container pie" onselect = "return false"></div>
+            <div id="pie-3" class="chart-container pie" onselect = "return false"></div>
+            <div id="pie-4" class="chart-container pie" onselect = "return false"></div>
+            <div id="pie-5" class="chart-container pie" onselect = "return false"></div>
+
+        <div>
+    </body>
+    <script src="../js/charts/charts.js"></script>
+    <script src="../js/charts/pie.js"></script>
+    <script>
+        var pie = Charts.get('pie');
+
+        pie.init('pie-1', [47, 73], '通信&<br>社交');
+        pie.init('pie-2', [33, 44], '娱乐');
+        pie.init('pie-3', [27, 11], '工具');
+        pie.init('pie-4', [17, 13], '浏览器<br>&搜索');
+        pie.init('pie-5', [19, 17], '其他');
+
+    </script>
+</html>
