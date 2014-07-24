@@ -1,9 +1,10 @@
 (function() {
   var SwiperCover, SwiperPages, SwiperEnd;
-  var colors = ['#2fb86c', '#2eb1b3', '#27a0c0', '#26a3c3', '#2063b6']; //色彩集合
+  var colors = ['', '#2fb86c', '#2eb1b3', '#27a0c0', '#26a3c3', '#2063b6']; //色彩集合
   var cover = $('#cover');
   //当前过渡动画的className
   var duractionClassName = '';
+  var style = $('style');
   SwiperCover = new Swiper('#cover', {
     mode: 'vertical',
     onSlideChangeEnd: function(e) {
@@ -31,27 +32,21 @@
           'zIndex': 0
         });
       }
+      //移除用于动画的class，将前后改成和当前page一样的颜色。
+      for (var i = idx - 1; i <= idx + 1; i++) {
+        if (i > 0) {
+          var curPage = pages[i];
+          $(curPage).removeClass(duractionClassName).css({
+            background: colors[idx]
+          });
+        }
+      }
     },
     onSlidePrev: function(e) {
-      var idx = e.activeIndex;
-      if (idx === 0) {
-        cover.css({
-          'zIndex': 3
-        });
-      }
-      //生成过渡动画
+      console.log(e, 'prev');
     },
     onSlideNext: function(e) {
-      var idx = e.activeIndex;
-      var lastPage = pages[idx - 1];
-      var curPage = pages[idx];
-      var cName = 'trans' + (idx - 1) + 'to' + idx;
-      if (idx > 1) {
-        $(lastPage).removeClass(cName);
-        $(lastPage).addClass(cName);
-      }
-      $(curPage).removeClass(cName);
-      $(curPage).addClass(cName);
+      console.log(e, 'next');
     },
     speed: 500
   });
