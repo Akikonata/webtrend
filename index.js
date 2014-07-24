@@ -28,7 +28,7 @@
     })();
     style.html(css);
     $(pages[before]).addClass(duractionClassName);
-    if (before > 0 && before < 6) $(pages[idx]).addClass(duractionClassName);
+    if (idx > 0 && idx < 6) $(pages[idx]).addClass(duractionClassName);
   }
   var cover = $('#cover');
   //当前过渡动画的className
