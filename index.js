@@ -27,7 +27,6 @@
       return result;
     })();
     style.html(css);
-    console.log(css);
     $(pages[before]).addClass(duractionClassName);
     if (before > 0 && before < 6) $(pages[idx]).addClass(duractionClassName);
   }
@@ -45,7 +44,7 @@
         SwiperCover.swipeTo(0, 0);
       }
     },
-    speed: 2000
+    speed: 500
   });
   var pages = $('#pages').find('.swiper-slide');
   SwiperPages = new Swiper('#pages', {
