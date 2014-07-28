@@ -25,7 +25,21 @@ body{
     float: left;
 }
 
+.chart-container.p-donut{
+    width: 100%;
+    height: 300px;
+    background: #c2653b;
+    overflow: visible;
+}
+
+.chart-container.bubble{
+    width: 100%;
+    height: 300px;
+    background: #6f40cb;
+}
+
 .chart-container{
+    position: relative;
     overflow: hidden;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -79,4 +93,103 @@ h2{
     bottom : -6px;
     left: 50%;
     margin-left: -5px;
+}
+
+.tip-2{
+    position: absolute;
+    background: #a6d8d6;
+    padding: 6px;
+    text-align: center;
+    font-size: 12px;
+    color: #343434;
+    line-height: 16px;
+    left: 70px;
+    top: 20px;
+}
+
+.tip-2 .hit{
+    position: absolute;
+    width: 0;
+    height: 0; 
+    border-top: 6px solid #a6d8d6;
+    bottom : -6px;
+    right: 0;
+}
+
+.tip-2.hit-left .hit{
+    border-right: 5px solid transparent;
+    border-left: 0px solid transparent;
+    left: 0;
+}
+
+.tip-2.hit-right .hit{
+    border-left: 5px solid transparent;
+    border-right: 0px solid transparent;
+    right: 0;
+    margin-left: -5px;
+}
+
+.tip-2-do-anim{
+    -webkit-animation: tip-2-anim 0.5s; 
+}
+
+@-webkit-keyframes tip-2-anim{
+    0%   { -webkit-transform: scale(0.3); opacity: 0.5}
+    50%   { -webkit-transform: scale(1.2); }
+    100% { -webkit-transform: scale(1); opacity: 1}
+}
+
+.p-donut-do-anim{
+    -webkit-animation: p-dount-anim 1s;
+}
+
+@-webkit-keyframes p-dount-anim{
+    0%   { -webkit-transform: rotate(-80deg) scale(0.3); opacity: 0.5}
+    100% { -webkit-transform: rotate(0deg) scale(1); opacity: 1}
+}
+
+.p-donut-center{
+    position: absolute;
+    left: 100px;
+    top: 90px;
+    width: 100px;
+    color: #FFF;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    font-size: 16px;
+    opacity: 0;
+    -webkit-transition: 0.8s;
+}
+
+.p-donut-center .em{
+    display: block;
+    font-size: 52px;
+}
+
+.bubble-container{
+    position: relative;
+    width: 50%;
+    color: #FFF;
+}
+
+.bubble-container ul{
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bubble-container ul li{
+    height: 40px;
+    line-height: 40px;
+}
+
+.bubble-container .value{
+    left: 0;
+    font-size: 20px;
+}
+
+.bubble-container .company{
+    right: 0;
+    font-size: 14px;
 }

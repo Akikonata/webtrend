@@ -13,20 +13,17 @@
     <body>
         <div class="container">
 
-            <h2>Donut</h2>
-            <div id="donut" class="chart-container donut" onselect = "return false">
-                <ul class="qselect">
-                    <li>11Q2</li>
-                    <li>12Q2</li>
-                    <li>13Q2</li>
-                    <li>14Q2</li>
-                </ul>
+            <h2>P-Donut</h2>
+            <div id="p-donut" class="chart-container p-donut" onselect = "return false">
+                <div class="p-donut-center">
+                    超过<span class="em">2亿</span>用户每天使用百度移动搜索
+                </div>
             </div>
 
         <div>
     </body>
     <script src="../js/charts/include.js"></script>
     <script>
-        Charts.get('donut').init();
+        Charts.get('p-donut').init();
     </script>
 </html>
