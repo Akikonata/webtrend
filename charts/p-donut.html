@@ -12,12 +12,18 @@
     </head>
     <body>
         <div class="container">
-            <h2>Area</h2>
-            <div id="area" class="chart-container area" onselect = "return false"></div>
+
+            <h2>P-Donut</h2>
+            <div id="p-donut" class="chart-container p-donut" onselect = "return false">
+                <div class="p-donut-center">
+                    超过<span class="em">2亿</span>用户每天使用百度移动搜索
+                </div>
+            </div>
+
         <div>
     </body>
     <script src="../js/charts/include.js"></script>
     <script>
-        Charts.get('area').init();
+        Charts.get('p-donut').init();
     </script>
 </html>
