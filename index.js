@@ -55,90 +55,45 @@
   //当前过渡动画的className
   var duractionClassName = '';
   var style = $('style');
-  SwiperCover = new Swiper('#cover', {
-    mode: 'vertical',
-    resistance: '100%',
-    onSlideChangeEnd: function(e) {
-      if (e.activeIndex === 1) {
-        Charts.get('area').init();
-        $('#cover').css({
-          'zIndex': 0
-        });
-        $('#end').hide();
-        SwiperCover.swipeTo(0, 0);
-      }
-    },
-    speed: 1000
-  });
   var pages = $('#pages').find('.swiper-slide');
+  Charts.get('area').init();
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
-    onSlideChangeEnd: function(e) {
-      var idx = e.activeIndex;
-      //移除用于动画的class，将前后改成和当前page一样的颜色。
-      for (var i = idx - 1; i <= idx + 1; i++) {
-        if (i > 0 && i < 9) {
-          var curPage = pages[i];
-          $(curPage).removeClass(duractionClassName).css({
-            'background': '-moz-linear-gradient(135,' + colors[idx][0] + ', ' + colors[idx][1] + ')',
-            'background': '-webkit-linear-gradient(135, from(' + colors[idx][0] + '), to(' + colors[idx][1] + '))',
-            'background': 'linear-gradient(135, ' + colors[idx][0] + ', ' + colors[idx][1] + ')',
-            'background': '-o-linear-gradient(135, ' + colors[idx][0] + ',' + colors[idx][1] + ')'
-          });
-        }
-      }
-      $(pages[idx]).find('.title').addClass('title-animate');
-    },
-    onSlidePrev: function(e) {
-      var idx = e.activeIndex;
-      if (idx <= 1) {
-        $('#end').hide();
-      }
-      gennerrateCssStyle(idx, 'prev', colors);
-    },
     onSlideNext: function(e) {
       var idx = e.activeIndex;
-      if (idx > 8) {
-        $('#end').show();
-      }
-      gennerrateCssStyle(idx, 'next', colors);
       //初始化图表
       switch (idx) {
-        case 1:
-          Charts.get('area').init();
+        case 0:
           break;
-        case 2:
+        case 1:
           Charts.get('donut').init();
           break;
-        case 3:
+        case 2:
           var pie = Charts.get('pie');
           pie.init('pie-1', [47, 73], '通信&<br>社交');
           pie.init('pie-2', [33, 44], '娱乐');
           pie.init('pie-3', [27, 11], '工具');
           pie.init('pie-4', [17, 13], '浏览器<br>&搜索');
           pie.init('pie-5', [19, 17], '其他');
-        case 4:
+        case 3:
           Charts.get('column').init();
           break;
-        case 5:
+        case 4:
           Charts.get('bubble').init();
           break;
-        case 6:
+        case 5:
           Charts.get('p-donut').init();
           break;
-        case 7:
+        case 6:
+          Charts.get('round').init();
           break;
-        case 8:
+        case 7:
           break;
         default:
           break;
       }
     },
     speed: 1000
-  });
-  SwiperPages.swipeTo(1, 0);
-  SwiperEnd = new Swiper('#end', {
-    mode: 'vertical'
   });
 })();

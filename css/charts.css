@@ -1,7 +1,3 @@
-body{
-    background: #2eb0b2;
-}
-
 .chart-container.donut{
     width: 100%;
     height: 300px;
@@ -28,20 +24,17 @@ body{
 .chart-container.p-donut{
     width: 100%;
     height: 300px;
-    background: #c2653b;
     overflow: visible;
 }
 
 .chart-container.bubble{
     width: 80%;
     height: 300px;
-    background: #6f40cb;
 }
 
 .chart-container.round{
     width: 100%;
     height: 300px;
-    background-color: #67bc4c;
     overflow: visible;
 }
 
@@ -247,7 +240,6 @@ h2{
     height: 200px;
     border-radius: 200px;
     -webkit-background-clip: padding-box;
-    background-color: #e5ed55;
     -webkit-box-shadow: 0 4px 12px rgba(9,27,159,.15), inset 0 2px 0 rgba(255,255,255,.29);
     box-shadow: 0 4px 12px rgba(9,27,159,.15), inset 0 2px 0 rgba(255,255,255,.29);
     background-image: -webkit-linear-gradient(93deg, rgba(167,223,30,.54) 0%, rgba(123,225,240,.54) 100%);
@@ -266,7 +258,6 @@ h2{
     display: block;
     content: '';
     position: absolute;
-    background-color: #f3e50c;
     top:2px;
     left:2px;
     width: 5px;

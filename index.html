@@ -11,28 +11,15 @@
   </style>
 </head>
 <body>
-  <div class="swiper-container" id='cover'>
-  	<div class="swiper-wrapper">
-      <div class="swiper-slide first2" id='cover-slide'>
-        <div class="title">封面</div>
-      </div>
-      <div class="swiper-slide">
-        
-      </div>
-    </div>
-  </div>
   <div class="swiper-container" id='pages'>
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        
-      </div>
       <div class="swiper-slide">
         <div class="title"><img src="img/number_1.png" width="40" height="77"/>智能机大盘增速不减，<br/>
 人口普及率已超30%。</div>
         <div id='area' class="chart-container area" onselect = "return false"></div>
       </div>
       <div class="swiper-slide">
-        <div class="title">三年来，智能机大盘中<br/>
+        <div class="title"><img src="img/number_2.png" width="40" height="77"/>三年来，智能机大盘中<br/>
 		Android和iPhone阵营<br/>
 		的份额差距不断扩大</div>
         <div id="donut" class="chart-container donut" onselect = "return false">
@@ -45,7 +32,7 @@
         </div>
       </div>
       <div class="swiper-slide">
-      <div class="title">iPhone用户日使用时长* 领先<br/>
+      <div class="title"><img src="img/number_3.png" width="40" height="77"/>iPhone用户日使用时长* 领先<br/>
 			Android用户，在通信&社交<br/>
 			与娱乐类应用*上花时间更多</div>
         <div id="pie-1" class="chart-container pie" onselect = "return false"></div>
@@ -55,7 +42,7 @@
         <div id="pie-5" class="chart-container pie" onselect = "return false"></div>
       </div>
 	  <div class="swiper-slide">
-        <div class="title">尽管两大平台的用户偏好<br/>
+        <div class="title"><img src="img/number_4.png" width="43" height="77"/>尽管两大平台的用户偏好<br/>
           不同，但用户需求的变化<br/>
           趋势基本一致<br/></div>
         <div id="column" class="chart-container column" onselect = "return false">
@@ -65,13 +52,13 @@
         </div>
     </div>
     <div class="swiper-slide">
-      <div class="title">腾讯和百度在两大平台的<br/>
+      <div class="title"><img src="img/number_5.png" width="40" height="77"/>腾讯和百度在两大平台的<br/>
       领先地位均比较稳固<br/></div>
       <div id="bubble" class="chart-container bubble" onselect = "return false">
       </div>
     </div>
     <div class="swiper-slide">
-      <div class="title">百度移动搜索用户规模持续<br/>
+      <div class="title"><img src="img/number_6.png" width="40" height="77"/>百度移动搜索用户规模持续<br/>
       快速增长,DAU   破2亿</div>
       <div id="p-donut" class="chart-container p-donut" onselect = "return false">
         <div class="p-donut-center">
@@ -80,27 +67,17 @@
       </div>
     </div>
     <div class="swiper-slide">
-      <div class="title">百度移动搜索半年来搜索<br/>
+      <div class="title"><img src="img/number_7.png" width="40" height="77"/>百度移动搜索半年来搜索<br/>
       总次数增长40%,全面连接<br/>
       用户与服务<br/></div>
-      <div id="round" class="chart-container round" onselect = "return false">
-                
-            </div>
+      <div id="round" class="chart-container round" onselect = "return false"></div>
     </div>
     <div class="swiper-slide">
     <div class="title">
+      <img src="img/number_8.png" width="43" height="44"/>
       移动搜索发展趋势
     </div>
     </div>
-    <div class="swiper-slide"></div>
-    </div>
-  </div>
-  <div class="swiper-container" id="end">
-  	<div class="swiper-wrapper">
-  	  <div class="swiper-slide" id="end-slide">
-        <div class="title">封底</div>
-      </div>
-  	</div>
   </div>
   <script src="js/jquery-1.10.1.min.js"></script>
   <script src="js/kity.min.js"></script>
@@ -113,7 +90,9 @@
   <script src="js/charts/pie.js"></script>
   <script src="js/charts/p-donut.js"></script>
   <script src="js/charts/bubble.js"></script>
+  <script src="js/charts/round.js"></script>
   <script src="js/idangerous.swiper-2.1.min.js"></script>
+  <script src="js/hammer.min.js"></script>
   <script src="index.js"></script>
 <footer>
 	<img src="img/mobile_logo.png" alt="" height="14">
