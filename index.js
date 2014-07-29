@@ -1,6 +1,16 @@
 (function() {
   var SwiperCover, SwiperPages, SwiperEnd;
-  var colors = ['', '#2fb86c', '#2eb1b3', '#27a0c0', '#26a3c3', '#2063b6', 'black', 'red']; //色彩集合
+  var colors = [
+    [],
+    ['#b0442b', '#d07e47'],
+    ['#34aa71', '#7cc33d'],
+    ['#299fad', '#31bbb6'],
+    ['#484ec7', '#1ea0f3'],
+    ['#7540bc', '#683fdd'],
+    ['#b0442b', '#d07e47'],
+    ['#34aa71', '#7cc33d'],
+    ['#299fad', '#31bbb6'],
+  ]; //色彩集合
   var gennerrateCssStyle = function(idx, direction, colors) {
     var before;
     if (direction === 'prev') {
@@ -9,7 +19,17 @@
       before = idx - 1;
     }
     var prefix = ['', '-webkit-', '-moz-', '-o-'];
-    var cssCont = '{from{background:' + colors[before] + '} to{background:' + colors[idx] + '}}';
+    var from = [],
+      to = [];
+    var cssCont = 'from{';
+    for (var k = 0; k < prefix.length; k++) {
+      from.push('background:' + prefix[k] + 'linear-gradient(135deg,' + colors[before][0] + ',' + colors[before][1] + ')');
+      to.push('background:' + prefix[k] + 'linear-gradient(135deg,' + colors[idx][0] + ',' + colors[idx][1] + ')');
+    }
+    cssCont += from.join(';');
+    cssCont += '}to{';
+    cssCont += to.join(';');
+    cssCont += '}';
     duractionClassName = 'trans' + before + 'to' + idx;
     var css = (function() {
       var result = '';
@@ -27,6 +47,7 @@
       return result;
     })();
     style.html(css);
+    console.log(css);
     if (before > 0 && before < 6) $(pages[before]).addClass(duractionClassName);
     if (idx > 0 && idx < 6) $(pages[idx]).addClass(duractionClassName);
   }
@@ -60,7 +81,10 @@
         if (i > 0 && i < 9) {
           var curPage = pages[i];
           $(curPage).removeClass(duractionClassName).css({
-            background: colors[idx]
+            'background': '-moz-linear-gradient(135,' + colors[idx][0] + ', ' + colors[idx][1] + ')',
+            'background': '-webkit-linear-gradient(135, from(' + colors[idx][0] + '), to(' + colors[idx][1] + '))',
+            'background': 'linear-gradient(135, ' + colors[idx][0] + ', ' + colors[idx][1] + ')',
+            'background': '-o-linear-gradient(135, ' + colors[idx][0] + ',' + colors[idx][1] + ')'
           });
         }
       }
