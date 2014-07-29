@@ -57,7 +57,7 @@
       var idx = e.activeIndex;
       //移除用于动画的class，将前后改成和当前page一样的颜色。
       for (var i = idx - 1; i <= idx + 1; i++) {
-        if (i > 0 && i < 6) {
+        if (i > 0 && i < 9) {
           var curPage = pages[i];
           $(curPage).removeClass(duractionClassName).css({
             background: colors[idx]
@@ -75,7 +75,7 @@
     },
     onSlideNext: function(e) {
       var idx = e.activeIndex;
-      if (idx > 5) {
+      if (idx > 8) {
         $('#end').show();
       }
       gennerrateCssStyle(idx, 'next', colors);
@@ -98,7 +98,15 @@
           Charts.get('column').init();
           break;
         case 5:
-
+          Charts.get('bubble').init();
+          break;
+        case 6:
+          Charts.get('p-donut').init();
+          break;
+        case 7:
+          break;
+        case 8:
+          break;
         default:
           break;
       }
