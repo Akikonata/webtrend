@@ -1,4 +1,8 @@
 Utils = {
+	addTip : function(conf){
+		return $('<div class="tip"><span class="content">'+conf.content+'</span><div class="hit"></div></div>').appendTo(conf.container).css(conf.style);
+	},
+
 	addTip2 : function( conf ) {
 		var delay = conf.delay || 0;
 
@@ -12,5 +16,13 @@ Utils = {
 			}).addClass('tip-2-do-anim');
 		}, delay);
 		
+	},
+
+	arraySum : function(arr){
+		var sum = 0;
+		arr.forEach(function(num, i){
+			sum += num;
+		});
+		return sum;
 	}
 };

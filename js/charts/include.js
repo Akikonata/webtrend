@@ -6,3 +6,4 @@ document.write( '<script src="../js/charts/donut.js"></script>' );
 document.write( '<script src="../js/charts/pie.js"></script>' );
 document.write( '<script src="../js/charts/p-donut.js"></script>' );
 document.write( '<script src="../js/charts/bubble.js"></script>' );
+document.write( '<script src="../js/charts/round.js"></script>' );

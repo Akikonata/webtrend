@@ -132,6 +132,16 @@
 		    
 		    addZeroLine(column);
 		    addDashLine(column);
+
+            Utils.addTip({
+                container : $('#column'),
+                content : '跑输大盘<br />应用DAU增速',
+                style : {
+                    left: '70px',
+                    top: '20px',
+                    width : '80px'
+                }
+            });
         }
     });
 
