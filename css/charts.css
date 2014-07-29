@@ -33,7 +33,7 @@ body{
 }
 
 .chart-container.bubble{
-    width: 100%;
+    width: 80%;
     height: 300px;
     background: #6f40cb;
 }
@@ -169,7 +169,11 @@ h2{
 .bubble-container{
     position: relative;
     width: 50%;
+    height: auto;
     color: #FFF;
+    overflow: visible;
+    float: left;
+    margin-top: 30px;
 }
 
 .bubble-container ul{
@@ -177,6 +181,7 @@ h2{
     list-style: none;
     padding: 0;
     margin: 0;
+
 }
 
 .bubble-container ul li{
@@ -185,11 +190,50 @@ h2{
 }
 
 .bubble-container .value{
-    left: 0;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .bubble-container .company{
-    right: 0;
-    font-size: 14px;
+    font-size: 12px;
+}
+
+.bubble-container .left{
+    left : 8px;
+}
+
+.bubble-container .right{
+    right : 8px;
+}
+
+.bubble-container .bubble{
+    background-color: #fff;
+    border-radius: 100px;
+    opacity: .8;
+    
+    -webkit-box-shadow: 0 4px 12px rgba(9,27,159,.15);
+    -webkit-background-clip: padding-box;
+    -webkit-transition: 1s;
+}
+
+.bubble-container .bubble.color0{
+    background-image: -webkit-linear-gradient(93deg, rgba(242,234,23,.57) 0%, rgba(159,245,24,.57) 100%);
+}
+
+.bubble-container .bubble.color1{
+    background-image: -webkit-linear-gradient(93deg, rgba(167,223,30,.54) 0%, rgba(123,225,240,.54) 100%);
+}
+
+.mobi-icon{
+    position: absolute;
+    top: -10px;
+    width: 19px;
+    height: 19px;
+    background-image: url(../img/mob-icon.png);
+    background-size: auto 19px;
+    float: left;
+    background-repeat: no-repeat;
+}
+
+.mobi-icon.iphone{
+    background-position: -17px 0px;
 }
