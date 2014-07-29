@@ -62,10 +62,10 @@ body {
   margin-top: 34px;
   margin-bottom: 0;
   line-height: 22px;
-  padding-left: 78px;
+  margin-left: 5px;
 }
-#pages .swiper-slide:nth-child(2) .title:before{
-  
+.swiper-slide .title img{
+  float: left;
 }
 .pagination {
   position: absolute;
@@ -105,12 +105,12 @@ footer>.pull-right>span{
 }
 @-webkit-keyframes myfirst /* Safari 和 Chrome */
 {
-from {background: -moz-linear-gradient(135deg,#b0442b,#d07e47);
-  background: -webkit-linear-gradient(135deg,#b0442b,#d07e47);
-  background: -o-linear-gradient(135deg,#b0442b,#d07e47);}
-to {background: -moz-linear-gradient(135deg,#34aa71,#7cc33d);
-  background: -webkit-linear-gradient(135deg,#34aa71,#7cc33d);
-  background: -o-linear-gradient(135deg,#34aa71,#7cc33d);}
+from {
+  background: red
+}
+to {
+  background: black
+}
 }
 .first2{
   animation:myfirst 5s;
