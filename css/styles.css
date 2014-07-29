@@ -52,7 +52,7 @@ body {
   margin-top: 34px;
   margin-bottom: 0;
   line-height: 22px;
-  padding-left: 12px;
+  padding-left: 60px;
   border-left:18px solid #e9df38;
 }
 .pagination {
@@ -90,4 +90,26 @@ footer>.pull-right>span{
 	font-size: 14px;
 	color:white;
 	display: inline-block;
+}
+@keyframes titleanimate{
+  from:{padding-left:60px;}
+  to:{padding-left: 12px;}
+}
+@-webkit-keyframes titleanimate{
+  from:{padding-left:60px;}
+  to:{padding-left: 12px;}
+}
+@-moz-keyframes titleanimate{
+  from:{padding-left:60px;}
+  to:{padding-left: 12px;}
+}
+@-o-keyframes titleanimate{
+  from:{padding-left:60px;}
+  to:{padding-left: 12px;}
+}
+.title-animate{
+  animation:titleanimate 0.5s;
+  -webkit-animation:titleanimate 0.5s;
+  -moz-animation:titleanimate 0.5s;
+  -o-animation:titleanimate 0.5s;
 }
