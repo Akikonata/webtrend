@@ -1,0 +1,28 @@
+.chart-container.donut{
+    background-color: #74c043;
+}
+
+.chart-container.area{
+    background-color: #cd7844;
+}
+
+.chart-container.column{
+    background-color: #268fea;
+}
+
+.chart-container.pie{
+    background-color: #2fb5b4;
+}
+
+.chart-container.p-donut{
+    background-color: #cd7844;
+}
+
+.chart-container.bubble{
+    background-color: #693fdb;
+}
+
+.chart-container.round{
+    background-color: #6ebe47;
+}
+
