@@ -6,7 +6,7 @@ body {
   margin: 0;
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -125,9 +125,25 @@ footer>.pull-right>span{
   font-size: 12px;
   padding: 0 7px;
 }
+.timecount{
+  margin: 16px;
+  border-top:1px solid white;
+  border-bottom:1px solid white;
+  padding: 18px 0;
+}
+.timecount>.block{
+  display: inline-block;
+  width: 49%
+}
+.pies-container{
+  margin:0 margin: 16px;
+}
 .charttitle{
   color: white;
   text-align: center;
+}
+.text-min{
+  margin-left: -24px;
 }
 .t1{
   font-size: 12px;
