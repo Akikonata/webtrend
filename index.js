@@ -11,6 +11,12 @@
     ['#34aa71', '#7cc33d'],
     ['#299fad', '#31bbb6'],
   ]; //色彩集合
+  var docs = [
+    '<h1>智能机大盘：</h1>指智能机全体保有量中的日活跃（当天发生过至少一次联网行为的）设备数量',
+    '<h1>日使用时长：</h1>指用户一天24小时中使用各类智能机应用的累计时长，不含短信和电话',
+    '<h1>说明：</h1>娱乐类应用：包括游戏、视频、音乐和阅读类应用<br/>工具类应用：包括搜索、浏览器、地图导航、应用分发、办公/学习/生活工具、系统/安全/优化工具等',
+    '<h1>说明：</h1>阿里：除阿里自有应用外，UC浏览器、高德地图等收购公司的应用也被纳入统计<br/>搜狐：腾讯入股搜狗后，搜狗继续作为搜狐的子公司独立运营，故仍将其纳入搜狐进行统计<br/>新浪：阿里入股新浪微博后，微博继续作为新浪子公司独立运营，故仍将其纳入新浪进行统计'
+  ];
   var gennerrateCssStyle = function(idx, direction, colors) {
     var before;
     if (direction === 'prev') {
@@ -95,5 +101,25 @@
       }
     },
     speed: 1000
+  });
+  //初始化提示弹窗
+  var msgwindow = $('#alert').find('.msg-window');
+  $('.toggle-tips').on('click', function() {
+    var $this = $(this);
+    var n = $this.data('n');
+    var doc = docs[n];
+    $('#alert').find('.msg-content').html(doc);
+    $('#alert').show();
+    $('#alert').find('.msg-window');
+    msgwindow.animate({
+      marginTop: '84px'
+    })
+  })
+  $('#alert').on('click', '.btn-ok', function() {
+    msgwindow.animate({
+      marginTop: '0'
+    }, 200, function() {
+      $('#alert').hide();
+    });
   });
 })();

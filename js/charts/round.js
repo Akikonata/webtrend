@@ -42,18 +42,18 @@
         }, timer);
     }
 
-    function addRects(conf){
-        var con = conf.container;
-        var PI = Math.PI;
-        var a = PI*2/conf.count;
-        var sin = Math.sin, cos = Math.cos;
-        var cX = con.width()/2, cY = con.height()/2;
+    function addRects( conf ){
+        var con = conf.container,
+            PI = Math.PI,
+            a = PI*2/conf.rectCount,
+            sin = Math.sin, cos = Math.cos,
+            cX = con.width()/2, cY = con.height()/2,
+            x = y = 0,
+            tmpR = conf.r + conf.h/2,
+            tmpA, deg;
 
-        var x = y = 0;
-        var tmpR = conf.r + conf.h/2;
-        var tmpA, deg;
-        for(var i = 0; i < conf.count; i++){
-            tmpA = a*i;
+        for(var i = 0; i < conf.rectCount; i++){
+            tmpA = a*i - PI/2;
             x = tmpR * cos(tmpA);
             y = tmpR * sin(tmpA);
             deg = tmpA/PI * 180;
@@ -72,23 +72,9 @@
         con.find('.rect').each(function( i, rect ){
             setTimeout(function(){
                 $(rect).css('visibility', 'visible');
-            }, conf.interval * i);
+            }, conf.rectInterval * i);
         });
 
-    }
-
-    function bindAction(container){
-        container.ontouchstart = function(ev){
-            var t = ev.touches[0];
-            var x = t.pageX - container.offsetLeft;
-            var y = t.pageY - container.offsetTop;
-
-            var aY = y - $(container).height()/2;
-            var aX = x - $(container).width()/2;
-
-            var angle = Math.atan2(-aY, aX);
-            console.log(angle);
-        }
     }
 
     var tip = Utils.addTip({
@@ -111,19 +97,16 @@
 
         data.counts.forEach(function(count, i){
 
-            var index = parseInt( data.start[i] + count/2 );
-            var re = rects[ index ],
-                angle = index/sum * 360;
+            var index = parseInt( data.start[i] + count/2 ),
+                re = rects[ index ],
+                angle = index/sum * 360 - 90,
 
-            var isRight = (angle < 90 && angle > 0 )||( angle < 360 && angle > 270 );
-
+                isRight = (angle < 90 && angle > -90 )||( angle < 360 && angle > 270 );
 
             $('<div class="link-dot link-dot'+i+' link"></div>').css({
                 top : re.offsetTop+conf.h/2-3,
                 left : re.offsetLeft+conf.w/2-3
             }).appendTo(con);
-
-
 
             // 链接文本位置
             var txt = data.name[i],
@@ -215,26 +198,30 @@
         init : function(){
 
             var con = $('#round');
-            var count = 72;
 
             var conf = {
                 w : 4,
                 h : 20,
-                r : 90,
-                count : count,
+                rectCount : 72,
                 container : con,
-                interval : 15
+                rectInterval : 15,
+                centerStartR : 10,
+                centerEndR : 80,
+                centerTimer : 800
             };
 
+            conf.r = conf.centerEndR + 10
+
+            var count = conf.rectCount;
             initData(count);
             
-            var timer = 800;
+            var timer = conf.centerTimer;
 
             addCenter({
-                radius : 10,
+                radius : conf.centerStartR,
                 container : con
             }, {
-                radius : 80
+                radius : conf.centerEndR
             }, timer);
 
 
@@ -268,11 +255,9 @@
                             container : con,
                             width : 80
                         });
-                    }, count * conf.interval);
+                    }, count * conf.rectInterval);
                     
                 }, 500);
-
-
 
             }, timer);
 
