@@ -274,3 +274,13 @@ h2{
     background-repeat: no-repeat;
     background-image: url(../img/baidu.png);
 }
+
+.tip-anim{
+    -webkit-animation: tip-zoom 0.4s;
+}
+
+@-webkit-keyframes tip-zoom{
+    0%   { -webkit-transform: scale(0.6); }
+    70%   { -webkit-transform: scale(1.1); }
+    100% { -webkit-transform: scale(1); }
+}
