@@ -4,13 +4,14 @@
         var container = conf.container,
             side = conf.side,
             top = conf.topPos - 50,
-            left = conf.leftPos;
+            left = conf.leftPos,
+            tipW = 60, tipH = 50;
 
-        var pos = [[0.2, 0.09], [0.4, 0.01], [0.74, 0.05]];
+        var pos = [[0.19, 0.25], [0.43, 0.15], [0.74, 0.05]];
 
         Utils.addTip2({
-            left: left + side*pos[0][0],
-            top: top + side*pos[0][1],
+            left: left + side*pos[0][0]-tipW,
+            top: top + side*pos[0][1]-tipH,
             pos: 'right',
             container: container,
             content: '偶尔使用<div style="font-size:16px">11%</div>',
@@ -19,8 +20,8 @@
 
         Utils.addTip2({
             bgColor: '#fbf6f3',
-            left: left + side*pos[1][0],
-            top: top + side*pos[1][1],
+            left: left + side*pos[1][0]-tipW,
+            top: top + side*pos[1][1]-tipH,
             pos: 'right',
             container: container,
             content: '从未使用<div style="font-size:16px">4%</div>',
@@ -66,10 +67,10 @@
                 leftPos : l,
                 side : side
             });
-            addCenterText(0, {
+
+            addCenterText(800, {
                 opacity : 1,
-                top : (height - side/2 - 58) + 'px',
-                webkitTransform : 'scale(1.5)'
+                webkitTransform : 'translate3d(0px, '+(height - side/2 - $('.p-donut-center').height()/2) + 'px, 0px)'
             });
 
          }
