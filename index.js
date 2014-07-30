@@ -103,12 +103,17 @@
     speed: 1000
   });
   /*测试代码*/
-  SwiperPages.swipeTo(1, 0);
-  Charts.get('donut').init();
+  SwiperPages.swipeTo(2, 0);
+  var pie = Charts.get('pie');
+  pie.init('pie-1', [47, 73], '通信&<br>社交');
+  pie.init('pie-2', [33, 44], '娱乐');
+  pie.init('pie-3', [27, 11], '工具');
+  pie.init('pie-4', [17, 13], '浏览器<br>&搜索');
+  pie.init('pie-5', [19, 17], '其他');
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
-  $('.toggle-tips').on('click', function() {
+  $('.swiper-slide').on('click', '.toggle-tips', function() {
     var $this = $(this);
     var n = $this.data('n');
     var doc = docs[n];
