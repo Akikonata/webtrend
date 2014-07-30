@@ -63,6 +63,7 @@ body {
   margin-bottom: 0;
   line-height: 22px;
   margin-left: 5px;
+  height: 77px;
 }
 .swiper-slide .title img{
   float: left;
@@ -136,7 +137,11 @@ footer>.pull-right>span{
   width: 49%
 }
 .pies-container{
-  margin:0 margin: 16px;
+  margin:0 16px;
+}
+#column{
+  height: 210px;
+  margin-top: 49px;
 }
 .charttitle{
   color: white;
