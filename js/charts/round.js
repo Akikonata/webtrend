@@ -126,27 +126,39 @@
 
         $('body').delegate('.link-txt', 'touchstart', function(){
             var i = Number($(this).attr('index'));
-            var s = data.start[i], c = data.counts[i];
-            rects.css('backgroundColor', '#11722e');
-            for(var j = 0; j < c; j++){
-                $(rects[j+s]).css('backgroundColor', '#f3e50c');
-            }
-
-            $('.link-txt').show();
-            $('.link-txt' + i).hide();
-
-            tip.css({
-                // left : $('.link-dot' + i).css('left'),
-                top : (parseInt($('.link-dot' + i).css('top'))-50)+'px',
-                display : 'block',
-
-            }).find('.content').html( data.name[i] + '<br /><span style="font-size:16px">' + data.value[i] + '%</span>' );
-        
-            tip.css({
-                left: (parseInt($('.link-dot' + i).css('left')) - tip.width()/2) + 'px'
-            });
+            select( i, rects );
         });
 
+        setTimeout(function(){
+            select( 0, rects );
+        }, 300);
+        
+    }
+
+    function select( i, rects ){
+
+        var s = data.start[i], c = data.counts[i];
+        rects.css('backgroundColor', '#11722e');
+        for(var j = 0; j < c; j++){
+            $(rects[j+s]).css('backgroundColor', '#f3e50c');
+        }
+
+        $('.link-txt').show();
+        $('.link-txt' + i).hide();
+
+        tip.css({
+            top : (parseInt($('.link-dot' + i).css('top'))-50)+'px',
+            display : 'block',
+
+        }).find('.content').html( data.name[i] + '<br /><span style="font-size:16px">' + data.value[i] + '%</span>' );
+    
+        tip.css({
+            left: (parseInt($('.link-dot' + i).css('left')) - tip.width()/2) + 'px'
+        }).removeClass('tip-anim');
+
+        setTimeout(function(){
+            tip.addClass('tip-anim');
+        }, 0);
     }
 
     function addSearchIcon(conf){

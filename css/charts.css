@@ -58,17 +58,6 @@ h2{
     color: #555;
 }
 
-.qselect{
-    position: absolute;
-    bottom: 10px;
-    list-style: none;
-}
-
-.qselect li{
-    float: left;
-    margin: 0 10px;
-}
-
 .tip{
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
@@ -284,4 +273,14 @@ h2{
     position: absolute;
     background-repeat: no-repeat;
     background-image: url(../img/baidu.png);
+}
+
+.tip-anim{
+    -webkit-animation: tip-zoom 0.4s;
+}
+
+@-webkit-keyframes tip-zoom{
+    0%   { -webkit-transform: scale(0.6); }
+    70%   { -webkit-transform: scale(1.1); }
+    100% { -webkit-transform: scale(1); }
 }

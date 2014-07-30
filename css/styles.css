@@ -104,8 +104,26 @@ footer>.pull-right>span{
 	display: inline-block;
 }
 #area{
-  height:400px;
+  height:300px;
   width: 90%;
+}
+#donut{
+  height: 325px;
+  width: 100%;
+}
+.qselect{
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.qselect-dots{
+  text-align: center;
+}
+.qselect li{
+  display: inline-block;
+  font-size: 12px;
+  padding: 0 7px;
 }
 .charttitle{
   color: white;
