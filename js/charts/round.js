@@ -223,12 +223,12 @@
                 r : 90,
                 count : count,
                 container : con,
-                interval : 0//15
+                interval : 15
             };
 
             initData(count);
             
-            var timer = 0;//800
+            var timer = 800;
 
             addCenter({
                 radius : 10,
