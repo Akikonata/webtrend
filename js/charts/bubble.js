@@ -1,10 +1,10 @@
 (function(){
 
     function addBubble( conf ){
+        var con  = conf.container;
+
         var valStr = '<li>' + conf.values.join('</li><li>') + '</li>';
         var comStr = '<li>' + conf.companies.join('</li><li>') + '</li>';
-
-        var con  = $('#bubble');
 
         var posType = [['left', 'right'], ['right', 'left']];
         var pos = posType[conf.posType];
@@ -21,15 +21,17 @@
             lineHeight : conf.lineHeight + 'px'
         });
 
+        var l = conf.values.length;
         conf.values.forEach(function( val, i ){
             var r = val * conf.radiusBase;
-            var l = conf.values.length;
+            
             $('<div class="bubble"></div>').css({
                 position : 'absolute',
-                width : 0 + 'px',
-                height : 0 + 'px',
-                left : b.width()/2 + 'px',
-                top : ((l-0.5)*conf.lineHeight-r/2) + 'px'
+                width : r + 'px',
+                height : r + 'px',
+                left : (b.width()-r)/2 + 'px',
+                top : ((l-0.5)*conf.lineHeight-r/2) + 'px',
+                webkitTransform : 'scale(0.1)'
             }).appendTo(b).addClass(conf.className);
         });
 
@@ -38,13 +40,9 @@
         setTimeout(function(){
             var bbs = b.find('.bubble');
             conf.values.forEach(function( val, i ){
-                var r = val * conf.radiusBase;
 
                 $(bbs[i]).css({
-                    width : r + 'px',
-                    height : r + 'px',
-                    left : (b.width()-r)/2 + 'px',
-                    top : ((i+0.5)*conf.lineHeight-r/2) + 'px'
+                    webkitTransform : 'translate3d(0px, ' + (i - l + 1) * conf.lineHeight + 'px, 0px) scale(1)'
                 });
             });
 
@@ -55,12 +53,17 @@
 
     Charts.add('bubble', {
 
-        init : function(){            
+        init : function(){
+            var con = $('#bubble');
+            var count = 5;
+            var lineHeight = (con.height()-20)/count;
+
             addBubble({
+                container : con,
                 values : [3.43, 2.77, 0.80, 0.80, 0.70],
                 companies : ['腾讯', '百度', '阿里', '搜狐', '新浪'],
                 radiusBase : 18,
-                lineHeight : 50,
+                lineHeight : lineHeight,
                 className : 'color0',
                 posType : 0,
                 iconType : 'android',
@@ -72,10 +75,11 @@
             });
 
             addBubble({
+                container : con,
                 values : [3.70, 2.10, 0.90, 0.50, 0.40],
                 companies : ['腾讯', '百度', '阿里', '美图', '新浪'],
                 radiusBase : 18,
-                lineHeight : 50,
+                lineHeight : lineHeight,
                 className : 'color1',
                 posType : 1,
                 iconType : 'iphone',

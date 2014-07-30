@@ -1,40 +1,30 @@
 .chart-container.donut{
-    width: 100%;
-    height: 300px;
+
 }
 
 .chart-container.area{
-    width: 100%;
-    height: 200px;
+
 }
 
 .chart-container.column{
-    width: 700px;
-    height: 400px;
+
 }
 
 .chart-container.pie{
-    width: 102px;
-    height: 102px;
     background: url(../img/pie-bg.png) no-repeat center center;
     background-size: 100px;
     float: left;
 }
 
 .chart-container.p-donut{
-    width: 100%;
-    height: 300px;
     overflow: visible;
 }
 
 .chart-container.bubble{
-    width: 80%;
-    height: 300px;
+    margin: 0 auto;
 }
 
 .chart-container.round{
-    width: 100%;
-    height: 300px;
     overflow: visible;
 }
 
@@ -159,7 +149,7 @@ h2{
     color: #FFF;
     overflow: visible;
     float: left;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .bubble-container ul{
@@ -195,23 +185,25 @@ h2{
     background-color: #fff;
     border-radius: 100px;
     opacity: .8;
-    
+    -webkit-transform: translate3d(0,0,0);
     -webkit-box-shadow: 0 4px 12px rgba(9,27,159,.15);
     -webkit-background-clip: padding-box;
-    -webkit-transition: 1s;
+    -webkit-transition: 0.9s;
 }
 
 .bubble-container .bubble.color0{
+    /*background-color: #b9d48e;*/
     background-image: -webkit-linear-gradient(93deg, rgba(242,234,23,.57) 0%, rgba(159,245,24,.57) 100%);
 }
 
 .bubble-container .bubble.color1{
+    /*background-color: #accbdc;*/
     background-image: -webkit-linear-gradient(93deg, rgba(167,223,30,.54) 0%, rgba(123,225,240,.54) 100%);
 }
 
 .mobi-icon{
     position: absolute;
-    top: -10px;
+    top: -18px;
     width: 19px;
     height: 19px;
     background-image: url(../img/mob-icon.png);
