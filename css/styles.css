@@ -103,18 +103,58 @@ footer>.pull-right>span{
 	color:white;
 	display: inline-block;
 }
-@-webkit-keyframes myfirst /* Safari 和 Chrome */
-{
-from {
-  background: red
+#area{
+  height:400px;
+  width: 90%;
 }
-to {
-  background: black
+.charttitle{
+  color: white;
+  text-align: center;
 }
+.t1{
+  font-size: 12px;
 }
-.first2{
-  animation:myfirst 5s;
-  -webkit-animation:myfirst 5s;
-  -moz-animation:myfirst 5s;
-  -o-animation:myfirst 5s;
+.t2{
+  font-size: 10px;
+}
+.alert{
+  z-index: 99;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  left: 0;
+  top: 0;
+  display: none;
+}
+.alert>.msg-window{
+  width: 238px;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  margin-left: -119px;
+  background: white;
+  padding-top:10px;
+}
+.alert>.msg-window>.btn-ok{
+  font-size: 18px;
+  color: #777;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+  border-top: 1px solid #dcdcdc;
+}
+.alert>.msg-window>.msg-content{
+  color: #777;
+  margin:0 25px;
+  min-height: 275px;
+}
+.alert>.msg-window>.msg-content>h1{
+  font-size: 18px;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 0;
+  margin: 15px 0 27px 0;
+}
+.alert>.msg-window>.btn-ok:active{
+  background: #eee;
 }
