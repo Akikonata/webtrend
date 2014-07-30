@@ -64,6 +64,9 @@
   var style = $('style');
   var pages = $('#pages').find('.swiper-slide');
   Charts.get('area').init();
+  var page8animate = function() {
+
+  };
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
@@ -104,7 +107,7 @@
     speed: 1000
   });
   /*测试代码*/
-  SwiperPages.swipeTo(7, 0);
+  //SwiperPages.swipeTo(7, 0);
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
