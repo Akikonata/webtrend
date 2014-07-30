@@ -1,57 +1,76 @@
  (function() {
 
-     function addTip2(container) {
-         Utils.addTip2({
-             left: 5,
-             top: 4,
-             pos: 'right',
-             container: container,
-             content: '偶尔使用<div style="font-size:16px">11%</div>',
-             delay: 1000
-         });
+    function addTip2(conf){
+        var container = conf.container,
+            side = conf.side,
+            top = conf.topPos - 50,
+            left = conf.leftPos;
 
-         Utils.addTip2({
-             bgColor: '#fbf6f3',
-             left: 80,
-             top: -27,
-             pos: 'right',
-             container: container,
-             content: '从未使用<div style="font-size:16px">4%</div>',
-             delay: 1100
-         });
+        var pos = [[0.2, 0.09], [0.4, 0.01], [0.74, 0.05]];
 
-         Utils.addTip2({
-             bgColor: '#abd83e',
-             left: 235,
-             top: 8,
-             pos: 'left',
-             container: container,
-             content: '经常使用<div style="font-size:16px">85%</div>',
-             delay: 1200
-         });
-     }
+        Utils.addTip2({
+            left: left + side*pos[0][0],
+            top: top + side*pos[0][1],
+            pos: 'right',
+            container: container,
+            content: '偶尔使用<div style="font-size:16px">11%</div>',
+            delay: 1000
+        });
 
-     function addCenterText(delay) {
+        Utils.addTip2({
+            bgColor: '#fbf6f3',
+            left: left + side*pos[1][0],
+            top: top + side*pos[1][1],
+            pos: 'right',
+            container: container,
+            content: '从未使用<div style="font-size:16px">4%</div>',
+            delay: 1100
+        });
+
+        Utils.addTip2({
+            bgColor: '#abd83e',
+            left: left + side*pos[2][0],
+            top: top + side*pos[2][1],
+            pos: 'left',
+            container: container,
+            content: '经常使用<div style="font-size:16px">85%</div>',
+            delay: 1200
+        });
+    }
+
+     function addCenterText(delay, style) {
          setTimeout(function() {
-             $('.p-donut-center').css({
-                 opacity: 1
-             });
+             $('.p-donut-center').css(style);
          }, delay);
      }
 
      Charts.add('p-donut', {
 
          init: function() {
-             var width = 86;
+            var rate = 0.9;
 
-             var container = $('#p-donut');
+            var container = $('#p-donut'), width = container.width(), height = container.height();
+            var shortSide = Math.min(width, height);
+            var side = shortSide * rate;
 
-             $('<img src="../img/p-donut.png" width="' + width + '%" />').css({
-                 margin: ((100 - width) / 2) + '%'
-             }).appendTo(container).addClass('p-donut-do-anim');
+            var t = height - side,
+                l = (width - side) / 2;
+            $('<img src="../img/p-donut.png" width="' + side + '" />').css({
+                marginLeft: l + 'px',
+                marginTop: t + 'px',
+            }).appendTo(container).addClass('p-donut-do-anim');
 
-             addTip2(container);
-             addCenterText(1400);
+            addTip2({
+                container : container,
+                topPos : t,
+                leftPos : l,
+                side : side
+            });
+            addCenterText(0, {
+                opacity : 1,
+                top : (height - side/2 - 58) + 'px',
+                webkitTransform : 'scale(1.5)'
+            });
 
          }
 

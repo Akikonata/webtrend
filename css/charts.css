@@ -126,12 +126,13 @@ h2{
 
 .p-donut-center{
     position: absolute;
-    left: 100px;
+    left: 50%;
     top: 90px;
-    width: 100px;
+    margin-left: -60px;
+    width: 120px;
     color: #FFF;
     text-align: center;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.15);
     font-size: 16px;
     opacity: 0;
     -webkit-transition: 0.8s;
@@ -139,7 +140,10 @@ h2{
 
 .p-donut-center .em{
     display: block;
-    font-size: 52px;
+    height: 40px;
+    background: transparent url(../img/mob-icon.png) no-repeat center center;
+    background-size: auto 40px;
+    margin: 5px 0;
 }
 
 .bubble-container{
