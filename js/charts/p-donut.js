@@ -46,7 +46,7 @@
 
              var container = $('#p-donut');
 
-             $('<img src="img/p-donut.png" width="' + width + '%" />').css({
+             $('<img src="../img/p-donut.png" width="' + width + '%" />').css({
                  margin: ((100 - width) / 2) + '%'
              }).appendTo(container).addClass('p-donut-do-anim');
 
