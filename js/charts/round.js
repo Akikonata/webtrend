@@ -107,13 +107,15 @@
         var con = conf.container;
         var rects = con.find('.rect');
         var sum = Utils.arraySum(data.counts);
+        var sin = Math.sin, cos = Math.cos;
 
         data.counts.forEach(function(count, i){
-            var index = parseInt( data.start[i] + count/2 );
-            var re = rects[ index ];
-            re.angle = index/sum * 360;
 
-            var isRight = (re.angle < 90 && re.angle > 0 )||( re.angle < 360 && re.angle > 270 );
+            var index = parseInt( data.start[i] + count/2 );
+            var re = rects[ index ],
+                angle = index/sum * 360;
+
+            var isRight = (angle < 90 && angle > 0 )||( angle < 360 && angle > 270 );
 
 
             $('<div class="link-dot link-dot'+i+' link"></div>').css({
@@ -121,15 +123,21 @@
                 left : re.offsetLeft+conf.w/2-3
             }).appendTo(con);
 
-            var txt = data.name[i];
 
-            var txtWidth = txt.length * 12;
+
+            // 链接文本位置
+            var txt = data.name[i],
+                txtWidth = txt.length * 12;
+            var R = conf.r + 20, ww = con.width()/2, hh = con.height()/2;
+
+            var radian = Utils.angle2radian(angle);
+
             $('<div class="link-txt link-txt'+i+' link" index="' + i + '">' + txt + '</div>').css({
-                top : re.offsetTop-5,
-                left : re.offsetLeft+conf.w/2 - (isRight? 0 : txtWidth),
+                top : hh + (R+(isRight?0:txtWidth)) * sin(radian) - 6,
+                left : ww + (R+(isRight?0:txtWidth)) * cos(radian),
                 width : txtWidth,
-                webkitTransformOrigin: (isRight? 'left':'right') + ' center',
-                webkitTransform : 'rotate('+(isRight? re.angle-10 : re.angle-180)+'deg)',
+                webkitTransformOrigin: '0% 50%',
+                webkitTransform : 'rotate('+(isRight? angle-10 : angle-180)+'deg)',
             }).appendTo(con);
         });
 
@@ -158,15 +166,17 @@
 
     }
 
-    function addSearchIcon(con){
-        var oW = 164, oH = 145, hW = 71;
-        var width = 100;
+    function addSearchIcon(conf){
+        var con = conf.container,
+            oW = 164, oH = 145, hW = 71,
+            width = conf.width;
+
         var icon = $('<div class="search-icon"></div>').appendTo(con).css({
             width: width + 'px',
             height: width/oW*oH + 'px',
             backgroundSize : width + 'px',
             left: (con.width()/2 - width/oW*hW) + 'px',
-            top : (con.height()/2-30) +  'px',
+            top : (con.height()/2-width*0.15) +  'px',
             webkitTransform: 'scale(0.1)'
         });
 
@@ -182,8 +192,8 @@
     function addLabel(txt, con){
         return $('<div">' + txt + '</div>').appendTo(con).css({
             position: 'absolute',
-            left: (con.width()/2-20) + 'px',
-            top : (con.height()/2-40) +  'px',
+            left: (con.width()/2-25) + 'px',
+            top : (con.height()/2-50) +  'px',
             color : '#388742'
         });
     }
@@ -210,49 +220,54 @@
             var conf = {
                 w : 4,
                 h : 20,
-                r : 110,
+                r : 90,
                 count : count,
                 container : con,
-                interval : 15
+                interval : 0//15
             };
 
             initData(count);
             
-            var timer = 1500;
+            var timer = 0;//800
 
             addCenter({
-                radius : 60,
+                radius : 10,
                 container : con
             }, {
-                radius : 100
+                radius : 80
             }, timer);
 
 
-            var label = addLabel('13Q4', con);
+            // var label = addLabel('13Q4', con);
             
             setTimeout(function(){
 
-                label.html('14Q2').css({
-                    webkitTransition : '0.5s',
-                    top : parseInt(label.css('top')) - 20 + 'px'
-                });
+                var label = addLabel('14Q2', con);
 
-                var label2 = addLabel2('+48%', con);
-                setTimeout(function(){
-                    label2.css({
-                        webkitTransition : '0.5s',
-                        webkitTransform: 'scale(10)',
-                        opacity : 0
-                    });
-                }, 100);
+                // label.html('14Q2').css({
+                //     webkitTransition : '0.5s',
+                //     top : parseInt(label.css('top')) - 20 + 'px'
+                // });
+
+                // var label2 = addLabel2('+48%', con);
+                // setTimeout(function(){
+                //     label2.css({
+                //         webkitTransition : '0.5s',
+                //         webkitTransform: 'scale(10)',
+                //         opacity : 0
+                //     });
+                // }, 100);
 
                 setTimeout(function(){
-                    label2.hide();
+                    // label2.hide();
                     addRects(conf);
 
                     setTimeout(function(){
                         addLink(conf);
-                        addSearchIcon(con);
+                        addSearchIcon({
+                            container : con,
+                            width : 80
+                        });
                     }, count * conf.interval);
                     
                 }, 500);

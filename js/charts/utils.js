@@ -24,5 +24,9 @@ Utils = {
 			sum += num;
 		});
 		return sum;
+	},
+
+	angle2radian : function( a ){
+		return a/180 * Math.PI;
 	}
 };
