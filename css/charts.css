@@ -58,17 +58,6 @@ h2{
     color: #555;
 }
 
-.qselect{
-    position: absolute;
-    bottom: 10px;
-    list-style: none;
-}
-
-.qselect li{
-    float: left;
-    margin: 0 10px;
-}
-
 .tip{
     position: absolute;
     background: rgba(0, 0, 0, 0.5);

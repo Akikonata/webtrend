@@ -102,6 +102,10 @@
     },
     speed: 1000
   });
+  /*测试代码*/
+  SwiperPages.swipeTo(1, 0);
+  Charts.get('donut').init();
+  /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
   $('.toggle-tips').on('click', function() {
