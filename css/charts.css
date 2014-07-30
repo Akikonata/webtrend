@@ -276,13 +276,12 @@ h2{
 .link-txt{
     position: absolute;
     font-size: 12px;
-    /*color: rgba(255,255,255,0.8);*/
     color: #FFF;
     width: 30px;
-    padding: 10px 0;
 }
 
 .search-icon{
     position: absolute;
+    background-repeat: no-repeat;
     background-image: url(../img/baidu.png);
 }
