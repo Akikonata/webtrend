@@ -182,8 +182,8 @@
     function addLabel(txt, con){
         return $('<div">' + txt + '</div>').appendTo(con).css({
             position: 'absolute',
-            left: (con.width()/2-20) + 'px',
-            top : (con.height()/2-40) +  'px',
+            left: (con.width()/2-25) + 'px',
+            top : (con.height()/2-60) +  'px',
             color : '#388742'
         });
     }
@@ -218,36 +218,38 @@
 
             initData(count);
             
-            var timer = 1500;
+            var timer = 800;
 
             addCenter({
-                radius : 60,
+                radius : 20,
                 container : con
             }, {
                 radius : 100
             }, timer);
 
 
-            var label = addLabel('13Q4', con);
+            // var label = addLabel('13Q4', con);
             
             setTimeout(function(){
 
-                label.html('14Q2').css({
-                    webkitTransition : '0.5s',
-                    top : parseInt(label.css('top')) - 20 + 'px'
-                });
+                var label = addLabel('14Q2', con);
 
-                var label2 = addLabel2('+48%', con);
-                setTimeout(function(){
-                    label2.css({
-                        webkitTransition : '0.5s',
-                        webkitTransform: 'scale(10)',
-                        opacity : 0
-                    });
-                }, 100);
+                // label.html('14Q2').css({
+                //     webkitTransition : '0.5s',
+                //     top : parseInt(label.css('top')) - 20 + 'px'
+                // });
+
+                // var label2 = addLabel2('+48%', con);
+                // setTimeout(function(){
+                //     label2.css({
+                //         webkitTransition : '0.5s',
+                //         webkitTransform: 'scale(10)',
+                //         opacity : 0
+                //     });
+                // }, 100);
 
                 setTimeout(function(){
-                    label2.hide();
+                    // label2.hide();
                     addRects(conf);
 
                     setTimeout(function(){
