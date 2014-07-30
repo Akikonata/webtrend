@@ -213,7 +213,7 @@
                 r : 110,
                 count : count,
                 container : con,
-                interval : 10
+                interval : 15
             };
 
             initData(count);
@@ -238,11 +238,13 @@
                 });
 
                 var label2 = addLabel2('+48%', con);
-                label2.css({
-                    webkitTransition : '0.5s',
-                    webkitTransform: 'scale(10)',
-                    opacity : 0
-                });
+                setTimeout(function(){
+                    label2.css({
+                        webkitTransition : '0.5s',
+                        webkitTransform: 'scale(10)',
+                        opacity : 0
+                    });
+                }, 100);
 
                 setTimeout(function(){
                     label2.hide();
