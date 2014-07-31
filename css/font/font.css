@@ -3,3 +3,9 @@
 	src: url('./DINCond-Regular.otf');
 	src: local('DINCond'), url('./DINCond-Regular.otf') format('otf'), url('./DINCond-Regular.otf') format('truetype');
 }
+
+@font-face {
+	font-family: 'PTDINCond';
+	src: url('./PT_DIN_Condensed_Cyrillic.ttf');
+	src: local('PTDINCond'), url('./PT_DIN_Condensed_Cyrillic.ttf') format('ttf'), url('./PT_DIN_Condensed_Cyrillic.ttf') format('truetype');
+}
