@@ -139,6 +139,13 @@ footer>.pull-right>span{
 .pies-container{
   margin:0 16px;
 }
+.pie{
+  width: 33%;
+  padding: 10px 0;
+}
+.pie:last-child{
+  
+}
 #column{
   height: 210px;
   margin-top: 49px;
