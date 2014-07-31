@@ -2612,7 +2612,7 @@ var ElementList = kc.ElementList = kity.createClass( "ElementList", {
 
             if ( fx && ( 'animate' in element ) ) {
                 fxTimers.push( setTimeout( function () {
-                    element.animate( list[ index ], me.param.animateDuration || 300 ).timeline.on( 'finish', function () {
+                    element.animate( list[ index ], me.param.animateDuration || 600, me.param.fxEasing || 'ease' ).timeline.on( 'finish', function () {
                         fill++;
                         checkFinish();
                     } );
@@ -3056,11 +3056,11 @@ var Pie = kc.Pie = kity.createClass( "Pie", {
 
 		this.pie.innerRadius = innerRadius;
 		this.pie.outerRadius = outerRadius;
-		this.pie.startAngle = startAngle;
+		this.pie.startAngle = startAngle-90;
 		this.pie.pieAngle = pieAngle;
 		this.pie.draw();
 		// this.pie.bringTop();
-
+		
 		var pen = new kity.Pen();
 		pen.setWidth( strokeWidth );
 		pen.setColor( strokeColor );
@@ -4647,7 +4647,8 @@ kc.ChartsConfig.add('base', {
 
     animation : {
         enabled : true,
-        time : 400
+        duration : 600,
+        mode : 'ease'
     },
 });
 
@@ -4773,6 +4774,13 @@ kc.ChartsConfig.add('pie', {
             stroke : {
                 width : 1,
                 color : '#FFF'
+            },
+            shadow : {
+                enabled : false,
+                size : 2,
+                x : 1,
+                y : 1,
+                color : "rgba( 0, 0, 0, 0.3 )"
             },
             innerRadius : 40,
             outerRadius : 80,
@@ -5417,7 +5425,7 @@ var PiePlots = kc.PiePlots = kity.createClass( 'PiePlots', {
 
                     innerRadius : i == 0 ? inner : (outer  + ( i - 1 ) * increment),
                     outerRadius : outer + increment * i,
-                    startAngle : entry.offsetAngle - 90,
+                    startAngle : entry.offsetAngle,
                     pieAngle: entry.angle,
 
                     strokeWidth : opt.pie.stroke.width,
@@ -5437,8 +5445,26 @@ var PiePlots = kc.PiePlots = kity.createClass( 'PiePlots', {
         this.pies.update({
             elementClass : kc.Pie,
             list : list,
-            fx : config.animation.enabled
+            fx : config.animation.enabled,
+            animateDuration : config.animation.duration,
+            fxEasing : config.animation.mode
         });
+
+        var shadow = config.plotOptions.pie.shadow;
+        if( shadow.enabled ){
+            var filter = new kity.ProjectionFilter( shadow.size, shadow.x, shadow.y );
+            filter.setColor( shadow.color );
+            this.getPaper().addResource( filter );
+
+            this.pies.getElementList().forEach(function(pie,i){
+                // 判断透明度为0,这里需要修改，用正则表达式
+                var color = list[i].color;
+                if(!(color.indexOf('rgba(') == 0 && color.indexOf('0)') == color.length-2)){
+                    pie.canvas.applyFilter( filter );
+                }
+            });
+
+        }
 
     }
 
