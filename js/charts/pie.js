@@ -1,26 +1,43 @@
 (function(){
-    var pieConfig = {
-        "plotOptions": {
-            "pie": {
-                "center": {
-                    "x" : $('#pie').width()/2,
-                    "y" : $('#pie').height()/2
+
+    var rate = 1;
+    var pieConfig = {};
+
+    function R(num){
+        return rate * num;
+    }
+
+    function setConfig(){
+        pieConfig = {
+            plotOptions: {
+                pie: {
+                    innerRadius : R(26),
+                    outerRadius : R(38),
+                    incrementRadius : R(12),
+                    stroke : {
+                        width : 0
+                    },
+                    shadow : {
+                        enabled : true,
+                        size : 1,
+                        x : 0,
+                        y : 0,
+                        color : "rgba( 0, 0, 0, 0.3 )"
+                    }
                 },
-                "innerRadius" : 26,
-                "outerRadius" : 38,
-                "incrementRadius" : 12,
-                "stroke" : {
-                    "width" : 0
+                label : {
+                    enabled : false
                 }
             },
-            "label" : {
-                "enabled" : false
+            legend : {
+                enabled : false
+            },
+            animation:{
+                duration: 1000,
+                mode : 'easeOutBounce'
             }
-        },
-        "legend" : {
-            "enabled" : false
-        }
-    };
+        };
+    }
 
     function addCenterText(chart, containerId, content) {
         var center = chart.getCenter();
@@ -46,6 +63,22 @@
         init : function( id, nums, content ){
 
 		    var pie = new kc.PieChart( id );
+
+            
+            var c = $('#' + id);
+            var w = c.width(), h = c.height(); 
+            rate = c.width()/100*0.95;
+            c.css('backgroundSize', R(100));
+            
+            setConfig();
+            var center = {
+                    x : w/2,
+                    y : h/2
+                };
+
+            pieConfig.plotOptions.pie.center = center;
+
+
 		    pieConfig.series = [
 	            {
 	                "name": "Android",
@@ -74,13 +107,30 @@
 	                ]
 	            }
 	        ];
-	        var c = $('#' + id);
-        	pieConfig.plotOptions.pie.center = {
-	                "x" : c.width()/2,
-	                "y" : c.height()/2
-	            };
+
 		    pie.update(pieConfig);
 		    addCenterText(pie, id, content);
+
+            var list = pie.getPlots().pies.param.list;
+
+            setTimeout(function(){
+                list.forEach(function(param, i){
+                    if(i%2!=0) return;
+
+                    var r = (param.innerRadius + param.outerRadius)/2;
+                    var a = (param.startAngle + param.pieAngle - 90)/180*Math.PI;
+
+                    var x = r * Math.cos(a) + center.x - 6,
+                        y = r * Math.sin(a) + center.y - 6;
+
+                    $('<div class="pie-num">'+nums[i/2]+'</div>').appendTo(c).css({
+                        left : x + 'px',
+                        top : y + 'px'
+                    });
+
+                });
+            }, pieConfig.animation.duration + 300);
+
         }
     });
 

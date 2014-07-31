@@ -16,6 +16,12 @@
     float: left;
 }
 
+.pie-num{
+    position: absolute;
+    font-size: 12px;
+    color: #FFF;
+}
+
 .chart-container.p-donut{
     overflow: visible;
 }
