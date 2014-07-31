@@ -107,7 +107,6 @@ footer>.pull-right>span{
 #area{
   height:300px;
   width: 200%;
-  margin-left: -100%
 }
 #donut{
   height: 325px;
@@ -150,6 +149,7 @@ footer>.pull-right>span{
 #column{
   height: 210px;
   margin-top: 49px;
+  width: 200%
 }
 .charttitle{
   color: white;
