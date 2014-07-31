@@ -1,4 +1,4 @@
-var isInKitychartsExample = true;
+var isInKitychartsExample = false;
 
 if (isInKitychartsExample) {
 	document.write('<script src="../../../build.js"></script>');
