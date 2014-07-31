@@ -18,6 +18,7 @@
     '<h1>说明：</h1>阿里：除阿里自有应用外，UC浏览器、高德地图等收购公司的应用也被纳入统计<br/>搜狐：腾讯入股搜狗后，搜狗继续作为搜狐的子公司独立运营，故仍将其纳入搜狐进行统计<br/>新浪：阿里入股新浪微博后，微博继续作为新浪子公司独立运营，故仍将其纳入新浪进行统计',
     '<h1>百度移动搜索MAU</h1>当月通过手机百度客户端或手机浏览器等方式使用过百度移动搜索的用户（包括Android、iPhone及其他系统平台）'
   ];
+  var inited = [true, false, false, false, false, false, false, false];
   var gennerrateCssStyle = function(idx, direction, colors) {
     var before;
     if (direction === 'prev') {
@@ -72,6 +73,10 @@
     resistance: '100%',
     onSlideNext: function(e) {
       var idx = e.activeIndex;
+      if (inited[idx]) {
+        return false;
+      }
+      inited[idx] = true;
       //初始化图表
       switch (idx) {
         case 0:
@@ -80,6 +85,8 @@
           Charts.get('donut').init();
           break;
         case 2:
+          var _w = $('.pie').width();
+          $('.pie').height(_w);
           var pie = Charts.get('pie');
           pie.init('pie-1', [47, 73], '通信&<br>社交');
           pie.init('pie-2', [33, 44], '娱乐');
@@ -107,7 +114,8 @@
     speed: 1000
   });
   /*测试代码*/
-  //SwiperPages.swipeTo(7, 0);
+  // SwiperPages.swipeTo(6, 0);
+  // Charts.get('round').init();
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
