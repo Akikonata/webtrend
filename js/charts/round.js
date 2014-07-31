@@ -185,11 +185,14 @@
     }
 
     function addLabel(txt, con){
-        return $('<div">' + txt + '</div>').appendTo(con).css({
+        var h = $('<div">' + txt + '</div>').appendTo(con).css({
             position: 'absolute',
-            left: (con.width()/2-25) + 'px',
             top : (con.height()/2-50) +  'px',
             color : '#388742'
+        });
+
+        return h.css({
+            left: (con.width()-h.width())/2 + 'px',
         });
     }
 
