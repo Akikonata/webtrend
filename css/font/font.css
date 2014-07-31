@@ -1,0 +1,5 @@
+@font-face {
+	font-family: 'DINCond';
+	src: url('./DINCond-Regular.otf');
+	src: local('DINCond'), url('./DINCond-Regular.otf') format('otf'), url('./DINCond-Regular.otf') format('truetype');
+}

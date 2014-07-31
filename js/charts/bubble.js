@@ -3,7 +3,7 @@
     function addBubble( conf ){
         var con  = conf.container;
 
-        var valStr = '<li>' + conf.values.join('</li><li>') + '</li>';
+        var valStr = '<li class="bubble-num">' + conf.values.join('</li><li class="bubble-num">') + '</li>';
         var comStr = '<li>' + conf.companies.join('</li><li>') + '</li>';
 
         var posType = [['left', 'right'], ['right', 'left']];
