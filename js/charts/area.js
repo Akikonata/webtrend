@@ -60,8 +60,8 @@
             "area" : {
 
                 stroke : {
-                    width : 1,
-                    color : '#FFF'
+                    width : 3,
+                    color : '#a1df36'
                 },
 
                 fill : {
@@ -86,7 +86,7 @@
         },
 
         "interaction" : {
-            "onStickHover" : ""
+            "onHover" : null
         },
 
         "series": [
