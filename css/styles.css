@@ -64,6 +64,7 @@ body {
   line-height: 22px;
   margin-left: 5px;
   height: 77px;
+  text-align: left;
 }
 .swiper-slide .title img{
   float: left;
