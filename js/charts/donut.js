@@ -5,7 +5,7 @@
             "plotOptions": {
                 "pie": {
                     "shadow": {
-                        enabled : true,
+                        enabled : false,
                         size : 4,
                         x : 0,
                         y : 0,

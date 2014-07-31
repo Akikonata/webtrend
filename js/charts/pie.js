@@ -18,7 +18,7 @@
                         width : 0
                     },
                     shadow : {
-                        enabled : true,
+                        enabled : false,
                         size : 1,
                         x : 0,
                         y : 0,
