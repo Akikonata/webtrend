@@ -144,7 +144,7 @@ footer>.pull-right>span{
   padding: 10px 0;
 }
 .pie:last-child{
-  
+
 }
 #column{
   height: 210px;
@@ -160,6 +160,10 @@ footer>.pull-right>span{
 #bubble{
   margin: 0 35px;
   height: 220px;
+}
+#p-donut{
+  margin: 0 27px;
+  height: 300px;
 }
 .explan{
   border-left:5px solid white;

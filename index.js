@@ -114,15 +114,8 @@
     speed: 1000
   });
   /*测试代码*/
-  // SwiperPages.swipeTo(2, 0);
-  // var _w = $('.pie').width();
-  // $('.pie').height(_w);
-  // var pie = Charts.get('pie');
-  // pie.init('pie-1', [47, 73], '通信&<br>社交');
-  // pie.init('pie-2', [33, 44], '娱乐');
-  // pie.init('pie-3', [27, 11], '工具');
-  // pie.init('pie-4', [17, 13], '浏览器<br>&搜索');
-  // pie.init('pie-5', [19, 17], '其他');
+  SwiperPages.swipeTo(6, 0);
+  Charts.get('round').init();
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
