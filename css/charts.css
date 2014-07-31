@@ -287,3 +287,8 @@ h2{
     70%   { -webkit-transform: scale(1.1); }
     100% { -webkit-transform: scale(1); }
 }
+
+.donut-label{
+    font-size: 10px;
+    color: #FFF;
+}
