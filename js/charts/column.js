@@ -61,10 +61,7 @@
 
             "column" : {
                 "width" : 16,
-                "margin": 1,
-                "label" : {
-                    "enabled" : true
-                }
+                "margin": 1
             },
 
             "label" : {
@@ -78,9 +75,13 @@
         },
 
         "interaction" : {
-            "onStickHover" : ""
+            "onStickHover" : null
         },
-
+        animation:{
+            duration: 300,
+            mode : 'ease',
+            delayInterval : 200
+        },
         "series": [
             {
                 "name": "Android",
@@ -135,11 +136,12 @@
 
             Utils.addTip({
                 container : $('#column'),
-                content : '跑输大盘<br />应用DAU增速',
+                content : '跑输大盘：<br />应用DAU增速<用户大盘增速',
+                bgColor : '#1074c8',
                 style : {
                     left: '70px',
                     top: '20px',
-                    width : '80px'
+                    width : '160px'
                 }
             });
         }
