@@ -68,6 +68,18 @@
   var page8animate = function() {
 
   };
+  var Swiper1 = new Swiper('.scroll-container', {
+    scrollContainer: true,
+    scrollbar: {
+      container: '.scroll-scrollbar'
+    }
+  });
+  var Swiper1 = new Swiper('.scroll-container2', {
+    scrollContainer: true,
+    scrollbar: {
+      container: '.scroll-scrollbar2'
+    }
+  });
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
