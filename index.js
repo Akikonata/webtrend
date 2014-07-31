@@ -83,6 +83,7 @@
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
+    slidesPerView: 'auto',
     onSlideNext: function(e) {
       var idx = e.activeIndex;
       if (inited[idx]) {
