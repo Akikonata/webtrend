@@ -2590,7 +2590,7 @@ var ElementList = kc.ElementList = kity.createClass( "ElementList", {
             growth = list.length - elementList.length,
             fx = kc.fx && this.param.fx,
             delay = 0,
-            delayBase = 300 / list.length,
+            delayBase = 500 / list.length,
             fxTimers = this.fxTimers;
 
         this.adjust( growth );
@@ -2611,12 +2611,14 @@ var ElementList = kc.ElementList = kity.createClass( "ElementList", {
         elementList.forEach( function ( element, index ) {
 
             if ( fx && ( 'animate' in element ) ) {
+                
                 fxTimers.push( setTimeout( function () {
                     element.animate( list[ index ], me.param.animateDuration || 600, me.param.fxEasing || 'ease' ).timeline.on( 'finish', function () {
                         fill++;
                         checkFinish();
                     } );
-                }, delay ) );
+
+                }, list[ index ].delay || delay ) );
 
                 delay += Math.random() * delayBase;
 
@@ -5581,11 +5583,15 @@ var StickPlots = kc.StickPlots = kity.createClass( 'StickPlots', {
                     width  : width,
                     height : height,
                     rotate : rotateAngle,
+
+                    delay : config.animation.delayInterval*j,
+
                     bind : {
                         data : tmp,
                         indexInSeries : i,
                         indexInCategories : j
                     }
+                    
                 };
 
                 if( opt.label.enabled )
@@ -5601,10 +5607,13 @@ var StickPlots = kc.StickPlots = kity.createClass( 'StickPlots', {
             
         }
 
+        var anim = config.animation;
         this.getPlotsElements().update({
             elementClass: kc.Bar,
             list: stickList,
-            fx: config.animation.enabled
+            fx: anim.enabled,
+            animateDuration : anim.duration,
+            fxEasing : anim.mode
         });
 
         return config;
