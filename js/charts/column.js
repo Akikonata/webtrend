@@ -113,7 +113,7 @@
     function addDashLine(column){
         var margin = column.coordinate.param.margin;
         var height = column.getHeight() - margin.top - margin.bottom;
-        var x = column.coordinate.measurePointX(4.5);
+        var x = column.coordinate.measurePointX(3.5);
         var y = column.coordinate.param.y;
         column.addElement( 'separate', new kc.Line({
             x1: x,
