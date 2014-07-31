@@ -265,6 +265,7 @@ footer>.pull-right>span{
   margin-left: -119px;
   background: white;
   padding-top:10px;
+  top: 50%
 }
 .alert>.msg-window>.btn-ok{
   font-size: 18px;
@@ -277,7 +278,7 @@ footer>.pull-right>span{
 .alert>.msg-window>.msg-content{
   color: #777;
   margin:0 25px;
-  min-height: 275px;
+  min-height: 205px;
 }
 .alert>.msg-window>.msg-content>h1{
   font-size: 18px;

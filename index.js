@@ -140,7 +140,7 @@
     $('#alert').show();
     $('#alert').find('.msg-window');
     msgwindow.animate({
-      marginTop: '84px'
+      marginTop: '-134px'
     })
   })
   $('#alert').on('click', '.btn-ok', function() {
