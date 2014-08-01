@@ -180,11 +180,11 @@
                     for (var i = 0; i < 2; i++) {
                         label2.push($('<div class="donut-label">11</div>').appendTo(con).css({
 
-                            position : 'absolute',
-                            opacity : 0,
-                            webkitTransition : '0.5s',
-                            left : center.x + 'px',
-                            top : center.y + 'px'
+                            position: 'absolute',
+                            opacity: 0,
+                            webkitTransition: '0.5s',
+                            left: center.x + 'px',
+                            top: center.y + 'px'
 
                         }));
                     }
