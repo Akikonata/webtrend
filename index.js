@@ -80,11 +80,12 @@
       container: '.scroll-scrollbar2'
     }
   });
+
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
     slidesPerView: 'auto',
-    onSlideNext: function(e) {
+    onSlideChangeEnd: function(e) {
       var idx = e.activeIndex;
       if (inited[idx]) {
         return false;
@@ -139,7 +140,7 @@
     $('#alert').show();
     $('#alert').find('.msg-window');
     msgwindow.animate({
-      marginTop: '84px'
+      marginTop: '-134px'
     })
   })
   $('#alert').on('click', '.btn-ok', function() {
