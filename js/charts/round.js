@@ -103,7 +103,7 @@
 
                 isRight = (angle < 90 && angle > -90 )||( angle < 360 && angle > 270 );
 
-            $('<div class="link-dot link-dot'+i+' link"></div>').css({
+            $('<div class="link-dot link-dot'+i+' link" index="' + i + '"></div>').css({
                 top : re.offsetTop+conf.h/2-3,
                 left : re.offsetLeft+conf.w/2-3
             }).appendTo(con);
@@ -124,7 +124,7 @@
             }).appendTo(con);
         });
 
-        $('body').delegate('.link-txt', 'touchstart', function(){
+        $('body').delegate('.link-txt, .link-dot', 'touchstart', function(){
             var i = Number($(this).attr('index'));
             select( i, rects );
         });
