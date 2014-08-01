@@ -111,6 +111,7 @@
     Charts.add('donut', {
         init: function() {
             var con = $('#donut');
+
             var w = con.width(),
                 h = con.height(),
                 padding = 40;
@@ -178,11 +179,13 @@
 
                     for (var i = 0; i < 2; i++) {
                         label2.push($('<div class="donut-label">11</div>').appendTo(con).css({
-                            position: 'absolute',
-                            opacity: 0,
-                            webkitTransition: '0.5s',
-                            left: center.x + 'px',
-                            top: center.x + 'px'
+
+                            position : 'absolute',
+                            opacity : 0,
+                            webkitTransition : '0.5s',
+                            left : center.x + 'px',
+                            top : center.y + 'px'
+
                         }));
                     }
                 }
@@ -205,7 +208,6 @@
                                 // opacity : 1
                             });
                         }
-
 
                         if (i > 1) {
                             l = label2[i - 2].html(labels[i]);
