@@ -30,8 +30,7 @@ body {
 	z-index: 5;
 }
 .swiper-slide{
-  /*height: 568px;*/
-  height: 456px;
+  height: 458px;
   width: 100%;
 }
 #pages .swiper-slide:nth-child(1),#pages .swiper-slide:nth-child(6){
