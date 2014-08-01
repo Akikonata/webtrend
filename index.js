@@ -129,8 +129,8 @@
     speed: 1000
   });
   /*测试代码*/
-  SwiperPages.swipeTo(4, 0);
-  Charts.get('round').init();
+  // SwiperPages.swipeTo(4, 0);
+  // Charts.get('round').init();
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
