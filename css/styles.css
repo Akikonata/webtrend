@@ -274,6 +274,9 @@ body {
 .t2{
   font-size: 10px;
 }
+.toggle-tips{
+  vertical-align: text-top;
+}
 .alert{
   z-index: 99;
   position: fixed;
