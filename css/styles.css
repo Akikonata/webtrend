@@ -34,27 +34,27 @@ body {
   height: 456px;
   width: 100%;
 }
-#pages .swiper-slide:nth-child(1),#pages .swiper-slide:nth-child(6){
+#pages .swiper-slide:nth-child(2),#pages .swiper-slide:nth-child(7){
   background: -moz-linear-gradient(135deg,#b0442b,#d07e47);
   background: -webkit-linear-gradient(135deg,#b0442b,#d07e47);
   background: -o-linear-gradient(135deg,#b0442b,#d07e47);
 }
-#pages .swiper-slide:nth-child(2),#pages .swiper-slide:nth-child(7){
+#pages .swiper-slide:nth-child(3),#pages .swiper-slide:nth-child(8){
 	background: -moz-linear-gradient(135deg,#34aa71,#7cc33d);
   background: -webkit-linear-gradient(135deg,#34aa71,#7cc33d);
   background: -o-linear-gradient(135deg,#34aa71,#7cc33d);
 }
-#pages .swiper-slide:nth-child(3),#pages .swiper-slide:nth-child(8){
+#pages .swiper-slide:nth-child(4),#pages .swiper-slide:nth-child(9){
 	background: -moz-linear-gradient(135deg,#299fad, #31bbb6);
   background: -webkit-linear-gradient(135deg,#299fad, #31bbb6);
   background: -o-linear-gradient(135deg,#299fad, #31bbb6);
 }
-#pages .swiper-slide:nth-child(4){
+#pages .swiper-slide:nth-child(5){
 	background: -moz-linear-gradient(135deg,#484ec7, #1ea0f3);
   background: -webkit-linear-gradient(135deg,#484ec7, #1ea0f3);
   background: -o-linear-gradient(135deg,#484ec7, #1ea0f3);
 }
-#pages .swiper-slide:nth-child(5){
+#pages .swiper-slide:nth-child(6){
 	background: -moz-linear-gradient(135deg,#7540bc, #683fdd);
   background: -webkit-linear-gradient(135deg,#7540bc, #683fdd);
   background: -o-linear-gradient(135deg,#7540bc, #683fdd);
@@ -328,4 +328,57 @@ body {
 
 .scroll-container2{
   width: 320px;
+}
+
+.report-cover{
+  background-image: url(../img/1-bg.jpg);
+  background-size: cover;
+}
+
+.cover-guide{
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+}
+
+.back-cover{
+  background-image: url(../img/back-cover.jpg);
+  background-size: cover;
+}
+
+.back-cover .book{
+  margin: 25px;
+  width: 84px;
+}
+
+.back-cover .share{
+  position: absolute;
+  right: 23px;
+  top: 5px;
+  width: 97px;
+}
+
+.back-cover .link{
+  background: url(../img/link.png) no-repeat top center;
+  background-size: 271px;
+  height: 40px;
+  text-align: center;
+  color: #301eb5;
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+.back-cover .link a{
+  text-decoration: none;
+}
+
+.back-cover .info{
+  width: 90%;
+  margin: 10px auto;
+  border-top: #FFF 2px solid;
+  border-bottom: #FFF 2px solid;
+  color: #d0cfd3;
 }
