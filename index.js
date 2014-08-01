@@ -84,6 +84,8 @@
     mode: 'vertical',
     resistance: '100%',
     slidesPerView: 'auto',
+    slidesPerViewFit: true,
+    calculateHeight: true,
     onSlideNext: function(e) {
       var idx = e.activeIndex;
       if (inited[idx]) {
