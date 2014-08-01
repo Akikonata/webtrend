@@ -106,6 +106,7 @@
           pie.init('pie-2', [33, 44], '娱乐');
           pie.init('pie-3', [44, 24], '工具');
           pie.init('pie-4', [19, 17], '其他');
+          break;
         case 3:
           Charts.get('column').init();
           break;
