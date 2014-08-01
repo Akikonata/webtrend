@@ -120,6 +120,7 @@ body {
 #donut{
   height: 200px;
   width: 100%;
+  overflow: visible;
 }
 .qselect{
   list-style: none;

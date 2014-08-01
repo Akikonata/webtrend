@@ -131,7 +131,7 @@
     Charts.add('donut', {
         init : function(){
             var con = $('#donut');
-            var w = con.width(), h = con.height(), padding = 50;
+            var w = con.width(), h = con.height(), padding = 30;
 
             var donut = new kc.PieChart( 'donut' );
 
@@ -198,7 +198,7 @@
                             opacity : 0,
                             webkitTransition : '0.5s',
                             left : center.x + 'px',
-                            top : center.x + 'px'
+                            top : center.y + 'px'
                         }));
                     }
                 }
@@ -222,7 +222,6 @@
                             });
                         }
 
-                        
                         if( i > 1 ){
                             l = label2[i-2].html(labels[i]);
                             l.css({
