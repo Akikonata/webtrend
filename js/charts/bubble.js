@@ -68,7 +68,7 @@
                 posType : 0,
                 iconType : 'android',
                 iconStyle : {
-                    right : '25px'
+                    right : '15px'
                 }
             }).css({
                 borderRight: '#FFF 1px dashed'
@@ -84,7 +84,7 @@
                 posType : 1,
                 iconType : 'iphone',
                 iconStyle : {
-                    left : '25px'
+                    left : '15px'
                 }
             });
 

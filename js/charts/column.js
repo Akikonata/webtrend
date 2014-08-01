@@ -85,7 +85,7 @@
         "series": [
             {
                 "name": "Android",
-                "data": [-0.230560572, -0.116267018, -0.022364046, -0.055284462, 0.12, 0.144067376, 0.196909265, 0.237930968, 0.270339733, 0.770109129, 1.273410942, 0.106499724, 0.35]
+                "data": [-0.230560572, -0.116267018, -0.022364046, -0.055284462, 0.12, 0.144067376, 0.196909265, 0.237930968, 0.270339733, 0.45, 0.6, 0.106499724, 0.35]
             },
             {
                 "name": "iPhone",
@@ -113,7 +113,7 @@
     function addDashLine(column){
         var margin = column.coordinate.param.margin;
         var height = column.getHeight() - margin.top - margin.bottom;
-        var x = column.coordinate.measurePointX(4.5);
+        var x = column.coordinate.measurePointX(3.5);
         var y = column.coordinate.param.y;
         column.addElement( 'separate', new kc.Line({
             x1: x,
@@ -128,6 +128,7 @@
 
     Charts.add('column', {
         init : function(){
+            var con = $('#column');
 		    var column = new kc.ColumnChart( 'column' );
 		    column.update( columnConfig );
 		    
@@ -135,11 +136,22 @@
 		    addDashLine(column);
 
             Utils.addTip({
-                container : $('#column'),
+                container : con,
                 content : '跑输大盘：<br />应用DAU增速<用户大盘增速',
                 bgColor : '#1074c8',
                 style : {
                     left: '70px',
+                    top: '20px',
+                    width : '160px'
+                }
+            });
+
+            Utils.addTip({
+                container : con,
+                content : '跑赢大盘：<br />应用DAU增速>用户大盘增速',
+                bgColor : '#1074c8',
+                style : {
+                    left: '450px',
                     top: '20px',
                     width : '160px'
                 }

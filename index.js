@@ -80,13 +80,12 @@
       container: '.scroll-scrollbar2'
     }
   });
+
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
     slidesPerView: 'auto',
-    slidesPerViewFit: true,
-    calculateHeight: true,
-    onSlideNext: function(e) {
+    onSlideChangeEnd: function(e) {
       var idx = e.activeIndex;
       if (inited[idx]) {
         return false;
@@ -105,9 +104,8 @@
           var pie = Charts.get('pie');
           pie.init('pie-1', [47, 73], '通信&<br>社交');
           pie.init('pie-2', [33, 44], '娱乐');
-          pie.init('pie-3', [27, 11], '工具');
-          pie.init('pie-4', [17, 13], '浏览器<br>&搜索');
-          pie.init('pie-5', [19, 17], '其他');
+          pie.init('pie-3', [44, 24], '工具');
+          pie.init('pie-4', [19, 17], '其他');
         case 3:
           Charts.get('column').init();
           break;

@@ -177,8 +177,8 @@ footer>.pull-right>span{
   margin-left: -24px;
 }
 #bubble{
-  margin: 0 35px;
-  height: 220px;
+  margin: 0 25px;
+  height: 180px;
 }
 #p-donut{
   margin: 0 27px;
@@ -301,4 +301,17 @@ footer>.pull-right>span{
 }
 .alert>.msg-window>.btn-ok:active{
   background: #eee;
+}
+
+.arrow-up{
+  -webkit-animation: up-fade 1s ease 0s infinite;
+}
+
+@-webkit-keyframes up-fade{
+    0%   { opacity: 1 }
+    100% { -webkit-transform: translate3d(0px, -5px, 0px); opacity: 0.5 }
+}
+
+.scroll-container2{
+  width: 320px;
 }

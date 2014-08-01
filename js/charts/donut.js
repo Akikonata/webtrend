@@ -1,11 +1,11 @@
 (function(){
 
     var donutConfig = {
-            "color" : [ '#b6d766', '#e0e765', '#7dd5d6', '#a8e0df' ],
+            "color" : [ '#a2d429', '#f4e81a', '#7dd5d6', '#a8e0df' ],
             "plotOptions": {
                 "pie": {
                     "shadow": {
-                        enabled : true,
+                        enabled : false,
                         size : 4,
                         x : 0,
                         y : 0,
@@ -239,7 +239,17 @@
                 selectQ( allData[this.innerHTML] );
             });
 
-            selectQ( allData['11Q2'] );
+            var j = 0;
+            for(var i in allData){
+
+                (function(k){
+                    setTimeout(function(){
+                        selectQ( allData[k] );
+                    }, j*1500);
+                })(i);
+
+                j++;
+            }
         }
     });
 

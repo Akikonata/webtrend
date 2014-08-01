@@ -18,7 +18,7 @@
                         width : 0
                     },
                     shadow : {
-                        enabled : true,
+                        enabled : false,
                         size : 1,
                         x : 0,
                         y : 0,
@@ -34,7 +34,7 @@
             },
             animation:{
                 duration: 1000,
-                mode : 'easeOutBounce'
+                mode : 'ease'
             }
         };
     }
@@ -64,7 +64,6 @@
 
 		    var pie = new kc.PieChart( id );
 
-            
             var c = $('#' + id);
             var w = c.width(), h = c.height(); 
             rate = c.width()/100*0.95;
@@ -78,14 +77,13 @@
 
             pieConfig.plotOptions.pie.center = center;
 
-
 		    pieConfig.series = [
 	            {
 	                "name": "Android",
 	                "data": [
 	                    {
 	                        "value": nums[0],
-	                        "color": "#b6d766"
+	                        "color": "#a2d429"
 	                    },
 	                    {
 	                        "value": 100 - nums[0],
@@ -98,7 +96,7 @@
 	                "data": [
 	                    {
 	                        "value": nums[1],
-	                        "color": "#e0e765"
+	                        "color": "#f4e81a"
 	                    },
 	                    {
 	                        "value": 100 - nums[1],
