@@ -304,6 +304,8 @@ footer>.pull-right>span{
 }
 
 .arrow-up{
+  position: relative;
+  top: 3px;
   -webkit-animation: up-fade 1s ease 0s infinite;
 }
 
