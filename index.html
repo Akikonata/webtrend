@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, minimum-scale=0.5, maximum-scale=1.0"/>
-  <title>Demo</title>
+  <title>2014Q2百度移动搜索趋势报告</title>
   <link rel="stylesheet" href="css/idangerous.swiper.css">
   <link rel="stylesheet" href="css/font/font.css">
   <link rel="stylesheet" href="css/charts.css">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-  </style>
 </head>
 <body>
   <div class="swiper-container" id='pages'>
     <div class="swiper-wrapper">
+
       <div class="swiper-slide  swiper-slide-visible" style='text-align:center'>
         <div class="title">
           <img src="img/number_1.png" width="40" height="77"/>
@@ -70,9 +69,10 @@
         <div id="pie-2" class="chart-container pie" onselect = "return false"></div>
         <div id="pie-3" class="chart-container pie" onselect = "return false"></div>
         <div id="pie-4" class="chart-container pie" onselect = "return false"></div>
-        <div id="pie-5" class="chart-container pie" onselect = "return false"></div>
         <div class="chart-container pie" onselect = "return false" style='background:none'>
         Android与iPhone用户的分类应用时长对比(14Q2)
+        <div class="piesample piesample1"></div><span>Android</span><br/>
+        <div class="piesample piesample2"></div><span>iPhone</span>
         </div>
       </div>
       </div>
@@ -80,11 +80,13 @@
         <div class="title"><img src="img/number_4.png" width="43" height="77"/>尽管两大平台的用户偏好<br/>
           不同，但用户需求的变化<br/>
           趋势基本一致<br/></div>
+
         <div class="scroll-container2">
           <div class="swiper-wrapper">
             <div id="column" class="chart-container column swiper-slide" onselect = "return false" style='background:none'></div>
           </div>
         </div>
+
         <p class='charttitle t1'>主要分类应用的DAU与用户大盘的相对增速</p>
         <p class='charttitle t2'>（14Q2 vs 13Q3）</p>
     </div>
@@ -153,7 +155,7 @@
   <footer>
   	<img src="img/mobile_logo.png" alt="" height="14">
   	<div class='pull-right'>
-  		<img src="img/arrow.png" alt="" width="10">
+  		<img class="arrow-up" src="img/arrow.png" alt="" width="10">
   		<span>滑动查看</span>
   	</div>
   </footer>

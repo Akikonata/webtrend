@@ -137,7 +137,7 @@ h2{
     color: #FFF;
     text-align: center;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.15);
-    font-size: 20px;
+    font-size: 14px;
     opacity: 0;
     -webkit-transition: 0.8s;
 }
@@ -165,7 +165,6 @@ h2{
     list-style: none;
     padding: 0;
     margin: 0;
-
 }
 
 .bubble-container ul li{
@@ -258,6 +257,18 @@ h2{
     border-radius: 20px;
     background-color: rgba(243, 229, 12, 0.4);
     -webkit-animation: link-dot-breath 0.5s ease 0s infinite alternate;
+}
+
+.link-dot:before{
+    display: block;
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    /*background-color: blue;*/
 }
 
 @-webkit-keyframes link-dot-breath{
