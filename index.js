@@ -60,6 +60,14 @@
     if (idx > 0 && idx < 6) $(pages[idx]).addClass(duractionClassName);
   }
   var cover = $('#cover');
+  cover
+    .hammer()
+    .bind("panup", function(ev) {
+      cover.slideUp();
+    });
+  $('#page1').hammer().bind("pandown", function(ev) {
+    cover.slideDown();
+  });
   //当前过渡动画的className
   var duractionClassName = '';
   var style = $('style');
@@ -80,13 +88,13 @@
       container: '.scroll-scrollbar2'
     }
   });
-
+  Charts.get('area').init();
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
     slidesPerView: 'auto',
     onSlideChangeEnd: function(e) {
-      var idx = e.activeIndex - 1;
+      var idx = e.activeIndex;
       if (inited[idx]) {
         return false;
       }
@@ -94,7 +102,6 @@
       //初始化图表
       switch (idx) {
         case 0:
-          Charts.get('area').init();
           break;
         case 1:
           Charts.get('donut').init();
@@ -152,4 +159,12 @@
       $('#alert').hide();
     });
   });
+  $(document).ready(function() {
+    function stopScrolling(touchEvent) {
+      touchEvent.preventDefault();
+    }
+    document.addEventListener('touchstart', stopScrolling, false);
+    document.addEventListener('touchmove', stopScrolling, false);
+  });
+  $('.swiper-slide').height($('body').height());
 })();
