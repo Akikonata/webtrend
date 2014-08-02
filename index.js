@@ -64,7 +64,7 @@
   var duractionClassName = '';
   var style = $('style');
   var pages = $('#pages').find('.swiper-slide');
-  
+
   var page8animate = function() {
 
   };
@@ -74,7 +74,7 @@
       container: '.scroll-scrollbar'
     }
   });
-  var Swiper1 = new Swiper('.scroll-container2', {
+  var Swiper2 = new Swiper('.scroll-container2', {
     scrollContainer: true,
     scrollbar: {
       container: '.scroll-scrollbar2'
@@ -86,7 +86,7 @@
     resistance: '100%',
     slidesPerView: 'auto',
     onSlideChangeEnd: function(e) {
-      var idx = e.activeIndex-1;
+      var idx = e.activeIndex - 1;
       if (inited[idx]) {
         return false;
       }
