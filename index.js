@@ -1,4 +1,5 @@
 (function() {
+  var pageHeight = $('body').height();
   var SwiperCover, SwiperPages, SwiperEnd;
   var colors = [
     [],
@@ -63,10 +64,14 @@
   cover
     .hammer()
     .bind("panup", function(ev) {
-      cover.slideUp();
+      cover.animate({
+        marginTop: -pageHeight
+      });
     });
   $('#page1').hammer().bind("pandown", function(ev) {
-    cover.slideDown();
+    cover.animate({
+      marginTop: 0
+    });
   });
   //当前过渡动画的className
   var duractionClassName = '';
@@ -166,5 +171,5 @@
     document.addEventListener('touchstart', stopScrolling, false);
     document.addEventListener('touchmove', stopScrolling, false);
   });
-  $('.swiper-slide').height($('body').height());
+  $('.swiper-slide').height(pageHeight);
 })();
