@@ -1,4 +1,5 @@
 (function() {
+  console.log(window.DeviceMotionEvent);
   var pageHeight = $('body').height();
   var SwiperCover, SwiperPages, SwiperEnd;
   var colors = [
@@ -172,4 +173,28 @@
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
+
+  function deviceMotionHandler(eventData) {
+    // 
+    var acceleration = eventData.accelerationIncludingGravity;
+    var facingUp = -1;
+    if (acceleration.z > 0) {
+      facingUp = +1;
+    }
+    // var tiltLR = Math.round(((acceleration.x) / 9.81) * -90);
+    // var tiltFB = Math.round(((acceleration.y + 9.81) / 9.81) * 90 * facingUp);
+
+    // var rotation = "rotate3d(1,0,0, " + (tiltFB) + "deg)";
+    // document.getElementById("img1").style.webkitTransform = rotation;
+    // document.getElementById("img2").style.webkitTransform = rotation;
+    // document.getElementById("img3").style.webkitTransform = rotation;
+    $('#img1').css({
+      left: acceleration.x - 5,
+      bottom: acceleration.y
+    });
+  }
+  // 
+  if (window.DeviceMotionEvent) {
+    window.addEventListener('devicemotion', deviceMotionHandler, false);
+  }
 })();

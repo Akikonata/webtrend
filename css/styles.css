@@ -389,3 +389,18 @@ body {
   border-bottom: #FFF 2px solid;
   color: #d0cfd3;
 }
+#cover>.tl1,#cover>.tl2,#cover>.l1{
+  position: absolute;
+}
+#cover>.l1{
+  left: 0;
+  bottom:0;
+}
+#cover>.tl1{
+  left: 62px;
+  top: 154px;
+}
+#cover>.tl2{
+  left: 65px;
+  top: 159px;
+}
