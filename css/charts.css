@@ -303,3 +303,22 @@ h2{
     font-size: 10px;
     color: #FFF;
 }
+
+.column-grid, .area-grid{
+    float: left;
+    text-align: right;
+    font-size: 12px;
+    line-height: 38px;
+    margin-top: 27.5px;
+}
+
+.area-grid{
+    display: block;
+    line-height: 44px;
+    margin-top: -1px;
+}
+
+.column-grid span, .area-grid span{
+    display: block;
+    margin-right: 5px;
+}
