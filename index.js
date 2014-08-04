@@ -24,6 +24,7 @@
       container: '.scroll-scrollbar2'
     }
   });
+  //第八页的动画
   var page8animate = function() {
     var p8content = $('.p8-content');
     var titles = p8content.find('h1');
@@ -150,14 +151,9 @@
       marginTop: 0
     });
   });
-
+  //重力感应效果
   function deviceMotionHandler(eventData) {
-    // 
     var acceleration = eventData.accelerationIncludingGravity;
-    var facingUp = -1;
-    if (acceleration.z > 0) {
-      facingUp = +1;
-    }
     $('#img1').css({
       left: acceleration.x - 5,
       bottom: acceleration.y
@@ -171,7 +167,6 @@
       top: 159 - acceleration.y
     });
   }
-  // 
   if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
   }

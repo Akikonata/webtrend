@@ -43,6 +43,7 @@
     var allData = {
         '11Q2': {
             name: "11Q2",
+            position: 0,
             data: [{
                 name: "iPhone",
                 value: 5
@@ -59,6 +60,7 @@
         },
         '12Q2': {
             name: "12Q2",
+            position: 1,
             data: [{
                 name: "iPhone",
                 value: 8
@@ -75,6 +77,7 @@
         },
         '13Q2': {
             name: "13Q2",
+            position: 2,
             data: [{
                 name: "iPhone",
                 value: 12
@@ -91,6 +94,7 @@
         },
         '14Q2': {
             name: "14Q2",
+            position: 3,
             data: [{
                 name: "iPhone",
                 value: 13
@@ -151,7 +155,8 @@
                 donutConfig.series = [data];
                 middle.html(data.name);
                 donut.update(donutConfig);
-
+                var p2_highlight = document.getElementById('p2-highlight');
+                p2_highlight.style.left = (parseInt(22) + 49 * data.position) + 'px';
                 var list = donut.getPlots().pies.param.list;
                 var label1Pos = ['right', 'left'];
                 if (!label1) {

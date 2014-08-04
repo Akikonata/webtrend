@@ -121,6 +121,11 @@ body {
   width: 100%;
   overflow: visible;
 }
+#p2-highlight{
+  position: absolute;
+  left: 22px;
+  top: 0
+}
 .qselect{
   list-style: none;
   text-align: center;
@@ -128,7 +133,9 @@ body {
   padding: 0;
 }
 .qselect-dots{
-  text-align: center;
+  margin: 0 auto;
+  width: 214px;
+  position:relative;
 }
 .qselect li{
   display: inline-block;
