@@ -1,7 +1,7 @@
 function start() {
   var pageHeight = $('body').height();
   if (pageHeight < 458) pageHeight = 458;
-  var SwiperCover, SwiperPages, SwiperEnd;
+  var SwiperPages;
   var docs = [
     '<h1>智能机大盘：</h1>指智能机全体保有量中的日活跃（当天发生过至少一次联网行为的）设备数量',
     '<h1>日使用时长：</h1>指用户一天24小时中使用各类智能机应用的累计时长，不含短信和电话',
