@@ -246,17 +246,23 @@ body {
 .p8-content>h1{
   margin-top: 100px;
 }
+
+.p8-content>h1.bar{
+  background-image: url(../img/pics1.png);
+  background-size: 362px;
+}
+
 .p8-content>h1.title1{
-  background-image: url(../img/bg1.png);
+  background-position: 0px -82px;
 }
 .p8-content>h1.title2{
-  background-image: url(../img/bg2.png);
+  background-position: 0px -111px;
 }
 .p8-content>h1.title3{
-  background-image: url(../img/bg3.png);
+  background-position: 0px -140px;
 }
 .p8-content>h1.title4{
-  background-image: url(../img/bg4.png);
+  background-position: 0px -169px;
 }
 .p8-content>p.content1{
   font-size: 12px;
@@ -336,7 +342,12 @@ body {
 }
 .arrow-up{
   position: relative;
+  display: inline-block;
   top: 3px;
+  width: 11px;
+  height: 13px;
+  background: url(../img/pics2.png) no-repeat -107px -24px;
+  background-size: 214px;
   -webkit-animation: up-fade 1s ease 0s infinite;
 }
 
@@ -382,13 +393,15 @@ body {
 }
 
 .back-cover .link{
-  background: url(../img/link.png) no-repeat top center;
-  background-size: 271px;
-  height: 40px;
+  background: url(../img/pics1.png) no-repeat 0px -260px;
+  background-size: 343px;
+  width: 270px;
+  height: 36px;
   text-align: center;
   color: #301eb5;
   font-size: 16px;
   padding-top: 20px;
+  margin: 0 auto;
 }
 
 .back-cover .link a{
@@ -419,4 +432,76 @@ body {
 #cover>.tl2{
   left: 67px;
   top: 159px;
+}
+
+.page-num{
+  background-image: url(../img/pics1.png);
+  background-repeat: no-repeat;
+  width: 44px;
+  height: 77px;
+  display: inline-block;
+  float: left;
+  background-size: 343px;
+}
+
+.page-num.num-2{
+  background-position: -43px 0px;
+}
+
+.page-num.num-3{
+  width: 43px;
+  background-position: -87px 0px;
+}
+
+.page-num.num-4{
+  width: 43px;
+  background-position: -130px 0px;
+}
+
+.page-num.num-5{
+  width: 42px;
+  background-position: -174px 0px;
+}
+
+.page-num.num-6{
+  width: 42px;
+  background-position: -216px 0px;
+}
+
+.page-num.num-7{
+  width: 43px;
+  background-position: -258px 0px;
+}
+
+.page-num.num-8{
+  background-position: -301px 0px;
+}
+
+.apple_158, .android_143{
+  background: url(../img/pics1.png) no-repeat 0px -189px;
+  background-size: 343px;
+  display: inline-block;
+  width:72px;
+  height: 36px;
+}
+
+.android_143{
+  background-position: 0px -224px;
+}
+
+.mobile-logo{
+  background: url(../img/pics2.png) no-repeat 0px -13px;
+  background-size: 155px;
+  width: 43px;
+  height: 14px;
+  display: inline-block;
+}
+
+.tips-icon{
+  background: url(../img/pics2.png) no-repeat -126px -20px;
+  background-size: 214px;
+  width: 19px;
+  height: 19px;
+  display: inline-block;
+  float: none;
 }

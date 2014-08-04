@@ -65,13 +65,15 @@
                 left : (cX + x - conf.w/2) + 'px',
                 top : (cY + y - conf.h/2) + 'px',
                 webkitTransform : 'rotate('+(deg+90)+'deg)',
-                visibility : 'hidden'
+                // visibility : 'hidden'
+                display : 'none'
             }).appendTo( con );
         }
 
         con.find('.rect').each(function( i, rect ){
             setTimeout(function(){
-                $(rect).css('visibility', 'visible');
+                // $(rect).css('visibility', 'visible');
+                $(rect).css('display', 'block');
             }, conf.rectInterval * i);
         });
 
@@ -166,10 +168,11 @@
             oW = 164, oH = 145, hW = 71,
             width = conf.width;
 
+        var bz = width / 80 * 343;
         var icon = $('<div class="search-icon"></div>').appendTo(con).css({
             width: width + 'px',
             height: width/oW*oH + 'px',
-            backgroundSize : width + 'px',
+            backgroundSize : bz + 'px',
             left: (con.width()/2 - width/oW*hW) + 'px',
             top : (con.height()/2-width*0.15) +  'px',
             webkitTransform: 'scale(0.1)'
@@ -239,29 +242,12 @@
                 radius : conf.centerEndR
             }, timer);
 
-
-            // var label = addLabel('13Q4', con);
             
             setTimeout(function(){
 
                 var label = addLabel('14Q2', con);
 
-                // label.html('14Q2').css({
-                //     webkitTransition : '0.5s',
-                //     top : parseInt(label.css('top')) - 20 + 'px'
-                // });
-
-                // var label2 = addLabel2('+48%', con);
-                // setTimeout(function(){
-                //     label2.css({
-                //         webkitTransition : '0.5s',
-                //         webkitTransform: 'scale(10)',
-                //         opacity : 0
-                //     });
-                // }, 100);
-
                 setTimeout(function(){
-                    // label2.hide();
                     addRects(conf);
 
                     setTimeout(function(){

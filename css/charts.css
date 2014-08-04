@@ -145,9 +145,10 @@ h2{
 .p-donut-center .em{
     display: block;
     height: 40px;
-    background: transparent url(../img/mob-icon.png) no-repeat center center;
-    background-size: auto 40px;
-    margin: 5px 0;
+    width: 66px;
+    background: transparent url(../img/pics2.png) no-repeat -90px -25px;
+    background-size: 324px;
+    margin: 5px auto;
 }
 
 .bubble-container{
@@ -216,15 +217,14 @@ h2{
     position: absolute;
     top: -18px;
     width: 19px;
-    height: 19px;
-    background-image: url(../img/mob-icon.png);
-    background-size: auto 19px;
+    height: 21px;
+    background: url(../img/pics2.png) no-repeat -62px -19px;
+    background-size: 214px;
     float: left;
-    background-repeat: no-repeat;
 }
 
 .mobi-icon.iphone{
-    background-position: -17px 0px;
+    background-position: -83px -19px;
 }
 
 .round .center{
@@ -285,8 +285,8 @@ h2{
 
 .search-icon{
     position: absolute;
-    background-repeat: no-repeat;
-    background-image: url(../img/baidu.png);
+    background: url(../img/pics1.png) no-repeat 0px -316px;
+    background-size: 343px;
 }
 
 .tip-anim{
