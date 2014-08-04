@@ -178,9 +178,9 @@ function start() {
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
-  // $('#area').height(pageHeight - 200);
+  $('#area').height(300);
   // $('#donut').height((pageHeight - 200 >= 250) ? 250 : (pageHeight - 200));
-  // $('#column').height(pageHeight - 250);
+  $('#column').height(210);
   // $('#bubble').height(pageHeight - 300);
   //封面的拖动效果
   var cover = $('#cover');
@@ -211,7 +211,6 @@ function start() {
   //重力感应效果
   function deviceMotionHandler(eventData) {
     var acceleration = eventData.accelerationIncludingGravity;
-    //alert(acceleration.x);
     $('#img1').css({
       left: acceleration.x - 5,
       bottom: acceleration.y
