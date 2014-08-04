@@ -166,10 +166,11 @@
             oW = 164, oH = 145, hW = 71,
             width = conf.width;
 
+        var bz = width / 80 * 343;
         var icon = $('<div class="search-icon"></div>').appendTo(con).css({
             width: width + 'px',
             height: width/oW*oH + 'px',
-            backgroundSize : width + 'px',
+            backgroundSize : bz + 'px',
             left: (con.width()/2 - width/oW*hW) + 'px',
             top : (con.height()/2-width*0.15) +  'px',
             webkitTransform: 'scale(0.1)'

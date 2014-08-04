@@ -12,9 +12,9 @@ module.exports = function (grunt) {
             },
             buildLibs: {
                 src: [
-                    "js/jquery-1.10.1.min.js",
-                    "js/kity.min.js",
-                    "js/kitychart.all.js",
+                    "js/libs/jquery-1.10.1.min.js",
+                    "js/libs/kity.min.js",
+                    "js/libs/kitychart.all.js",
                     "js/charts/utils.js",
                     "js/charts/charts.js",
                     "js/charts/area.js",
@@ -24,9 +24,9 @@ module.exports = function (grunt) {
                     "js/charts/p-donut.js",
                     "js/charts/bubble.js",
                     "js/charts/round.js",
-                    "js/idangerous.swiper-2.1.min.js",
-                    "js/hammer.min.js",
-                    "js/jquery.hammer.js",
+                    "js/libs/idangerous.swiper-2.1.min.js",
+                    "js/libs/hammer.min.js",
+                    "js/libs/jquery.hammer.js",
                     "index.js"
                 ],
                 dest: 'dist/script.js'

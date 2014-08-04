@@ -1,4 +1,4 @@
-(function() {
+function start() {
   var pageHeight = $('body').height();
   var SwiperCover, SwiperPages, SwiperEnd;
   var docs = [
@@ -150,7 +150,7 @@
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
-  $('.swiper-slide').on('click', '.toggle-tips', function() {
+  $('.swiper-slide').on('touchstart', '.toggle-tips', function() {
     var $this = $(this);
     var n = $this.data('n');
     var doc = docs[n];
@@ -161,7 +161,7 @@
       marginTop: '-149px'
     })
   })
-  $('#alert').on('click', '.btn-ok', function() {
+  $('#alert').on('touchstart', '.btn-ok', function() {
     msgwindow.animate({
       marginTop: '0'
     }, 200, function() {
@@ -231,4 +231,4 @@
   if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
   }
-})();
+};
