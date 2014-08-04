@@ -140,6 +140,16 @@
       marginTop: 0
     });
   });
+  $('#page8').hammer().bind("panup", function(ev) {
+    $("#pages").animate({
+      marginTop: -pageHeight
+    });
+  });
+  $('#bcover').hammer().bind("pandown", function(ev) {
+    $("#pages").animate({
+      marginTop: 0
+    });
+  });
 
   function deviceMotionHandler(eventData) {
     // 
