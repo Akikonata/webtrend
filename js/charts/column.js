@@ -78,6 +78,7 @@
             "onStickHover" : null
         },
         animation:{
+            enabled : window.animFx,
             duration: 300,
             mode : 'ease',
             delayInterval : 200

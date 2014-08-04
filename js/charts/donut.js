@@ -29,6 +29,7 @@
         },
 
         animation: {
+            enabled : window.animFx,
             duration: 600,
             mode: 'ease'
         }

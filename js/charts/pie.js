@@ -33,6 +33,7 @@
                 enabled : false
             },
             animation:{
+                enabled : window.animFx,
                 duration: 1000,
                 mode : 'ease'
             }

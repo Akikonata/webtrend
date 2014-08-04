@@ -27,7 +27,9 @@ module.exports = function (grunt) {
                     "js/libs/idangerous.swiper-2.1.min.js",
                     "js/libs/hammer.min.js",
                     "js/libs/jquery.hammer.js",
+                    "js/detect.js"
                     "index.js"
+                    "js/preload.js"
                 ],
                 dest: 'dist/script.js'
             },
