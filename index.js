@@ -1,5 +1,6 @@
 function start() {
   var pageHeight = $('body').height();
+  if (pageHeight < 458) pageHeight = 458;
   var SwiperCover, SwiperPages, SwiperEnd;
   var docs = [
     '<h1>智能机大盘：</h1>指智能机全体保有量中的日活跃（当天发生过至少一次联网行为的）设备数量',
@@ -80,6 +81,7 @@ function start() {
       container: '.scroll-scrollbar2'
     }
   });
+  //第八页的动画
   var page8animate = function() {
     var p8content = $('.p8-content');
     var titles = p8content.find('h1');
@@ -176,10 +178,10 @@ function start() {
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
-  $('#area').height(pageHeight - 200);
-  $('#donut').height(pageHeight - 250 > 250 ? 250 : pageHeight - 250);
-  $('#column').height(pageHeight - 250);
-  $('#bubble').height(pageHeight - 300);
+  // $('#area').height(pageHeight - 200);
+  // $('#donut').height((pageHeight - 200 >= 250) ? 250 : (pageHeight - 200));
+  // $('#column').height(pageHeight - 250);
+  // $('#bubble').height(pageHeight - 300);
   //封面的拖动效果
   var cover = $('#cover');
   cover
@@ -206,14 +208,9 @@ function start() {
       marginTop: 0
     });
   });
-
+  //重力感应效果
   function deviceMotionHandler(eventData) {
-    // 
     var acceleration = eventData.accelerationIncludingGravity;
-    var facingUp = -1;
-    if (acceleration.z > 0) {
-      facingUp = +1;
-    }
     $('#img1').css({
       left: acceleration.x - 5,
       bottom: acceleration.y
@@ -227,7 +224,6 @@ function start() {
       top: 159 - acceleration.y
     });
   }
-  // 
   if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
   }
