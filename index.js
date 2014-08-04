@@ -2,17 +2,6 @@
   console.log(window.DeviceMotionEvent);
   var pageHeight = $('body').height();
   var SwiperCover, SwiperPages, SwiperEnd;
-  var colors = [
-    [],
-    ['#b0442b', '#d07e47'],
-    ['#34aa71', '#7cc33d'],
-    ['#299fad', '#31bbb6'],
-    ['#484ec7', '#1ea0f3'],
-    ['#7540bc', '#683fdd'],
-    ['#b0442b', '#d07e47'],
-    ['#34aa71', '#7cc33d'],
-    ['#299fad', '#31bbb6'],
-  ]; //色彩集合
   var docs = [
     '<h1>智能机大盘：</h1>指智能机全体保有量中的日活跃（当天发生过至少一次联网行为的）设备数量',
     '<h1>日使用时长：</h1>指用户一天24小时中使用各类智能机应用的累计时长，不含短信和电话',
@@ -21,46 +10,7 @@
     '<h1>百度移动搜索MAU</h1>当月通过手机百度客户端或手机浏览器等方式使用过百度移动搜索的用户（包括Android、iPhone及其他系统平台）'
   ];
   var inited = [false, false, false, false, false, false, false, false];
-  var gennerrateCssStyle = function(idx, direction, colors) {
-    var before;
-    if (direction === 'prev') {
-      before = idx + 1;
-    } else {
-      before = idx - 1;
-    }
-    var prefix = ['', '-webkit-', '-moz-', '-o-'];
-    var from = [],
-      to = [];
-    var cssCont = 'from{';
-    for (var k = 0; k < prefix.length; k++) {
-      from.push('background:' + prefix[k] + 'linear-gradient(135deg,' + colors[before][0] + ',' + colors[before][1] + ')');
-      to.push('background:' + prefix[k] + 'linear-gradient(135deg,' + colors[idx][0] + ',' + colors[idx][1] + ')');
-    }
-    cssCont += from.join(';');
-    cssCont += '}to{';
-    cssCont += to.join(';');
-    cssCont += '}';
-    duractionClassName = 'trans' + before + 'to' + idx;
-    var css = (function() {
-      var result = '';
-      for (var i = 0; i < prefix.length; i++) {
-        result += '@';
-        result += (prefix[i] + 'keyframes trans' + cssCont);
-      }
-      result += '.'
-      result += duractionClassName;
-      result += ('{');
-      for (var j = 0; j < prefix.length; j++) {
-        result += (prefix[j] + 'animation:trans 1s;');
-      }
-      result += '}';
-      return result;
-    })();
-    style.html(css);
-    console.log(css);
-    if (before > 0 && before < 6) $(pages[before]).addClass(duractionClassName);
-    if (idx > 0 && idx < 6) $(pages[idx]).addClass(duractionClassName);
-  }
+  //封面的拖动效果
   var cover = $('#cover');
   cover
     .hammer()
@@ -142,7 +92,7 @@
     speed: 1000
   });
   /*测试代码*/
-  // SwiperPages.swipeTo(4, 0);
+  // SwiperPages.swipeTo(1, 0);
   // Charts.get('round').init();
   /**/
   //初始化提示弹窗
@@ -173,6 +123,9 @@
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
+  $('#donut').height(pageHeight - 250 > 250 ? 250 : pageHeight - 250);
+  $('#column').height(pageHeight - 250);
+  $('#bubble').height(pageHeight - 300);
 
   function deviceMotionHandler(eventData) {
     // 
@@ -181,13 +134,6 @@
     if (acceleration.z > 0) {
       facingUp = +1;
     }
-    // var tiltLR = Math.round(((acceleration.x) / 9.81) * -90);
-    // var tiltFB = Math.round(((acceleration.y + 9.81) / 9.81) * 90 * facingUp);
-
-    // var rotation = "rotate3d(1,0,0, " + (tiltFB) + "deg)";
-    // document.getElementById("img1").style.webkitTransform = rotation;
-    // document.getElementById("img2").style.webkitTransform = rotation;
-    // document.getElementById("img3").style.webkitTransform = rotation;
     $('#img1').css({
       left: acceleration.x - 5,
       bottom: acceleration.y

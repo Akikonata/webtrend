@@ -19,6 +19,7 @@ body {
   height: 100%;
   color: #fff;
   position: absolute;
+  overflow: hidden;
 }
 #cover{
 	z-index: 10;
@@ -388,6 +389,9 @@ body {
   border-top: #FFF 2px solid;
   border-bottom: #FFF 2px solid;
   color: #d0cfd3;
+}
+#cover{
+  overflow: hidden;
 }
 #cover>.tl1,#cover>.tl2,#cover>.l1{
   position: absolute;
