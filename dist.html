@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="user-scalable=no,width=device-width, minimum-scale=0.5, maximum-scale=1.0"/>
   <title>2014Q2百度移动搜索趋势报告</title>
-   <link rel="stylesheet" href="dist/style.css?t=1407155412926">
+   <link rel="stylesheet" href="dist/style.css?t=1407162621694">
 </head>
 <body>
   <div class="swiper-slide report-cover" id='cover'>
     <img src="img/cover_layer1.png" alt="" class='l1' width='261' id='img1'>
-    <img src="img/covertitle_layer2.png" alt="" class='tl2' width='205' id='img2'>
-    <img src="img/covertitle_layer1.png" alt="" class='tl1' width='205' id='img3'>
+    <img src="img/covertitle.png" alt="" class='tl2' width='205' id='img2'>
     <div class="cover-guide">
       <div class="arrow-up"></div>
         <span>滑动查看</span>
@@ -24,7 +23,15 @@
           智能机大盘<a class="toggle-tips" data-n='0'><span class="tips-icon"></span></a>增速不减，<br/>
           人口普及率已超30%。
         </div>
-        <div class="scroll-container">
+        <div class="area-grid">
+          <span>5</span>
+          <span>4</span>
+          <span>3</span>
+          <span>2</span>
+          <span>1</span>
+          <span>0</span>
+        </div>
+        <div class="scroll-container area-container">
           <div class="swiper-wrapper">
             <div id='area' class="chart-container area swiper-slide" onselect = "return false" style='background:none'></div>
           </div>
@@ -109,12 +116,20 @@
             不同，但用户需求的变化<br/>
             趋势基本一致<br/></div>
 
-          <div class="scroll-container2">
+          <div class="column-grid">
+            <span>160%</span>
+            <span>120%</span>
+            <span>80%</span>
+            <span>40%</span>
+            <span>0%</span>
+            <span>-40%</span>
+          </div>
+          <div class="scroll-container2 column-container">
             <div class="swiper-wrapper">
               <div id="column" class="chart-container column swiper-slide" onselect = "return false" style='background:none'></div>
             </div>
           </div>
-          <div style='text-align:center'>
+          <div style='text-align:center;height:30px;'>
             <div class="piesample piesample1"></div><span>Android</span>
             &nbsp;
             <div class="piesample piesample2"></div><span>iPhone</span>
@@ -235,6 +250,6 @@
   </div>
   <!--弹窗-->
 
-  <script src="dist/script.js?t=1407155409680"></script>
+  <script src="dist/script.js?t=1407162618477"></script>
 </body>
 </html>

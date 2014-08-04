@@ -11,7 +11,7 @@
             },
             "margin" : {
                 "right" : 10,
-                "left" : 40
+                "left" : 5
             },
 
             "axis" : {
@@ -39,7 +39,7 @@
                 "enabled" : false
             },
             "label" : {
-                "enabled" : true,
+                "enabled" : false,
                 "rotate" : 0,
                 "font" : {
                     "color" : "#FFF",
@@ -111,7 +111,6 @@
             var inner = $('<div id="area-inner" style="width:100%;height:100%;visibility:hidden"></div>');
             $('#area').append(inner);
             var areachart = new kc.AreaChart( 'area-inner' );
-            // var area = new kc.LineChart( 'area' );
 
             areachart.getPlots().drawPolygon = function( topPart, bottomPart, entry ){
                 var self = this;
@@ -130,8 +129,7 @@
                     close: true,
                     fill: fill
                 });
-// #a7df1e
-// #7be1f0
+
                 this.addElement('area', area);
                 area.update();
       
@@ -204,6 +202,9 @@
                 });
             }, 0);
             
+            this.init = function(){
+                return false;
+            }
         }
     });
 

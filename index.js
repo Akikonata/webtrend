@@ -69,18 +69,6 @@ function start() {
   var style = $('style');
   var pages = $('#pages').find('.swiper-slide');
 
-  var Swiper1 = new Swiper('.scroll-container', {
-    scrollContainer: true,
-    scrollbar: {
-      container: '.scroll-scrollbar'
-    }
-  });
-  var Swiper2 = new Swiper('.scroll-container2', {
-    scrollContainer: true,
-    scrollbar: {
-      container: '.scroll-scrollbar2'
-    }
-  });
   //第八页的动画
   var page8animate = function() {
     var p8content = $('.p8-content');
@@ -126,7 +114,15 @@ function start() {
           pie.init('pie-4', [19, 17], '其他');
           break;
         case 3:
-          Charts.get('column').init();
+          (Utils.once(function(){
+            Charts.get('column').init();
+            var Swiper2 = new Swiper('.scroll-container2', {
+              scrollContainer: true,
+              scrollbar: {
+                container: '.scroll-scrollbar2'
+              }
+            });
+          }))();
           break;
         case 4:
           Charts.get('bubble').init();
@@ -178,9 +174,23 @@ function start() {
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
-  $('#area').height(300);
+  
+  var areaGap = 40;
+  $('#area').height(300).width(800);
+  $('.area-grid').width(areaGap);
+  $('.area-container').width(document.body.clientWidth-areaGap).css({
+    overflow : 'hidden',
+    marginLeft : areaGap + 'px'
+  });
   // $('#donut').height((pageHeight - 200 >= 250) ? 250 : (pageHeight - 200));
-  $('#column').height(210);
+
+  var colGap = 40;
+  $('#column').height(270).width(800);
+  $('.column-grid').width(colGap);
+  $('.column-container').width(document.body.clientWidth-colGap).css({
+    overflow : 'hidden',
+    marginLeft : colGap + 'px'
+  });
   // $('#bubble').height(pageHeight - 300);
   //封面的拖动效果
   var cover = $('#cover');
@@ -190,7 +200,15 @@ function start() {
       cover.animate({
         marginTop: -pageHeight
       }, 500, function() {
-        Charts.get('area').init();
+        (Utils.once(function(){
+          Charts.get('area').init();
+          var Swiper1 = new Swiper('.scroll-container', {
+            scrollContainer: true,
+            scrollbar: {
+              container: '.scroll-scrollbar'
+            }
+          });
+        }))();
       });
     });
   $('#page1').hammer().bind("pandown", function(ev) {

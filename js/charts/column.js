@@ -1,6 +1,6 @@
 (function(){
 	var columnConfig = {
-        "color" : [ '#b6d766', '#e0e765', '#7dd5d6', '#a8e0df' ],
+        "color" : [ '#a2d429', '#f4e81a'],
 
         "xAxis": {
             "categories": [ "浏览器", "生活娱乐", "社交&通信", "新闻", "地图导航", "音乐", "搜索", "视频", "阅读", "电商", "生活服务", "云存储", "游戏" ],
@@ -10,7 +10,7 @@
             },
             "margin" : {
                 "right" : 10,
-                "left" : 40
+                "left" : 5
             },
 
             "axis" : {
@@ -38,7 +38,7 @@
             },
             grid : [-0.4, 0, 0.4, 0.8, 1.2, 1.6],
             "label" : {
-                "enabled" : true,
+                "enabled" : false,
                 "rotate" : 0,
                 "font" : {
                     "color" : "#FFF",
@@ -141,7 +141,7 @@
                 content : '跑输大盘：<br />应用DAU增速<用户大盘增速',
                 bgColor : '#1074c8',
                 style : {
-                    left: '70px',
+                    left: '35px',
                     top: '20px',
                     width : '160px'
                 }
@@ -152,7 +152,7 @@
                 content : '跑赢大盘：<br />应用DAU增速>用户大盘增速',
                 bgColor : '#1074c8',
                 style : {
-                    left: '450px',
+                    left: '380px',
                     top: '20px',
                     width : '160px'
                 }

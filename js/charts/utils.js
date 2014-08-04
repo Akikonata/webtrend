@@ -36,5 +36,15 @@ Utils = {
 
 	angle2radian : function( a ){
 		return a/180 * Math.PI;
+	},
+
+	once : function( func ){
+		var tmp = func;
+		return function(){
+			tmp();
+			tmp = function(){
+				return false;
+			}
+		};
 	}
 };
