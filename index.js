@@ -1,5 +1,4 @@
 (function() {
-  console.log(window.DeviceMotionEvent);
   var pageHeight = $('body').height();
   var SwiperCover, SwiperPages, SwiperEnd;
   var colors = [
@@ -57,7 +56,6 @@
       return result;
     })();
     style.html(css);
-    console.log(css);
     if (before > 0 && before < 6) $(pages[before]).addClass(duractionClassName);
     if (idx > 0 && idx < 6) $(pages[idx]).addClass(duractionClassName);
   }
