@@ -356,7 +356,7 @@ body {
 }
 
 .report-cover{
-  background-image: url(../img/1-bg.jpg);
+  background: #241e5b url(../img/1-bg.jpg);
   background-size: cover;
   -webkit-perspective: 700px;
   background-color:#151536 
