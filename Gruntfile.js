@@ -12,6 +12,7 @@ module.exports = function (grunt) {
             },
             buildLibs: {
                 src: [
+                    "js/detect.js",
                     "js/libs/jquery-1.10.1.min.js",
                     "js/libs/kity.min.js",
                     "js/libs/kitychart.all.js",
@@ -27,8 +28,7 @@ module.exports = function (grunt) {
                     "js/libs/idangerous.swiper-2.1.min.js",
                     "js/libs/hammer.min.js",
                     "js/libs/jquery.hammer.js",
-                    "js/detect.js"
-                    "index.js"
+                    "index.js",
                     "js/preload.js"
                 ],
                 dest: 'dist/script.js'
