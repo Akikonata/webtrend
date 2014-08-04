@@ -150,7 +150,14 @@ function start() {
     overflow: 'hidden',
     marginLeft: colGap + 'px'
   });
-  // $('#bubble').height(pageHeight - 300);
+  //让全部图表居中
+  var titles = $('.title');
+  var filledSpace = [439, 439, 439, 439, 439, 439, 439, 439];
+  for (var i = 0; i < 8; i++) {
+    $(titles[i]).css({
+      marginBottom: (pageHeight - filledSpace[i]) / 2
+    });
+  }
   //封面的拖动效果
   var cover = $('#cover');
   cover
