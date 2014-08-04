@@ -21,16 +21,14 @@ body {
   position: absolute;
   overflow: hidden;
 }
-#cover{
-	z-index: 10;
-}
-#pages{
-	z-index: 5;
-}
 .swiper-slide{
   /*height: 458px;*/
   height: 100%;
   width: 100%;
+}
+#pages{
+  z-index: 5;
+  position: absolute;
 }
 #pages .swiper-slide:nth-child(1),#pages .swiper-slide:nth-child(6){
   background: -moz-linear-gradient(135deg,#b0442b,#d07e47);
@@ -56,9 +54,6 @@ body {
 	background: -moz-linear-gradient(135deg,#7540bc, #683fdd);
   background: -webkit-linear-gradient(135deg,#7540bc, #683fdd);
   background: -o-linear-gradient(135deg,#7540bc, #683fdd);
-}
-#end{
-	z-index: 1;
 }
 .swiper-slide{
   position: relative;
@@ -363,6 +358,8 @@ body {
 .report-cover{
   background: #241e5b url(../img/1-bg.jpg);
   background-size: cover;
+  -webkit-perspective: 700px;
+  background-color:#151536 
 }
 
 .cover-guide{
@@ -377,7 +374,8 @@ body {
 .back-cover{
   background-image: url(../img/back-cover.jpg);
   background-size: cover;
-  z-index: 0
+  z-index: 0;
+  position: absolute;
 }
 
 .back-cover .book{
@@ -417,21 +415,26 @@ body {
 }
 #cover{
   overflow: hidden;
+  z-index: 10;
+  position: absolute;
 }
-#cover>.tl1,#cover>.tl2,#cover>.l1{
+#cover>.l2,#cover>.tl2,#cover>.l1{
   position: absolute;
 }
 #cover>.l1{
   left: 0;
   bottom:0;
 }
-#cover>.tl1{
-  left: 62px;
-  top: 154px;
+#cover>.l2{
+  right:-39px;
+  top: 46px;
 }
 #cover>.tl2{
-  left: 67px;
-  top: 159px;
+  left: 50%;
+  margin-left: -96px;
+  top: 50%;
+  margin-top: -110px;
+  -webkit-transform:rotateY(-25deg);
 }
 
 .page-num{
