@@ -43,6 +43,20 @@
   Charts.get('area').init();
   var page8animate = function() {
     var p8content = $('.p8-content');
+    var titles = p8content.find('h1');
+    var contents = p8content.find('p');
+    $(titles[0]).animate({
+      marginTop: -30
+    });
+    $(titles[1]).delay(100).animate({
+      marginTop: 0
+    });
+    $(titles[2]).delay(200).animate({
+      marginTop: 0
+    });
+    $(titles[3]).delay(300).animate({
+      marginTop: 0
+    });
   };
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
@@ -92,8 +106,8 @@
     speed: 1000
   });
   /*测试代码*/
-  SwiperPages.swipeTo(7, 0);
-  Charts.get('round').init();
+  // SwiperPages.swipeTo(7, 0);
+  // page8animate();
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
