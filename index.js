@@ -10,46 +10,6 @@ function start() {
     '<h1>百度移动搜索MAU</h1>当月通过手机百度客户端或手机浏览器等方式使用过百度移动搜索的用户（包括Android、iPhone及其他系统平台）'
   ];
   var inited = [false, false, false, false, false, false, false, false];
-
-  var gennerrateCssStyle = function(idx, direction, colors) {
-    var before;
-    if (direction === 'prev') {
-      before = idx + 1;
-    } else {
-      before = idx - 1;
-    }
-    var prefix = ['', '-webkit-', '-moz-', '-o-'];
-    var from = [],
-      to = [];
-    var cssCont = 'from{';
-    for (var k = 0; k < prefix.length; k++) {
-      from.push('background:' + prefix[k] + 'linear-gradient(135deg,' + colors[before][0] + ',' + colors[before][1] + ')');
-      to.push('background:' + prefix[k] + 'linear-gradient(135deg,' + colors[idx][0] + ',' + colors[idx][1] + ')');
-    }
-    cssCont += from.join(';');
-    cssCont += '}to{';
-    cssCont += to.join(';');
-    cssCont += '}';
-    duractionClassName = 'trans' + before + 'to' + idx;
-    var css = (function() {
-      var result = '';
-      for (var i = 0; i < prefix.length; i++) {
-        result += '@';
-        result += (prefix[i] + 'keyframes trans' + cssCont);
-      }
-      result += '.'
-      result += duractionClassName;
-      result += ('{');
-      for (var j = 0; j < prefix.length; j++) {
-        result += (prefix[j] + 'animation:trans 1s;');
-      }
-      result += '}';
-      return result;
-    })();
-    style.html(css);
-    if (before > 0 && before < 6) $(pages[before]).addClass(duractionClassName);
-    if (idx > 0 && idx < 6) $(pages[idx]).addClass(duractionClassName);
-  }
   var cover = $('#cover');
   cover
     .hammer()
@@ -114,7 +74,7 @@ function start() {
           pie.init('pie-4', [19, 17], '其他');
           break;
         case 3:
-          (Utils.once(function(){
+          (Utils.once(function() {
             Charts.get('column').init();
             var Swiper2 = new Swiper('.scroll-container2', {
               scrollContainer: true,
@@ -174,22 +134,21 @@ function start() {
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
-  
+
   var areaGap = 40;
   $('#area').height(300).width(800);
   $('.area-grid').width(areaGap);
-  $('.area-container').width(document.body.clientWidth-areaGap).css({
-    overflow : 'hidden',
-    marginLeft : areaGap + 'px'
+  $('.area-container').width(document.body.clientWidth - areaGap).css({
+    overflow: 'hidden',
+    marginLeft: areaGap + 'px'
   });
-  // $('#donut').height((pageHeight - 200 >= 250) ? 250 : (pageHeight - 200));
 
   var colGap = 40;
   $('#column').height(270).width(800);
   $('.column-grid').width(colGap);
-  $('.column-container').width(document.body.clientWidth-colGap).css({
-    overflow : 'hidden',
-    marginLeft : colGap + 'px'
+  $('.column-container').width(document.body.clientWidth - colGap).css({
+    overflow: 'hidden',
+    marginLeft: colGap + 'px'
   });
   // $('#bubble').height(pageHeight - 300);
   //封面的拖动效果
@@ -200,7 +159,7 @@ function start() {
       cover.animate({
         marginTop: -pageHeight
       }, 500, function() {
-        (Utils.once(function(){
+        (Utils.once(function() {
           Charts.get('area').init();
           var Swiper1 = new Swiper('.scroll-container', {
             scrollContainer: true,
