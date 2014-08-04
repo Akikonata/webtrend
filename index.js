@@ -1,5 +1,4 @@
 (function() {
-  console.log(window.DeviceMotionEvent);
   var pageHeight = $('body').height();
   var SwiperCover, SwiperPages, SwiperEnd;
   var docs = [
@@ -29,9 +28,6 @@
   var style = $('style');
   var pages = $('#pages').find('.swiper-slide');
 
-  var page8animate = function() {
-
-  };
   var Swiper1 = new Swiper('.scroll-container', {
     scrollContainer: true,
     scrollbar: {
@@ -45,6 +41,9 @@
     }
   });
   Charts.get('area').init();
+  var page8animate = function() {
+    var p8content = $('.p8-content');
+  };
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
@@ -84,6 +83,7 @@
           Charts.get('round').init();
           break;
         case 7:
+          page8animate();
           break;
         default:
           break;
@@ -92,8 +92,8 @@
     speed: 1000
   });
   /*测试代码*/
-  // SwiperPages.swipeTo(1, 0);
-  // Charts.get('round').init();
+  SwiperPages.swipeTo(7, 0);
+  Charts.get('round').init();
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
