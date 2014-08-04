@@ -226,7 +226,7 @@
 
             }
 
-            $('.qselect li').click(function() {
+            $('.qselect li').on('touchstart', function() {
                 selectQ(allData[this.innerHTML]);
             });
 

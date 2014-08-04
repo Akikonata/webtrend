@@ -122,7 +122,7 @@
   });
   $('.swiper-slide').height(pageHeight);
   $('#area').height(pageHeight - 200);
-  $('#donut').height(pageHeight - 250 > 250 ? 250 : pageHeight - 250);
+  $('#donut').height((pageHeight - 200 >= 250) ? 250 : (pageHeight - 200));
   $('#column').height(pageHeight - 250);
   $('#bubble').height(pageHeight - 300);
   //封面的拖动效果
