@@ -1,0 +1,5 @@
+@font-face {
+	font-family: 'PTDINCond';
+	src: url('font/PT_DIN_Condensed_Cyrillic.ttf');
+	src: local('PTDINCond'), url('font/PT_DIN_Condensed_Cyrillic.ttf') format('ttf'), url('font/PT_DIN_Condensed_Cyrillic.ttf') format('truetype');
+}

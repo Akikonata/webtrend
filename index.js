@@ -1,17 +1,6 @@
 (function() {
   var pageHeight = $('body').height();
   var SwiperCover, SwiperPages, SwiperEnd;
-  var colors = [
-    [],
-    ['#b0442b', '#d07e47'],
-    ['#34aa71', '#7cc33d'],
-    ['#299fad', '#31bbb6'],
-    ['#484ec7', '#1ea0f3'],
-    ['#7540bc', '#683fdd'],
-    ['#b0442b', '#d07e47'],
-    ['#34aa71', '#7cc33d'],
-    ['#299fad', '#31bbb6'],
-  ]; //色彩集合
   var docs = [
     '<h1>智能机大盘：</h1>指智能机全体保有量中的日活跃（当天发生过至少一次联网行为的）设备数量',
     '<h1>日使用时长：</h1>指用户一天24小时中使用各类智能机应用的累计时长，不含短信和电话',
@@ -20,6 +9,7 @@
     '<h1>百度移动搜索MAU</h1>当月通过手机百度客户端或手机浏览器等方式使用过百度移动搜索的用户（包括Android、iPhone及其他系统平台）'
   ];
   var inited = [false, false, false, false, false, false, false, false];
+
   var gennerrateCssStyle = function(idx, direction, colors) {
     var before;
     if (direction === 'prev') {
@@ -74,12 +64,10 @@
   });
   //当前过渡动画的className
   var duractionClassName = '';
+
   var style = $('style');
   var pages = $('#pages').find('.swiper-slide');
 
-  var page8animate = function() {
-
-  };
   var Swiper1 = new Swiper('.scroll-container', {
     scrollContainer: true,
     scrollbar: {
@@ -92,7 +80,23 @@
       container: '.scroll-scrollbar2'
     }
   });
-  Charts.get('area').init();
+  var page8animate = function() {
+    var p8content = $('.p8-content');
+    var titles = p8content.find('h1');
+    var contents = p8content.find('p');
+    $(titles[0]).animate({
+      marginTop: -30
+    });
+    $(titles[1]).delay(100).animate({
+      marginTop: 0
+    });
+    $(titles[2]).delay(200).animate({
+      marginTop: 0
+    });
+    $(titles[3]).delay(300).animate({
+      marginTop: 0
+    });
+  };
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
@@ -132,6 +136,7 @@
           Charts.get('round').init();
           break;
         case 7:
+          page8animate();
           break;
         default:
           break;
@@ -140,8 +145,8 @@
     speed: 1000
   });
   /*测试代码*/
-  // SwiperPages.swipeTo(4, 0);
-  // Charts.get('round').init();
+  // SwiperPages.swipeTo(7, 0);
+  // page8animate();
   /**/
   //初始化提示弹窗
   var msgwindow = $('#alert').find('.msg-window');
@@ -171,6 +176,36 @@
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
+  $('#area').height(pageHeight - 200);
+  $('#donut').height(pageHeight - 250 > 250 ? 250 : pageHeight - 250);
+  $('#column').height(pageHeight - 250);
+  $('#bubble').height(pageHeight - 300);
+  //封面的拖动效果
+  var cover = $('#cover');
+  cover
+    .hammer()
+    .bind("panup", function(ev) {
+      cover.animate({
+        marginTop: -pageHeight
+      }, 500, function() {
+        Charts.get('area').init();
+      });
+    });
+  $('#page1').hammer().bind("pandown", function(ev) {
+    cover.animate({
+      marginTop: 0
+    });
+  });
+  $('#page8').hammer().bind("panup", function(ev) {
+    $("#pages").animate({
+      marginTop: -pageHeight
+    });
+  });
+  $('#bcover').hammer().bind("pandown", function(ev) {
+    $("#pages").animate({
+      marginTop: 0
+    });
+  });
 
   function deviceMotionHandler(eventData) {
     // 
@@ -179,13 +214,6 @@
     if (acceleration.z > 0) {
       facingUp = +1;
     }
-    // var tiltLR = Math.round(((acceleration.x) / 9.81) * -90);
-    // var tiltFB = Math.round(((acceleration.y + 9.81) / 9.81) * 90 * facingUp);
-
-    // var rotation = "rotate3d(1,0,0, " + (tiltFB) + "deg)";
-    // document.getElementById("img1").style.webkitTransform = rotation;
-    // document.getElementById("img2").style.webkitTransform = rotation;
-    // document.getElementById("img3").style.webkitTransform = rotation;
     $('#img1').css({
       left: acceleration.x - 5,
       bottom: acceleration.y
