@@ -152,7 +152,7 @@ function start() {
   });
   //让全部图表居中
   var titles = $('.title');
-  var filledSpace = [439, 439, 439, 439, 439, 439, 439, 439];
+  var filledSpace = [439, 439, 439, 499, 439, 439, 439, 439];
   for (var i = 0; i < 8; i++) {
     $(titles[i]).css({
       marginBottom: (pageHeight - filledSpace[i]) / 2
