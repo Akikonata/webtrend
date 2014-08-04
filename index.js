@@ -211,13 +211,14 @@ function start() {
   //重力感应效果
   function deviceMotionHandler(eventData) {
     var acceleration = eventData.accelerationIncludingGravity;
+    //alert(acceleration.x);
     $('#img1').css({
       left: acceleration.x - 5,
       bottom: acceleration.y
     });
 
     $('#img2').css({
-      webkitTransform: 'rotateX(' + acceleration.y + ')'
+      webkitTransform: 'rotateY(' + acceleration.x + 'deg)'
     });
   }
   if (window.DeviceMotionEvent) {
