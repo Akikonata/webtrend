@@ -9,22 +9,6 @@
     '<h1>百度移动搜索MAU</h1>当月通过手机百度客户端或手机浏览器等方式使用过百度移动搜索的用户（包括Android、iPhone及其他系统平台）'
   ];
   var inited = [false, false, false, false, false, false, false, false];
-  //封面的拖动效果
-  var cover = $('#cover');
-  cover
-    .hammer()
-    .bind("panup", function(ev) {
-      cover.animate({
-        marginTop: -pageHeight
-      });
-    });
-  $('#page1').hammer().bind("pandown", function(ev) {
-    cover.animate({
-      marginTop: 0
-    });
-  });
-  //当前过渡动画的className
-  var duractionClassName = '';
   var style = $('style');
   var pages = $('#pages').find('.swiper-slide');
 
@@ -40,7 +24,6 @@
       container: '.scroll-scrollbar2'
     }
   });
-  Charts.get('area').init();
   var page8animate = function() {
     var p8content = $('.p8-content');
     var titles = p8content.find('h1');
@@ -137,9 +120,26 @@
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
+  $('#area').height(pageHeight - 200);
   $('#donut').height(pageHeight - 250 > 250 ? 250 : pageHeight - 250);
   $('#column').height(pageHeight - 250);
   $('#bubble').height(pageHeight - 300);
+  //封面的拖动效果
+  var cover = $('#cover');
+  cover
+    .hammer()
+    .bind("panup", function(ev) {
+      cover.animate({
+        marginTop: -pageHeight
+      }, 500, function() {
+        Charts.get('area').init();
+      });
+    });
+  $('#page1').hammer().bind("pandown", function(ev) {
+    cover.animate({
+      marginTop: 0
+    });
+  });
 
   function deviceMotionHandler(eventData) {
     // 
