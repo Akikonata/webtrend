@@ -159,13 +159,9 @@
       left: acceleration.x - 5,
       bottom: acceleration.y
     });
+
     $('#img2').css({
-      left: 62 + acceleration.x,
-      top: 154 + acceleration.y
-    });
-    $('#img3').css({
-      left: 67 - acceleration.x,
-      top: 159 - acceleration.y
+      webkitTransform: 'rotateX(' + acceleration.y + ')'
     });
   }
   if (window.DeviceMotionEvent) {
