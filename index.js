@@ -1,5 +1,6 @@
 (function() {
   var pageHeight = $('body').height();
+  if (pageHeight < 458) pageHeight = 458;
   var SwiperCover, SwiperPages, SwiperEnd;
   var docs = [
     '<h1>智能机大盘：</h1>指智能机全体保有量中的日活跃（当天发生过至少一次联网行为的）设备数量',
@@ -121,10 +122,10 @@
     document.addEventListener('touchmove', stopScrolling, false);
   });
   $('.swiper-slide').height(pageHeight);
-  $('#area').height(pageHeight - 200);
-  $('#donut').height((pageHeight - 200 >= 250) ? 250 : (pageHeight - 200));
-  $('#column').height(pageHeight - 250);
-  $('#bubble').height(pageHeight - 300);
+  // $('#area').height(pageHeight - 200);
+  // $('#donut').height((pageHeight - 200 >= 250) ? 250 : (pageHeight - 200));
+  // $('#column').height(pageHeight - 250);
+  // $('#bubble').height(pageHeight - 300);
   //封面的拖动效果
   var cover = $('#cover');
   cover
