@@ -69,7 +69,7 @@ function start() {
             });
 
             setTimeout(function(){
-              $('.scroll-container2 .swiper-wrapper').css({ webkitTransition : '2s' });
+              $('.scroll-container2 .swiper-wrapper').css({ webkitTransition : '3.5s' });
               colSwipe.setWrapperTranslate( -520, 0, 0 );
             }, 800);
 
@@ -82,7 +82,7 @@ function start() {
           Charts.get('p-donut').init();
           break;
         case 6:
-          // Charts.get('round').init();
+          Charts.get('round').init();
           break;
         case 7:
           page8animate();
