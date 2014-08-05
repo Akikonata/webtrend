@@ -437,8 +437,8 @@ body {
   position: absolute;
 }
 #cover>.l1{
-  left: 0;
-  bottom:0;
+  left: -60px;
+  bottom:-50px;
 }
 #cover>.l2{
   right:-39px;
@@ -448,10 +448,15 @@ body {
   left: 50%;
   margin-left: -96px;
   top: 50%;
-  margin-top: -110px;
+  margin-top: -130px;
   -webkit-transform:rotateY(-25deg);
 }
-
+#img4{
+  left: 50%;
+  margin-left: -53px;
+  bottom: 70px;
+  position: absolute;
+}
 .page-num{
   background-image: url(../img/pics1.png);
   background-repeat: no-repeat;
