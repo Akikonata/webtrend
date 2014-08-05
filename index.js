@@ -266,5 +266,9 @@ function start() {
 
   if (!isWeixin()) {
     $('.weixin').hide();
+    $('.book').css({
+      display : 'block',
+      margin: '25px auto 25px'
+    });
   }
 };
