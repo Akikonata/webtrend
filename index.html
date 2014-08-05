@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
   <!-- style end -->
 </head>
 <body>
-  <div id="cover" class="report-cover">
+<div id="cover" class="report-cover">
     <img src="img/bg.png" alt="" class='l1' width='261' id='img1'>
     <img src="img/bg02.png" alt="" class='l2' width='114' id='img2'>
     <img src="img/covertitle.png" alt="" class='tl2' width='205' id='img3'>
@@ -20,10 +20,10 @@
       <div class="arrow-up"></div>
         <span style='color:white'>滑动查看</span>
     </div>
-  </div>
-  <div class="swiper-container" id='pages'>
-    <div class="swiper-wrapper">
-      <div class="swiper-slide swiper-slide-visible" id='page1'>
+</div>
+<div class="swiper-container" id='pages'>
+  <div class="swiper-wrapper">
+      <div class="swiper-slide" id='page1'>
         <div class="title">
           <div class="page-num num-1"></div>
           智能机大盘<a class="toggle-tips" data-n='0'><span class="tips-icon"></span></a>增速不减，<br/>
@@ -55,8 +55,8 @@
       <div class="swiper-slide">
         <div class="title">
           <div class="page-num num-2"></div>三年来，智能机大盘中<br/>
-  		    Android和iPhone阵营<br/>
-  		    的份额差距不断扩大
+          Android和iPhone阵营<br/>
+          的份额差距不断扩大
         </div>
         <div id="donut" class="chart-container donut" onselect = "return false"></div>
         <p class='charttitle t1' style='margin-top:-20px;'>中国智能机大盘各系统用户占比</p>
@@ -117,7 +117,7 @@
           </div>
         </div>
       </div>
-  	  <div class="swiper-slide">
+      <div class="swiper-slide">
           <div class="title"><div class="page-num num-4"></div>尽管两大平台的用户偏好<br/>
             不同，但用户需求的变化<br/>
             趋势基本一致<br/></div>
@@ -230,9 +230,9 @@
             </div>
           </div>
       </div>
-    </div>
   </div>
-  <div class="swiper-slide back-cover" id="bcover">
+</div>
+<div class="swiper-slide back-cover" id="bcover">
     <img class="book" src="img/book.png" />
     <img class="share weixin" src="img/share.png" />
     <div class="link"><a href="javascript:;" target="_blank">点击这里查看完整版报告</a></div>
@@ -245,18 +245,21 @@
       <div style="border-top:#a49fae 1px solid;font-size:10px;text-indent:5px; padding-top:5px;marign-top:10px;">技术支持</div>
       <div style="background:url(img/logos.png) no-repeat 0px -15px;text-indent:60px;background-size: 45px;font-size:10px;margin:6px 5px;height: 17px;">数说可视化团队</div>
     </div>
+</div>
+<!--弹窗-->
+<div class='alert' id='alert'>
+  <div class="msg-window">
+    <div class="msg-content"></div>
+    <div class='btn-ok'>确定</div>
   </div>
-  <!--弹窗-->
-  <div class='alert' id='alert'>
-    <div class="msg-window">
-      <div class="msg-content"></div>
-      <div class='btn-ok'>确定</div>
-    </div>
-  </div>
-  <!--弹窗-->
-  <!-- script start -->
+</div>
+<!--弹窗-->
+<!-- script start -->
   <script src="js/detect.js"></script>
   <script src="js/libs/jquery-1.10.1.min.js"></script>
+  <script src="js/libs/idangerous.swiper.js"></script>
+  <script src="js/libs/hammer.min.js"></script>
+  <script src="js/libs/jquery.hammer.js"></script>
   <script src="js/libs/kity.min.js"></script>
   <script src="js/libs/kitychart.all.js"></script>
   <script src="js/charts/utils.js"></script>
@@ -268,11 +271,8 @@
   <script src="js/charts/p-donut.js"></script>
   <script src="js/charts/bubble.js"></script>
   <script src="js/charts/round.js"></script>
-  <script src="js/libs/idangerous.swiper-2.1.min.js"></script>      
-  <script src="js/libs/hammer.min.js"></script>
-  <script src="js/libs/jquery.hammer.js"></script>
   <script src="index.js"></script>
   <script src="js/preload.js"></script>
-  <!-- script end -->
+<!-- script end -->
 </body>
 </html>
