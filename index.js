@@ -61,12 +61,18 @@ function start() {
         case 3:
           (Utils.once(function() {
             Charts.get('column').init();
-            var Swiper2 = new Swiper('.scroll-container2', {
+            var colSwipe = new Swiper('.scroll-container2', {
               scrollContainer: true,
               scrollbar: {
                 container: '.scroll-scrollbar2'
               }
             });
+
+            setTimeout(function(){
+              $('.scroll-container2 .swiper-wrapper').css({ webkitTransition : '2s' });
+              colSwipe.setWrapperTranslate( -520, 0, 0 );
+            }, 800);
+
           }))();
           break;
         case 4:
@@ -165,7 +171,7 @@ function start() {
 
           Charts.get('area').init();
 
-          window.areaSwipe = new Swiper('.scroll-container', {
+          var areaSwipe = new Swiper('.scroll-container', {
             scrollContainer: true,
             scrollbar: {
               container: '.scroll-scrollbar'
@@ -177,9 +183,6 @@ function start() {
             areaSwipe.setWrapperTranslate( -200, 0, 0 );
             setTimeout(function(){
               areaSwipe.setWrapperTranslate( -520, 0, 0 );
-              // setTimeout(function(){
-              //   areaSwipe.setWrapperTranslate( -520, 0, 0 );
-              // }, 2500);
             }, 1500);
           }, 800);
 
