@@ -387,7 +387,6 @@ body {
   background-image: url(../img/back-cover.jpg);
   background-size: cover;
   z-index: 0;
-  position: absolute;
 }
 
 .back-cover .book{

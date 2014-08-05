@@ -34,14 +34,15 @@ function start() {
   };
 
   var colSwiper;
-  function setColTip2(){
+
+  function setColTip2() {
     var t = $('#tip-fixed');
     var x = colSwiper.getWrapperTranslate('x');
-    if( x < -30 ){
-      
+    if (x < -30) {
+
       var n = -x - 240;
-      if( n < 0 ) n = 0;
-      t.css('webkitTransform', 'translate3d('+n+'px, 0px, 0px)');
+      if (n < 0) n = 0;
+      t.css('webkitTransform', 'translate3d(' + n + 'px, 0px, 0px)');
     }
   }
 
@@ -76,14 +77,17 @@ function start() {
             Charts.get('column').init();
             colSwiper = new Swiper('.scroll-container2', {
               scrollContainer: true,
-              onTouchEnd : setColTip2
+              onTouchEnd: setColTip2
             });
+
 
             colSwiper.wrapperTransitionEnd(setColTip2, true);
 
-            setTimeout(function(){
-              $('.scroll-container2 .swiper-wrapper').css({ webkitTransition : '3.5s' });
-              colSwiper.setWrapperTranslate( -520, 0, 0 );
+            setTimeout(function() {
+              $('.scroll-container2 .swiper-wrapper').css({
+                webkitTransition: '3.5s'
+              });
+              colSwiper.setWrapperTranslate(-520, 0, 0);
             }, 800);
 
           }))();
@@ -191,11 +195,13 @@ function start() {
             }
           });
 
-          setTimeout(function(){
-            $('.scroll-container .swiper-wrapper').css({ webkitTransition : '2s' });
-            areaSwipe.setWrapperTranslate( -200, 0, 0 );
-            setTimeout(function(){
-              areaSwipe.setWrapperTranslate( -520, 0, 0 );
+          setTimeout(function() {
+            $('.scroll-container .swiper-wrapper').css({
+              webkitTransition: '2s'
+            });
+            areaSwipe.setWrapperTranslate(-200, 0, 0);
+            setTimeout(function() {
+              areaSwipe.setWrapperTranslate(-520, 0, 0);
             }, 1500);
           }, 800);
 
@@ -249,7 +255,7 @@ function start() {
     var dt = top - lasttop;
     lastright += dr / Math.abs(dr);
     lasttop += dt / Math.abs(dt);
-    $('#img2').animate({
+    $('#img2').css({
       right: lastright,
       top: lasttop
     }, 0);
@@ -264,11 +270,13 @@ function start() {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
   }
 
-  if (!isWeixin()) {
-    $('.weixin').hide();
-    $('.book').css({
-      display : 'block',
-      margin: '25px auto 25px'
-    });
-  }
+  if (window.DeviceMotionEvent)
+    if (!isWeixin()) {
+      $('.weixin').hide();
+      $('.book').css({
+        display : 'block',
+        margin: '25px auto 25px'
+      });
+    }
+
 };
