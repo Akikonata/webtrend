@@ -5,6 +5,14 @@
         value : [15.1, 14.0, 9.8, 9.7, 9.1, 8.0, 6.5, 4.9, 4.8, 3.3, 3.0, 2.9, 12.1]
     };
 
+    var curIndex = 1, total = data.name.length;
+
+    var setCurIndex = function(){
+        if(curIndex > total-1){
+            curIndex = 0;
+        }
+    }
+
     function initData(count){
         var counts = [];
         var start = [];
@@ -40,6 +48,16 @@
                 top : (con.height()/2-fr) + 'px'
             });
         }, timer);
+
+
+        center.on('touchstart', function(){
+            center.animClass('beat2');
+            select( curIndex );
+            curIndex++;
+            setCurIndex();
+        });
+
+        return center;
     }
 
     function addRects( conf ){
@@ -66,16 +84,16 @@
                 top : (cY + y - conf.h/2) + 'px',
                 webkitTransform : 'rotate('+(deg+90)+'deg)',
                 // visibility : 'hidden'
-                display : 'none'
+                // display : 'none'
             }).appendTo( con );
         }
 
-        con.find('.rect').each(function( i, rect ){
-            setTimeout(function(){
-                // $(rect).css('visibility', 'visible');
-                $(rect).css('display', 'block');
-            }, conf.rectInterval * i);
-        });
+        // con.find('.rect').each(function( i, rect ){
+        //     setTimeout(function(){
+        //         // $(rect).css('visibility', 'visible');
+        //         $(rect).css('display', 'block');
+        //     }, conf.rectInterval * i);
+        // });
 
     }
 
@@ -129,18 +147,21 @@
 
         $('body').delegate('.link-txt, .link-dot', 'touchstart', function(){
             var i = Number($(this).attr('index'));
-            select( i, rects );
+            select( i );
+            curIndex = i+1;
+            setCurIndex();
         });
 
         setTimeout(function(){
-            select( 0, rects );
-        }, 300);
+            select( 0 );
+        }, 500);
         
     }
 
-    function select( i, rects ){
+    function select( i ){
 
         var s = data.start[i], c = data.counts[i];
+        var rects = $('.rect');
         rects.css('backgroundColor', '#11722e');
         for(var j = 0; j < c; j++){
             $(rects[j+s]).css('backgroundColor', '#f3e50c');
@@ -192,23 +213,12 @@
         var h = $('<div">' + txt + '</div>').appendTo(con).css({
             position: 'absolute',
             top : (con.height()/2-50) +  'px',
-            color : '#388742'
+            color : '#388742',
+            fontSize : '20px'
         });
 
         return h.css({
             left: (con.width()-h.width())/2 + 'px',
-        });
-    }
-
-    function addLabel2(txt, con){
-        return $('<div">' + txt + '</div>').appendTo(con).css({
-            position: 'absolute',
-            left: (con.width()/2-20) + 'px',
-            top : (con.height()/2) +  'px',
-            color : 'red',
-            // opacity : 0,
-            fontSize : '18px',
-            
         });
     }
     
@@ -221,7 +231,7 @@
             var conf = {
                 w : 4,
                 h : 20,
-                rectCount : 72,
+                rectCount : 48,
                 container : con,
                 rectInterval : 15,
                 centerStartR : 10,
@@ -236,7 +246,7 @@
             
             var timer = conf.centerTimer;
 
-            addCenter({
+            var center = addCenter({
                 radius : conf.centerStartR,
                 container : con
             }, {
@@ -246,22 +256,19 @@
             
             setTimeout(function(){
 
-                var label = addLabel('14Q2', con);
+                addRects(conf);
 
                 setTimeout(function(){
-                    addRects(conf);
-
-                    setTimeout(function(){
-                        addLink(conf);
-                        addSearchIcon({
-                            container : con,
-                            width : 80
-                        });
-                    }, count * conf.rectInterval);
+                    addLink(conf);
+                    addLabel('14Q2', center).animClass('beat1');
+                    addSearchIcon({
+                        container : center,
+                        width : 80
+                    });
                     
-                }, 500);
+                }, count * conf.rectInterval);
 
-            }, timer);
+            }, timer + 500);
 
 
         }

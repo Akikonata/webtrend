@@ -76,7 +76,7 @@ function start() {
           Charts.get('p-donut').init();
           break;
         case 6:
-          // Charts.get('round').init();
+          Charts.get('round').init();
           break;
         case 7:
           page8animate();
@@ -219,22 +219,25 @@ function start() {
     lastbottom += db / Math.abs(db);
     $('#img1').css({
       left: lastleft,
-      bottom: lastbottom
-    }, 0);
+      bottom: lastbottom,
+      webkitTransition: '0.2s'
+    });
     var right = acceleration.x * 3 - 42;
     var top = acceleration.y * 3 + 43;
     var dr = right - lastright;
     var dt = top - lasttop;
     lastright += dr / Math.abs(dr);
     lastbottom += dt / Math.abs(dt);
-    $('#img2').animate({
+    $('#img2').css({
       right: lastright,
-      top: lasttop
-    }, 0);
+      top: lasttop,
+      webkitTransition: '0.2s'
+    });
     var deg = -25 + acceleration.x * 10 / Math.PI;
     var dd = deg - lastdeg;
     lastdeg = deg;
     $('#img3').css({
+      webkitTransition:'0.2s',
       webkitTransform: 'rotateY(' + lastdeg + 'deg)'
     });
   }

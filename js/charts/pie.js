@@ -84,7 +84,7 @@
 	                "data": [
 	                    {
 	                        "value": nums[0],
-	                        "color": "#a2d429"
+	                        "color": "#3ed58c"
 	                    },
 	                    {
 	                        "value": 100 - nums[0],
@@ -97,7 +97,7 @@
 	                "data": [
 	                    {
 	                        "value": nums[1],
-	                        "color": "#f4e81a"
+	                        "color": "#f4dd1a"
 	                    },
 	                    {
 	                        "value": 100 - nums[1],
