@@ -451,7 +451,12 @@ body {
   margin-top: -110px;
   -webkit-transform:rotateY(-25deg);
 }
-
+#img4{
+  left: 50%;
+  margin-left: -53px;
+  bottom: 70px;
+  position: absolute;
+}
 .page-num{
   background-image: url(../img/pics1.png);
   background-repeat: no-repeat;
