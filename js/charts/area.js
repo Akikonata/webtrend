@@ -145,7 +145,7 @@
                         fill: fill
                     });
 
-                }, 0);
+                });
 
                 drawLines( topPart, bottomPart );
                 area.polyline.container.bringRear();
