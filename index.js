@@ -1,8 +1,7 @@
 function start() {
-  function isWeixin(){
+  function isWeixin() {
     return navigator.userAgent.toLowerCase().indexOf('micromessenger') >= 0;
   }
-
   var pageHeight = $('body').height();
   if (pageHeight < 458) pageHeight = 458;
   var SwiperPages;
@@ -100,20 +99,20 @@ function start() {
     var doc = docs[n];
     $('#alert').find('.msg-content').html(doc);
     $('#alert').show();
-    setTimeout(function(){
+    setTimeout(function() {
       msgwindow.css({
-        webkitTransition : '500ms',
+        webkitTransition: '500ms',
         webkitTransform: 'translate3d(0px, -149px, 0px)',
-        opacity:1
+        opacity: 1
       })
     }, 0)
 
   })
   $('#alert').on('touchstart', '.btn-ok', function() {
     msgwindow.css({
-      webkitTransition : '200ms',
+      webkitTransition: '200ms',
       webkitTransform: 'translate3d(0px, 0px, 0px)',
-      opacity:0
+      opacity: 0
     });
     setTimeout(function() {
       $('#alert').hide();
@@ -158,28 +157,28 @@ function start() {
     .bind("panup", function(ev) {
       cover.css({
         webkitTransition: '500ms',
-        webkitTransform: 'translate3d(0px, '+(-pageHeight)+'px, 0px)'
+        webkitTransform: 'translate3d(0px, ' + (-pageHeight) + 'px, 0px)'
       });
 
-      setTimeout(function(){
-          (Utils.once(function() {
+      setTimeout(function() {
+        (Utils.once(function() {
 
-            Charts.get('area').init();
+          Charts.get('area').init();
 
-            window.areaSwipe = new Swiper('.scroll-container', {
-              scrollContainer: true,
-              scrollbar: {
-                container: '.scroll-scrollbar'
-              }
-            });
+          window.areaSwipe = new Swiper('.scroll-container', {
+            scrollContainer: true,
+            scrollbar: {
+              container: '.scroll-scrollbar'
+            }
+          });
 
-            // setTimeout(function(){
-            //   areaSwipe.params.speed=500;
-            //   areaSwipe.setWrapperTranslate(-600,0,0, 600);
-            // }, 0);
-            
+          // setTimeout(function(){
+          //   areaSwipe.params.speed=500;
+          //   areaSwipe.setWrapperTranslate(-600,0,0, 600);
+          // }, 0);
 
-          }))();
+
+        }))();
       }, 500);
 
     });
@@ -192,7 +191,7 @@ function start() {
   $('#page8').hammer().bind("panup", function(ev) {
     pages.css({
       webkitTransition: '500ms',
-      webkitTransform: 'translate3d(0px, '+(-pageHeight)+'px, 0px)'
+      webkitTransform: 'translate3d(0px, ' + (-pageHeight) + 'px, 0px)'
     });
   });
   $('#bcover').hammer().bind("pandown", function(ev) {
@@ -246,7 +245,7 @@ function start() {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
   }
 
-  if( !isWeixin() ){
+  if (!isWeixin()) {
     $('.weixin').hide();
   }
 };
