@@ -148,13 +148,15 @@
             });
 
             Utils.addTip({
+                id : 'tip-fixed',
                 container : con,
                 content : '跑赢大盘：<br />应用DAU增速>用户大盘增速',
                 bgColor : '#1074c8',
                 style : {
-                    left: '380px',
+                    left: '270px',
                     top: '20px',
-                    width : '160px'
+                    width : '160px',
+                    webkitTransition : '0.3s'
                 }
             });
         }

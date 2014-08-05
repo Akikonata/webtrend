@@ -31,6 +31,7 @@
 	}
 
 	function go() {
+		debugger;
 		$("#loading").hide();
 		start();
 	}
