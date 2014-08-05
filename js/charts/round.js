@@ -149,6 +149,7 @@
             var i = Number($(this).attr('index'));
             select( i );
             curIndex = i+1;
+            setCurIndex();
         });
 
         setTimeout(function(){
