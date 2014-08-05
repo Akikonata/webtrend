@@ -17,7 +17,7 @@
 		loaded = 0,
 		l = imgs.length,
 		hasStarted = false,
-		time = 1000;
+		time = 3000;
 
 	function finish(p) {
 		if (p == '100%' && hasStarted == false) {
