@@ -79,7 +79,7 @@
         },
         animation:{
             enabled : window.animFx,
-            duration: 300,
+            duration: 1500,
             mode : 'ease',
             delayInterval : 200
         },
