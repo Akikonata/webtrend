@@ -201,38 +201,35 @@ function start() {
 
   function deviceMotionHandler(eventData) {
     var acceleration = eventData.accelerationIncludingGravity;
+    if (Math.abs(acceleration.x) < 2 && Math.abs(acceleration.y) < 2) {
+      return false;
+    }
     var left = -acceleration.x * 3;
     var bottom = acceleration.y * 3;
     var dl = left - lastleft;
-    var db = bottom - lastbottom
-    if (Math.abs(dl) > 5 || Math.abs(db) > 5) {
-      lastleft += dl / Math.abs(dl);
-      lastbottom += db / Math.abs(db);
-      $('#img1').css({
-        left: lastleft,
-        bottom: lastbottom
-      });
-    }
+    var db = bottom - lastbottom;
+    lastleft += dl / Math.abs(dl);
+    lastbottom += db / Math.abs(db);
+    $('#img1').css({
+      left: lastleft,
+      bottom: lastbottom
+    }, 0);
     var right = acceleration.x * 3 - 42;
     var top = acceleration.y * 3 + 43;
     var dr = right - lastright;
     var dt = top - lasttop;
-    if (Math.abs(dr) > 5 || Math.abs(dt) > 5) {
-      lastright += dr / Math.abs(dr);
-      lastbottom += dt / Math.abs(dt);
-      $('#img2').css({
-        right: lastright,
-        top: lasttop
-      });
-    }
+    lastright += dr / Math.abs(dr);
+    lastbottom += dt / Math.abs(dt);
+    $('#img2').animate({
+      right: lastright,
+      top: lasttop
+    }, 0);
     var deg = -25 + acceleration.x * 10 / Math.PI;
     var dd = deg - lastdeg;
-    if (Math.abs(dd) > 1) {
-      lastdeg = deg;
-      $('#img3').css({
-        webkitTransform: 'rotateY(' + lastdeg + 'deg)'
-      });
-    }
+    lastdeg = deg;
+    $('#img3').css({
+      webkitTransform: 'rotateY(' + lastdeg + 'deg)'
+    });
   }
   if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
