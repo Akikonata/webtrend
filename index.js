@@ -32,6 +32,19 @@ function start() {
       opacity: 1
     });
   };
+
+  var colSwiper;
+  function setColTip2(){
+    var t = $('#tip-fixed');
+    var x = colSwiper.getWrapperTranslate('x');
+    if( x < -30 ){
+      
+      var n = -x - 240;
+      if( n < 0 ) n = 0;
+      t.css('webkitTransform', 'translate3d('+n+'px, 0px, 0px)');
+    }
+  }
+
   SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
@@ -61,16 +74,16 @@ function start() {
         case 3:
           (Utils.once(function() {
             Charts.get('column').init();
-            var colSwipe = new Swiper('.scroll-container2', {
+            colSwiper = new Swiper('.scroll-container2', {
               scrollContainer: true,
-              scrollbar: {
-                container: '.scroll-scrollbar2'
-              }
+              onTouchEnd : setColTip2
             });
+
+            colSwiper.wrapperTransitionEnd(setColTip2, true);
 
             setTimeout(function(){
               $('.scroll-container2 .swiper-wrapper').css({ webkitTransition : '3.5s' });
-              colSwipe.setWrapperTranslate( -520, 0, 0 );
+              colSwiper.setWrapperTranslate( -520, 0, 0 );
             }, 800);
 
           }))();
