@@ -108,7 +108,7 @@
 
     Charts.add('area', {
         init : function(){
-            var inner = $('<div id="area-inner" style="position:relative;width:100%;height:100%;visibility:hidden"></div>');
+            var inner = $('<div id="area-inner" style="position:relative;width:100%;height:100%"></div>');
             $('#area').append(inner);
             var areachart = new kc.AreaChart( 'area-inner' );
 
@@ -190,17 +190,16 @@
             pen.setColor( g );
             pl.stroke(g, 6);
 
-            inner.css({
-                visibility: 'visible',
-                width : '0px'
-            });
+            // inner.css({
+            //     width : '0px'
+            // });
 
-            setTimeout(function(){
-                inner.css({
-                    webkitTransition: '3s',
-                    width : '100%'
-                });
-            }, 0);
+            // setTimeout(function(){
+            //     inner.css({
+            //         webkitTransition: '3s',
+            //         width : '100%'
+            //     });
+            // }, 0);
             
             Utils.addTip2({
                 bgColor: '#e9df38',
@@ -209,7 +208,7 @@
                 pos: 'left',
                 container: inner,
                 content: '普及率<div style="font-size:16px">10%</div>',
-                delay: 1200
+                delay: 500
             });
 
             Utils.addTip2({
@@ -219,7 +218,7 @@
                 pos: 'left',
                 container: inner,
                 content: '普及率<div style="font-size:16px">20%</div>',
-                delay: 1200
+                delay: 1600
             });
 
             Utils.addTip2({
@@ -229,7 +228,7 @@
                 pos: 'left',
                 container: inner,
                 content: '普及率<div style="font-size:16px">30%</div>',
-                delay: 1200
+                delay: 3300
             });
 
             this.init = function(){

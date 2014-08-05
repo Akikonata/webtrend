@@ -172,10 +172,16 @@ function start() {
             }
           });
 
-          // setTimeout(function(){
-          //   areaSwipe.params.speed=500;
-          //   areaSwipe.setWrapperTranslate(-600,0,0, 600);
-          // }, 0);
+          setTimeout(function(){
+            $('.scroll-container .swiper-wrapper').css({ webkitTransition : '2s' });
+            areaSwipe.setWrapperTranslate( -200, 0, 0 );
+            setTimeout(function(){
+              areaSwipe.setWrapperTranslate( -520, 0, 0 );
+              // setTimeout(function(){
+              //   areaSwipe.setWrapperTranslate( -520, 0, 0 );
+              // }, 2500);
+            }, 1500);
+          }, 800);
 
 
         }))();
