@@ -1477,6 +1477,8 @@ var Polyline = kc.Polyline = kity.createClass( "Polyline", {
     },
 
     stroke: function ( color, width, dash ) {
+        if(width === 0) width = 0.001;
+        
         var pen = new kity.Pen();
         pen.setWidth( width );
         pen.setColor( color );
@@ -3085,6 +3087,7 @@ var Pie = kc.Pie = kity.createClass( "Pie", {
 		// this.pie.bringTop();
 		
 		var pen = new kity.Pen();
+		if(strokeWidth===0)strokeWidth=0.001;
 		pen.setWidth( strokeWidth );
 		pen.setColor( strokeColor );
 		this.pie.stroke( pen );
