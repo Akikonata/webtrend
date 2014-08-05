@@ -60,7 +60,7 @@
 
             addBubble({
                 container : con,
-                values : [3.43, 2.77, 0.80, 0.80, 0.70],
+                values : [3.4, 2.8, 0.8, 0.8, 0.7],
                 companies : ['腾讯', '百度', '阿里', '搜狐', '新浪'],
                 radiusBase : 18,
                 lineHeight : lineHeight,
@@ -76,7 +76,7 @@
 
             addBubble({
                 container : con,
-                values : [3.70, 2.10, 0.90, 0.50, 0.40],
+                values : [3.7, 2.1, 0.9, 0.5, 0.4],
                 companies : ['腾讯', '百度', '阿里', '美图', '新浪'],
                 radiusBase : 18,
                 lineHeight : lineHeight,

@@ -36,7 +36,7 @@
             "ticks" : {
                 "enabled" : false
             },
-            grid : [-0.4, 0, 0.4, 0.8, 1.2, 1.6],
+            grid : [-0.3, 0, 0.3, 0.6, 0.9],
             "label" : {
                 "enabled" : false,
                 "rotate" : 0,

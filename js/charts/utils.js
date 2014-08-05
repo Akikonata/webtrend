@@ -1,3 +1,10 @@
+$.fn.animClass = function( cl ){
+	var e = $(this).removeClass(cl);
+	setTimeout(function(){
+		e.addClass(cl);
+	}, 50);
+}
+
 Utils = {
 	addTip : function(conf){
 		return $('<div class="tip" style="background-color:'+conf.bgColor+'"><span class="content">'+conf.content+'</span><div class="hit" style="border-top-color: ' + conf.bgColor + '"></div></div>').appendTo(conf.container).css(conf.style);
