@@ -137,6 +137,7 @@
 		    addDashLine(column);
 
             Utils.addTip({
+                hit : false,
                 container : con,
                 content : '跑输大盘：<br />应用DAU增速<用户大盘增速',
                 bgColor : '#1074c8',
@@ -148,6 +149,7 @@
             });
 
             Utils.addTip({
+                hit : false,
                 id : 'tip-fixed',
                 container : con,
                 content : '跑赢大盘：<br />应用DAU增速>用户大盘增速',
