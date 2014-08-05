@@ -31,7 +31,7 @@
 	}
 
 	function go() {
-
+		$("#loading").hide();
 		start();
 	}
 
