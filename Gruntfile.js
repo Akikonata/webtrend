@@ -14,6 +14,9 @@ module.exports = function (grunt) {
                 src: [
                     "js/detect.js",
                     "js/libs/jquery-1.10.1.min.js",
+                    "js/libs/idangerous.swiper.js",
+                    "js/libs/hammer.min.js",
+                    "js/libs/jquery.hammer.js",
                     "js/libs/kity.min.js",
                     "js/libs/kitychart.all.js",
                     "js/charts/utils.js",
@@ -25,9 +28,6 @@ module.exports = function (grunt) {
                     "js/charts/p-donut.js",
                     "js/charts/bubble.js",
                     "js/charts/round.js",
-                    "js/libs/idangerous.swiper-2.1.min.js",
-                    "js/libs/hammer.min.js",
-                    "js/libs/jquery.hammer.js",
                     "index.js",
                     "js/preload.js"
                 ],
