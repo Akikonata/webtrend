@@ -1,7 +1,7 @@
 (function() {
 
     var donutConfig = {
-        "color": ['#a2d429', '#f4e81a', '#7dd5d6', '#a8e0df'],
+        "color": ['#3ed58c', '#f4dd1a', '#7dd5d6', '#a8e0df'],
         "plotOptions": {
             "pie": {
                 "shadow": {

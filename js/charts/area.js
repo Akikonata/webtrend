@@ -201,11 +201,11 @@
                     width : '100%'
                 });
             }, 0);
-
+            
             Utils.addTip2({
                 bgColor: '#e9df38',
-                left: 301,
-                top: 60,
+                left: 25,
+                top: 125,
                 pos: 'left',
                 container: inner,
                 content: '普及率<div style="font-size:16px">10%</div>',
@@ -214,8 +214,8 @@
 
             Utils.addTip2({
                 bgColor: '#e9df38',
-                left: 493,
-                top: 40,
+                left: 301,
+                top: 60,
                 pos: 'left',
                 container: inner,
                 content: '普及率<div style="font-size:16px">20%</div>',
