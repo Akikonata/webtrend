@@ -7,7 +7,8 @@ $.fn.animClass = function( cl ){
 
 Utils = {
 	addTip : function(conf){
-		return $('<div '+(conf.id?'id='+conf.id:'')+' class="tip" style="background-color:'+conf.bgColor+'"><span class="content">'+conf.content+'</span></div>').appendTo(conf.container).css(conf.style);
+		var hit = conf.hit === false ? '' : '<div class="hit" style="border-top-color: ' + conf.bgColor + '"></div>';
+		return $('<div '+(conf.id?'id='+conf.id:'')+' class="tip" style="background-color:'+conf.bgColor+'"><span class="content">'+conf.content+'</span>' + hit + '</div>').appendTo(conf.container).css(conf.style);
 	},
 
 	addTip2 : function( conf ) {

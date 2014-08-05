@@ -269,8 +269,14 @@ function start() {
   if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
   }
+
   if (window.DeviceMotionEvent)
     if (!isWeixin()) {
       $('.weixin').hide();
+      $('.book').css({
+        display : 'block',
+        margin: '25px auto 25px'
+      });
     }
+
 };
