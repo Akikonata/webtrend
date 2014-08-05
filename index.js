@@ -76,7 +76,7 @@ function start() {
           Charts.get('p-donut').init();
           break;
         case 6:
-          Charts.get('round').init();
+          // Charts.get('round').init();
           break;
         case 7:
           page8animate();
@@ -212,32 +212,29 @@ function start() {
       return false;
     }
     var left = -acceleration.x * 3 - 60;
-    var bottom = acceleration.y * 3 - 50;
+    var bottom = acceleration.y * 5 - 50;
     var dl = left - lastleft;
     var db = bottom - lastbottom;
     lastleft += dl / Math.abs(dl);
     lastbottom += db / Math.abs(db);
     $('#img1').css({
       left: lastleft,
-      bottom: lastbottom,
-      webkitTransition: '0.2s'
-    });
+      bottom: lastbottom
+    }, 0);
     var right = acceleration.x * 3 - 42;
     var top = acceleration.y * 3 + 43;
     var dr = right - lastright;
     var dt = top - lasttop;
     lastright += dr / Math.abs(dr);
     lastbottom += dt / Math.abs(dt);
-    $('#img2').css({
+    $('#img2').animate({
       right: lastright,
-      top: lasttop,
-      webkitTransition: '0.2s'
-    });
+      top: lasttop
+    }, 0);
     var deg = -25 + acceleration.x * 10 / Math.PI;
     var dd = deg - lastdeg;
     lastdeg = deg;
     $('#img3').css({
-      webkitTransition:'0.2s',
       webkitTransform: 'rotateY(' + lastdeg + 'deg)'
     });
   }
