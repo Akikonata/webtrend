@@ -108,7 +108,7 @@
 
     Charts.add('area', {
         init : function(){
-            var inner = $('<div id="area-inner" style="width:100%;height:100%;visibility:hidden"></div>');
+            var inner = $('<div id="area-inner" style="position:relative;width:100%;height:100%;visibility:hidden"></div>');
             $('#area').append(inner);
             var areachart = new kc.AreaChart( 'area-inner' );
 
@@ -201,7 +201,37 @@
                     width : '100%'
                 });
             }, 0);
-            
+
+            Utils.addTip2({
+                bgColor: '#e9df38',
+                left: 301,
+                top: 60,
+                pos: 'left',
+                container: inner,
+                content: '普及率<div style="font-size:16px">10%</div>',
+                delay: 1200
+            });
+
+            Utils.addTip2({
+                bgColor: '#e9df38',
+                left: 493,
+                top: 40,
+                pos: 'left',
+                container: inner,
+                content: '普及率<div style="font-size:16px">20%</div>',
+                delay: 1200
+            });
+
+            Utils.addTip2({
+                bgColor: '#e9df38',
+                left: 684,
+                top: 0,
+                pos: 'left',
+                container: inner,
+                content: '普及率<div style="font-size:16px">30%</div>',
+                delay: 1200
+            });
+
             this.init = function(){
                 return false;
             }

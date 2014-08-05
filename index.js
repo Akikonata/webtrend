@@ -163,13 +163,22 @@ function start() {
 
       setTimeout(function(){
           (Utils.once(function() {
+
             Charts.get('area').init();
-            var Swiper1 = new Swiper('.scroll-container', {
+
+            window.areaSwipe = new Swiper('.scroll-container', {
               scrollContainer: true,
               scrollbar: {
                 container: '.scroll-scrollbar'
               }
             });
+
+            // setTimeout(function(){
+            //   areaSwipe.params.speed=500;
+            //   areaSwipe.setWrapperTranslate(-600,0,0, 600);
+            // }, 0);
+            
+
           }))();
       }, 500);
 
