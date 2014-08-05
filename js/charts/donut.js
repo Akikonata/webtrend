@@ -151,13 +151,13 @@
 
             var labels = ['iPhone', 'Android', 'Windows', '其他'];
             var label1, label2;
-
+            var k = 0;
             function selectQ(data) {
                 donutConfig.series = [data];
-                middle.html(data.name);
+                middle.html(data.name).animClass('beat');
                 donut.update(donutConfig);
                 var p2_highlight = document.getElementById('p2-highlight');
-                p2_highlight.style.left = (parseInt(22) + 49 * data.position) + 'px';
+                p2_highlight.style.webkitTransform = 'translate3d('+(49 * data.position)+'px, 0px, 0px)';
                 var list = donut.getPlots().pies.param.list;
                 var label1Pos = ['right', 'left'];
                 if (!label1) {
@@ -174,8 +174,7 @@
                             content: labels[i] + '<div style="font-size:16px">4%</div>',
                             delay: 0
                         }).css({
-                            webkitTransition: '0.5s',
-                            // opacity: 0
+                            webkitTransition: '0.5s'
                         }));
                     }
                 }
@@ -210,8 +209,7 @@
                         if (i <= 1) {
                             l = label1[i].html(labels[i] + '<div style="font-size:16px">' + data.data[i].value + '%<div class="hit" style="border-top-color:#116165"></div></div></div>');
                             l.css({
-                                webkitTransform: 'translate3d(' + (x - (label1Pos[i] == 'left' ? 0 : l.width())) + 'px, ' + (y - l.height() - 8) + 'px, 0px)',
-                                // opacity : 1
+                                webkitTransform: 'translate3d(' + (x - (label1Pos[i] == 'left' ? 0 : l.width())) + 'px, ' + (y - l.height() - 8) + 'px, 0px)'
                             });
                         }
 
@@ -223,7 +221,7 @@
                             });
                         }
                     });
-                }, donutConfig.animation.duration + 300);
+                }, donutConfig.animation.duration/(Math.min(++k, 2)));
 
             }
 

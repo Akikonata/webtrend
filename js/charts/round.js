@@ -112,7 +112,7 @@
 
             // 链接文本位置
             var txt = data.name[i],
-                txtWidth = txt.length * 12;
+                txtWidth = txt.length * 16;
             var R = conf.r + 20, ww = con.width()/2, hh = con.height()/2;
 
             var radian = Utils.angle2radian(angle);
@@ -120,6 +120,7 @@
             $('<div class="link-txt link-txt'+i+' link" index="' + i + '">' + txt + '</div>').css({
                 top : hh + (R+(isRight?0:txtWidth)) * sin(radian) - 6,
                 left : ww + (R+(isRight?0:txtWidth)) * cos(radian),
+                textAlign : isRight?'left':'right',
                 width : txtWidth,
                 webkitTransformOrigin: '0% 50%',
                 webkitTransform : 'rotate('+(isRight? angle-10 : angle-180)+'deg)',
@@ -180,8 +181,8 @@
 
         setTimeout(function(){
             icon.css({
-                 webkitTransform: 'scale(1)',
-                 webkitTransition:'0.5s'
+                webkitTransform: 'scale(1)',
+                webkitTransition:'0.5s'
             });
 
         }, 50);

@@ -1,4 +1,8 @@
 function start() {
+  function isWeixin(){
+    return navigator.userAgent.toLowerCase().indexOf('micromessenger') >= 0;
+  }
+
   var pageHeight = $('body').height();
   if (pageHeight < 458) pageHeight = 458;
   var SwiperPages;
@@ -10,41 +14,23 @@ function start() {
     '<h1>百度移动搜索MAU</h1>当月通过手机百度客户端或手机浏览器等方式使用过百度移动搜索的用户（包括Android、iPhone及其他系统平台）'
   ];
   var inited = [false, false, false, false, false, false, false, false];
-  var cover = $('#cover');
-  cover
-    .hammer()
-    .bind("panup", function(ev) {
-      cover.animate({
-        marginTop: -pageHeight
-      });
-    });
+
   $('#page1').hammer().bind("pandown", function(ev) {
-    cover.animate({
-      marginTop: 0
+    cover.css({
+      webkitTransform: 'translate3d(0px,0px,0px)'
     });
   });
   //当前过渡动画的className
   var duractionClassName = '';
 
   var style = $('style');
-  var pages = $('#pages').find('.swiper-slide');
+  // var pages = $('#pages').find('.swiper-slide');
 
   //第八页的动画
   var page8animate = function() {
-    var p8content = $('.p8-content');
-    var titles = p8content.find('h1');
-    var contents = p8content.find('p');
-    $(titles[0]).animate({
-      marginTop: -30
-    });
-    $(titles[1]).delay(100).animate({
-      marginTop: 0
-    });
-    $(titles[2]).delay(200).animate({
-      marginTop: 0
-    });
-    $(titles[3]).delay(300).animate({
-      marginTop: 0
+    $('.p8-content .g').css({
+      webkitTransform: 'translate3d(0px, 0px, 0px)',
+      opacity: 1
     });
   };
   SwiperPages = new Swiper('#pages', {
@@ -91,7 +77,7 @@ function start() {
           Charts.get('p-donut').init();
           break;
         case 6:
-          Charts.get('round').init();
+          // Charts.get('round').init();
           break;
         case 7:
           page8animate();
@@ -114,17 +100,24 @@ function start() {
     var doc = docs[n];
     $('#alert').find('.msg-content').html(doc);
     $('#alert').show();
-    $('#alert').find('.msg-window');
-    msgwindow.animate({
-      marginTop: '-149px'
-    })
+    setTimeout(function(){
+      msgwindow.css({
+        webkitTransition : '500ms',
+        webkitTransform: 'translate3d(0px, -149px, 0px)',
+        opacity:1
+      })
+    }, 0)
+
   })
   $('#alert').on('touchstart', '.btn-ok', function() {
-    msgwindow.animate({
-      marginTop: '0'
-    }, 200, function() {
-      $('#alert').hide();
+    msgwindow.css({
+      webkitTransition : '200ms',
+      webkitTransform: 'translate3d(0px, 0px, 0px)',
+      opacity:0
     });
+    setTimeout(function() {
+      $('#alert').hide();
+    }, 200);
   });
   $(document).ready(function() {
     function stopScrolling(touchEvent) {
@@ -163,33 +156,39 @@ function start() {
   cover
     .hammer()
     .bind("panup", function(ev) {
-      cover.animate({
-        marginTop: -pageHeight
-      }, 500, function() {
-        (Utils.once(function() {
-          Charts.get('area').init();
-          var Swiper1 = new Swiper('.scroll-container', {
-            scrollContainer: true,
-            scrollbar: {
-              container: '.scroll-scrollbar'
-            }
-          });
-        }))();
+      cover.css({
+        webkitTransition: '500ms',
+        webkitTransform: 'translate3d(0px, '+(-pageHeight)+'px, 0px)'
       });
+
+      setTimeout(function(){
+          (Utils.once(function() {
+            Charts.get('area').init();
+            var Swiper1 = new Swiper('.scroll-container', {
+              scrollContainer: true,
+              scrollbar: {
+                container: '.scroll-scrollbar'
+              }
+            });
+          }))();
+      }, 500);
+
     });
   $('#page1').hammer().bind("pandown", function(ev) {
-    cover.animate({
-      marginTop: 0
+    cover.css({
+      webkitTransform: 'translate3d(0px, 0px, 0px)'
     });
   });
+  var pages = $("#pages");
   $('#page8').hammer().bind("panup", function(ev) {
-    $("#pages").animate({
-      marginTop: -pageHeight
+    pages.css({
+      webkitTransition: '500ms',
+      webkitTransform: 'translate3d(0px, '+(-pageHeight)+'px, 0px)'
     });
   });
   $('#bcover').hammer().bind("pandown", function(ev) {
-    $("#pages").animate({
-      marginTop: 0
+    pages.css({
+      webkitTransform: 'translate3d(0px, 0px, 0px)'
     });
   });
   //重力感应效果
@@ -236,5 +235,9 @@ function start() {
   }
   if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
+  }
+
+  if( !isWeixin() ){
+    $('.weixin').hide();
   }
 };
