@@ -437,8 +437,8 @@ body {
   position: absolute;
 }
 #cover>.l1{
-  left: 0;
-  bottom:0;
+  left: -30px;
+  bottom:-30px;
 }
 #cover>.l2{
   right:-39px;
@@ -448,7 +448,7 @@ body {
   left: 50%;
   margin-left: -96px;
   top: 50%;
-  margin-top: -110px;
+  margin-top: -130px;
   -webkit-transform:rotateY(-25deg);
 }
 #img4{
