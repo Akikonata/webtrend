@@ -201,7 +201,7 @@ function start() {
   });
   //重力感应效果
   var lastdeg = -25;
-  var lastleft = -60,
+  var lastleft = -110,
     lastbottom = -50,
     lastright = -42,
     lasttop = 43;
@@ -211,8 +211,8 @@ function start() {
     if (Math.abs(acceleration.x) < 2 && Math.abs(acceleration.y) < 2) {
       return false;
     }
-    var left = -acceleration.x * 3 - 60;
-    var bottom = acceleration.y * 5 - 50;
+    var left = -acceleration.x * 3 - 110;
+    var bottom = acceleration.y * 3 - 50;
     var dl = left - lastleft;
     var db = bottom - lastbottom;
     lastleft += dl / Math.abs(dl);
@@ -226,7 +226,7 @@ function start() {
     var dr = right - lastright;
     var dt = top - lasttop;
     lastright += dr / Math.abs(dr);
-    lastbottom += dt / Math.abs(dt);
+    lasttop += dt / Math.abs(dt);
     $('#img2').animate({
       right: lastright,
       top: lasttop
