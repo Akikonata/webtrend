@@ -30,29 +30,19 @@ body {
   position: absolute;
 }
 #pages .swiper-slide:nth-child(1),#pages .swiper-slide:nth-child(6){
-  background: -moz-linear-gradient(135deg,#b0442b,#d07e47);
   background: -webkit-linear-gradient(135deg,#b0442b,#d07e47);
-  background: -o-linear-gradient(135deg,#b0442b,#d07e47);
 }
 #pages .swiper-slide:nth-child(2),#pages .swiper-slide:nth-child(7){
-	background: -moz-linear-gradient(135deg,#34aa71,#7cc33d);
   background: -webkit-linear-gradient(135deg,#34aa71,#7cc33d);
-  background: -o-linear-gradient(135deg,#34aa71,#7cc33d);
 }
 #pages .swiper-slide:nth-child(3),#pages .swiper-slide:nth-child(8){
-	background: -moz-linear-gradient(135deg,#299fad, #31bbb6);
   background: -webkit-linear-gradient(135deg,#299fad, #31bbb6);
-  background: -o-linear-gradient(135deg,#299fad, #31bbb6);
 }
 #pages .swiper-slide:nth-child(4){
-	background: -moz-linear-gradient(135deg,#484ec7, #1ea0f3);
   background: -webkit-linear-gradient(135deg,#484ec7, #1ea0f3);
-  background: -o-linear-gradient(135deg,#484ec7, #1ea0f3);
 }
 #pages .swiper-slide:nth-child(5){
-	background: -moz-linear-gradient(135deg,#7540bc, #683fdd);
   background: -webkit-linear-gradient(135deg,#7540bc, #683fdd);
-  background: -o-linear-gradient(135deg,#7540bc, #683fdd);
 }
 .swiper-slide{
   position: relative;
@@ -191,7 +181,7 @@ body {
   margin-left: -24px;
 }
 #bubble{
-  margin: 0 25px;
+  margin: 0 15px;
   height: 190px;
 }
 #p-donut{
@@ -219,7 +209,7 @@ body {
 }
 .p8-content{
   width: 260px;
-  margin: -30px auto 0;
+  margin: -38px auto 0;
 }
 .p8-content>p{
   margin: 0 0 12px 0;
@@ -407,7 +397,6 @@ body {
   width: 270px;
   height: 36px;
   text-align: center;
-  color: #3e4571;
   font-size: 16px;
   padding-top: 20px;
   margin: 0 auto;
@@ -415,6 +404,7 @@ body {
 
 .back-cover .link a{
   text-decoration: none;
+  color: #3e4571;
 }
 
 .back-cover .info{
@@ -445,7 +435,7 @@ body {
 }
 #cover>.tl2{
   left: 50%;
-  margin-left: -96px;
+  margin-left: -101px;
   top: 50%;
   margin-top: -150px;
   -webkit-transform:rotateY(-25deg);

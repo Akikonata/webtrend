@@ -39,7 +39,7 @@
         $(player).css({
             top : ($(conf.container).height()-side)/2+'px',
             left : ($(conf.container).width()-side)/2+'px',
-            webkitTransform : 'rotate('+(conf.start||0)+'deg)',
+            webkitTransform : 'rotate(-'+(conf.start||0)+'deg)',
         });
 
         conf.container.appendChild(player);
@@ -54,20 +54,14 @@
     }
 
     function initData(count){
-        var angles = [];
+        var counts = [];
         var start = [];
         var valSum = Utils.arraySum(data.value);
-
-        var tmp = 0;
-        data.value.forEach(function(num, i){
-            var a = num/valSum * 360;
-            angles.push( a );
-
-            start.push( tmp );
-            tmp+=a;
-        });
-
-        data.angles = angles;
+        for(var i = 0; i < data.value.length; i++){
+            start.push(Utils.arraySum(counts));
+            counts.push( Math.round(data.value[i]/valSum * count) );
+        }
+        data.counts = counts;
         data.start = start;
     }
 
@@ -81,8 +75,7 @@
             width : 2*r + 'px',
             height : 2*r + 'px',
             left : (con.width()/2-r) + 'px',
-            top : (con.height()/2-r) + 'px',
-            zIndex : 100
+            top : (con.height()/2-r) + 'px'
 
         }).appendTo( con );
 
@@ -108,19 +101,39 @@
     }
 
     function addRects( conf ){
-        var con = conf.container;
+        var con = conf.container,
+            PI = Math.PI,
+            a = PI*2/conf.rectCount,
+            sin = Math.sin, cos = Math.cos,
+            cX = con.width()/2, cY = con.height()/2,
+            x = y = 0,
+            tmpR = conf.r + conf.h/2,
+            tmpA, deg;
 
-        for(var i=0; i<data.name.length; i++){//
-            fan({
-                inner : conf.r,
-                outer : conf.r + conf.h,
-                // color : 'rgba('+(243)+',229,'+(12)+',1)',
-                color : '#11722e',
-                container : con[0],
-                angle : data.angles[i]-1,
-                start : data.start[i]
-            });
+        for(var i = 0; i < conf.rectCount; i++){
+            tmpA = a*i - PI/2;
+            x = tmpR * cos(tmpA);
+            y = tmpR * sin(tmpA);
+            deg = tmpA/PI * 180;
+            $('<div class="rect"></div>').css({
+                backgroundColor : '#11722e',
+                position : 'absolute',
+                width : conf.w + 'px',
+                height : conf.h + 'px',
+                left : (cX + x - conf.w/2) + 'px',
+                top : (cY + y - conf.h/2) + 'px',
+                webkitTransform : 'rotate('+(deg+90)+'deg)',
+                // visibility : 'hidden'
+                // display : 'none'
+            }).appendTo( con );
         }
+
+        con.find('.rect').each(function( i, rect ){
+            setTimeout(function(){
+                // $(rect).css('visibility', 'visible');
+                $(rect).css('display', 'block');
+            }, conf.rectInterval * i);
+        });
 
     }
 
@@ -137,39 +150,39 @@
     });
 
     function addLink(conf){
-        var con = conf.container,
-            sin = Math.sin,
-            cos = Math.cos;
+        var con = conf.container;
+        var rects = con.find('.rect');
+        var sum = Utils.arraySum(data.counts);
+        var sin = Math.sin, cos = Math.cos;
 
-        data.angles.forEach(function(angle, i){
+        data.counts.forEach(function(count, i){
 
-            var angle = angle/2 + data.start[i]-90,
+            var index = parseInt( data.start[i] + count/2 ),
+                re = rects[ index ],
+                angle = index/sum * 360 - 90,
+
                 isRight = (angle < 90 && angle > -90 )||( angle < 360 && angle > 270 );
 
-            // $('<div class="link-dot link-dot'+i+' link" index="' + i + '"></div>').css({
-            //     top : re.offsetTop+conf.h/2-3,
-            //     left : re.offsetLeft+conf.w/2-3
-            // }).appendTo(con);
+            $('<div class="link-dot link-dot'+i+' link" index="' + i + '"></div>').css({
+                top : re.offsetTop+conf.h/2-3,
+                left : re.offsetLeft+conf.w/2-3
+            }).appendTo(con);
 
             // 链接文本位置
             var txt = data.name[i],
                 txtWidth = txt.length * 16;
             var R = conf.r + 20, ww = con.width()/2, hh = con.height()/2;
 
-            var radian = Utils.angle2radian(angle);//+5修复一下位置偏移
+            var radian = Utils.angle2radian(angle+5);//+5修复一下位置偏移
 
-            var cosV = cos(radian), sinV = sin(radian)
             $('<div class="link-txt link-txt'+i+' link" index="' + i + '">' + txt + '</div>').css({
-                top : hh + (R+(isRight?0:txtWidth)) * sinV - 6,
-                left : ww + (R+(isRight?0:txtWidth)) * cosV,
+                top : hh + (R+(isRight?0:txtWidth)) * sin(radian) - 6,
+                left : ww + (R+(isRight?0:txtWidth)) * cos(radian),
                 textAlign : isRight?'left':'right',
                 width : txtWidth,
                 webkitTransformOrigin: '0% 50%',
-                webkitTransform : 'rotate('+(isRight? angle : angle-180)+'deg)',
-            }).appendTo(con).attr({
-                'tl' : ww + (R-10) * cosV,
-                'tt' : hh + (R-10) * sinV
-            });
+                webkitTransform : 'rotate('+(isRight? angle-10 : angle-180)+'deg)',
+            }).appendTo(con);
         });
 
         $('body').delegate('.link-txt, .link-dot', 'touchstart', function(){
@@ -187,22 +200,24 @@
 
     function select( i ){
 
-        var s = data.start[i], c = data.name.length;
-        var fans = $('.fan .round');
-        fans.css('borderColor', '#11722e');
-        fans.eq(i).css('borderColor', '#f3e50c');
+        var s = data.start[i], c = data.counts[i];
+        var rects = $('.rect');
+        rects.css('backgroundColor', '#11722e');
+        for(var j = 0; j < c; j++){
+            $(rects[j+s]).css('backgroundColor', '#f3e50c');
+        }
 
         $('.link-txt').show();
-        var txt = $('.link-txt' + i).hide();
+        $('.link-txt' + i).hide();
 
         tip.css({
-            top : parseInt(txt.attr('tt')-50)+'px',
+            top : (parseInt($('.link-dot' + i).css('top'))-50)+'px',
             display : 'block',
 
         }).find('.content').html( data.name[i] + '<br /><span style="font-size:16px">' + data.value[i] + '%</span>' );
     
         tip.css({
-            left: (txt.attr('tl') - tip.width()/2) + 'px'
+            left: (parseInt($('.link-dot' + i).css('left')) - tip.width()/2) + 'px'
         }).removeClass('tip-anim');
 
         setTimeout(function(){
@@ -261,7 +276,7 @@
                 rectInterval : 15,
                 centerStartR : 10,
                 centerEndR : 80,
-                centerTimer : 0//800
+                centerTimer : 800
             };
 
             conf.r = conf.centerEndR + 10

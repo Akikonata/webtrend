@@ -13,6 +13,10 @@ rm -rf ./dist/php
 cp ./distribute.php ./dist/distribute.php
 cp -rf ./php ./dist/php
 
+rm -rf ./dist/min
+cp ./min.html ./dist/min.html
+cp -rf ./min ./dist/min
+
 grunt
 
 cp -rf ./dist/* /Users/baidu/百度云同步盘/MacFiles/VirtualBoxShare/MAMP/shushuo/act/webtrend

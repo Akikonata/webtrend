@@ -3,9 +3,8 @@
     $detect = new Mobile_Detect;
 
     if( $detect->isMobile() ){
-        $link = 'http://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']) . '/index.html';
-        header("Location: $link");
+        include('index.html');
     }else{
-        header('Location: http://www.baidu.com');
+        include('min.html');
     }
 ?>

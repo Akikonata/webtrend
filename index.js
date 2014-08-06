@@ -14,16 +14,7 @@ function start() {
   ];
   var inited = [false, false, false, false, false, false, false, false];
 
-  $('#page1').hammer().bind("pandown", function(ev) {
-    cover.css({
-      webkitTransform: 'translate3d(0px,0px,0px)'
-    });
-  });
   //当前过渡动画的className
-  var duractionClassName = '';
-
-  var style = $('style');
-  // var pages = $('#pages').find('.swiper-slide');
 
   //第八页的动画
   var page8animate = function() {
@@ -237,9 +228,15 @@ function start() {
 
   function deviceMotionHandler(eventData) {
     var acceleration = eventData.accelerationIncludingGravity;
+
+// console.log(acceleration.x, acceleration.y);
+
     if (Math.abs(acceleration.x) < 2 && Math.abs(acceleration.y) < 2) {
       return false;
     }
+
+
+
     var left = -acceleration.x * 3 - 110;
     var bottom = acceleration.y * 3 - 50;
     var dl = left - lastleft;
@@ -271,13 +268,12 @@ function start() {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
   }
 
-  if (window.DeviceMotionEvent)
-    if (!isWeixin()) {
-      $('.weixin').hide();
-      $('.book').css({
-        display : 'block',
-        margin: '25px auto 25px'
-      });
-    }
+  if (!isWeixin()) {
+    $('.weixin').hide();
+    $('.book').css({
+      display : 'block',
+      margin: '25px auto 25px'
+    });
+  }
 
 };

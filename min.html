@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no,width=device-width, minimum-scale=0.5, maximum-scale=1.0"/>
+	<title>2014Q2百度移动搜索趋势报告</title>
+	<link rel="stylesheet" href="min/res/swiper.css">
+	<link rel="stylesheet" href="min/res/styles.css">
+<style>
+	html, body{
+		margin:0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.swiper-container{
+		width: 100%;
+		height: 100%;
+	}
+
+	.swiper-slide.page{
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+
+	.page-0{
+		
+	}
+          
+	.page-1{
+		background: #ba5634 url(min/img/1.png);
+	}
+
+	.page-2{
+		background: #5eb953 url(min/img/2.png);
+	}
+
+	.page-3{
+		background: #2ab8b9 url(min/img/3.png);
+	}
+
+	.page-4{
+		background: #278de9 url(min/img/4.png);
+	}
+
+	.page-5{
+		background: #6c40d3 url(min/img/5.png);
+	}
+
+	.page-6{
+		background: #ba5634 url(min/img/6.png);
+	}
+
+	.page-7{
+		background: #2ab8b9 url(min/img/7.png);
+	}
+
+	.page-8{
+		
+	}
+
+</style>
+</head>
+<body>
+<div class="swiper-container">
+
+	<div class="swiper-wrapper">
+		<div class="swiper-slide page page-0">
+			<div id="cover" class="report-cover">
+			    <img src="img/bg.png" alt="" class='l1' width='360' id='img1'>
+			    <img src="img/bg02.png" alt="" class='l2' width='114' id='img2'>
+			    <img src="img/covertitle.png" alt="" class='tl2' width='216' id='img3'>
+			    <img src="img/MBU1_LOGO.png" width="105" id='img4'>
+			    <div class="cover-guide">
+			      <div class="arrow-up"></div>
+			        <span style='color:white'>滑动查看</span>
+			    </div>
+			</div>
+		</div>
+		<div class="swiper-slide page page-1">
+			<div id="area-container" class="scroll-container chart">
+				<div class="swiper-wrapper">
+					<div id="area" class="swiper-slide" onselect = "return false"></div>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-slide page page-2"></div>
+		<div class="swiper-slide page page-3"></div>
+		<div class="swiper-slide page page-4">
+			<div id="column-container" class="scroll-container chart">
+				<div class="swiper-wrapper">
+					<div id="column" class="swiper-slide" onselect = "return false"></div>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-slide page page-5"></div>
+		<div class="swiper-slide page page-6"></div>
+		<div class="swiper-slide page page-7"></div>
+		<div class="swiper-slide page page-8 back-cover">
+		    <img class="book" src="img/book.png" />
+		    <img class="share weixin" src="img/share.png" />
+		    <div class="link"><a href="javascript:;" target="_blank">点击这里查看完整版报告</a></div>
+		    <div class="info">
+		      <div style="font-size:10px;margin:10px 5px 20px;">联合撰写</div>
+		      <div style="font-size:12px;margin:-10px 5px 5px;">百度移动云事业部</div>
+		      <div style="font-size:12px;margin:5px 5px 8px;">百度商业分析部</div>
+		      <div style="border-top:#a49fae 1px solid;font-size:10px;text-indent:5px; padding-top:5px;marign-top:10px;">设计支持</div>
+		      <div style="background:url(img/logos.png) no-repeat 0px 0px;text-indent:60px;background-size: 45px;font-size:10px;margin:6px 5px;height: 14px;">百度移动用户体验部</div>
+		      <div style="border-top:#a49fae 1px solid;font-size:10px;text-indent:5px; padding-top:5px;marign-top:10px;">技术支持</div>
+		      <div style="background:url(img/logos.png) no-repeat 0px -15px;text-indent:60px;background-size: 45px;font-size:10px;margin:6px 5px;height: 17px;">数说可视化团队</div>
+		    </div>
+		</div>
+	</div>
+</div>
+<script src="min/res/jquery-1.10.1.min.js"></script>
+<script src="min/res/idangerous.swiper.js"></script>
+<script>
+	var mySwiper = new Swiper('.swiper-container', {
+		mode: 'vertical',
+		moveStartThreshold : 50
+	});
+
+	function isWeixin() {
+		return navigator.userAgent.toLowerCase().indexOf('micromessenger') >= 0;
+	}
+
+	if (!isWeixin()) {
+		$('.weixin').hide();
+		$('.book').css({
+			display : 'block',
+			margin: '25px auto 25px'
+		});
+	}
+
+	var rate = 0.8;
+
+	var aw = 548 * rate,
+		ah = 283 * rate;
+	$('#area').css({
+		width: aw+'px',
+		height: ah+'px',
+		backgroundSize: aw+'px'
+	});
+
+	var cw = 844 * rate,
+		ch = 243 * rate;
+	$('#column').css({
+		width: cw+'px',
+		height: ch+'px',
+		backgroundSize: cw+'px'
+	});
+
+	new Swiper('#area-container', {
+			scrollContainer: true
+		});
+
+	new Swiper('#column-container', {
+			scrollContainer: true
+		});
+
+	$('.chart').each(function(i, chart){
+		$(chart).css({
+			marginTop : (document.body.clientHeight - $(chart).height())/2-20 + 'px'
+		});
+	});
+</script>
+</body>
+</html>
