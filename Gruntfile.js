@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                     "index.js",
                     "js/preload.js"
                 ],
-                dest: 'dist/script.js'
+                dest: 'dist/lib/script.js'
             },
             // buildApp: {
             //     src: [
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
             },
             compress: {
                 files: {
-                    "dist/style.css" : [
+                    "dist/lib/style.css" : [
                         "css/idangerous.swiper.css",
                         "css/font.css",
                         "css/charts.css",
@@ -59,17 +59,17 @@ module.exports = function (grunt) {
 
         replace: {
             online: {
-                src: 'dist.html',
+                src: 'dist/index.html',
                 overwrite: true,
                 replacements: [{
                     from: /<!-- script start -->[^]*<!-- script end -->/ig,
                     to: (function(){
-                        return '<script src="dist/script.js?t='+(+new Date)+'"></script>'
+                        return '<script src="lib/script.js?t='+(+new Date)+'"></script>'
                     })()
                 }, {
                     from: /<!-- style start -->[^]*<!-- style end -->/ig,
                     to: (function(){
-                        return ' <link rel="stylesheet" href="dist/style.css?t='+(+new Date)+'">';
+                        return ' <link rel="stylesheet" href="lib/style.css?t='+(+new Date)+'">';
                     })
                 }]
             }

@@ -1,3 +1,19 @@
-cp -rf ./index.html ./dist.html
-cp -rf ./css/font ./dist/font
+mkdir ./dist
+cp -rf ./index.html ./dist/index.html
+
+mkdir ./dist/lib
+mkdir ./dist/lib/font
+cp -rf ./css/font/* ./dist/lib/font/
+
+mkdir ./dist/img
+cp -rf ./img/* ./dist/img/
+rm -rf ./dist/img/old
+
+rm -rf ./dist/php
+cp ./distribute.php ./dist/distribute.php
+cp -rf ./php ./dist/php
+
 grunt
+
+cp -rf ./dist/* /Users/baidu/百度云同步盘/MacFiles/VirtualBoxShare/MAMP/shushuo/act/webtrend
+rm -rf ./dist

@@ -50,6 +50,7 @@ function start() {
     mode: 'vertical',
     resistance: '100%',
     slidesPerView: 'auto',
+    moveStartThreshold : 100,
     onSlideChangeEnd: function(e) {
       var idx = e.activeIndex;
       if (inited[idx]) {
