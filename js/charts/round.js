@@ -261,7 +261,7 @@
                 rectInterval : 15,
                 centerStartR : 10,
                 centerEndR : 80,
-                centerTimer : 0//800
+                centerTimer : 800
             };
 
             conf.r = conf.centerEndR + 10
