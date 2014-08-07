@@ -5,89 +5,44 @@
         value : [15.1, 14.0, 9.8, 9.7, 9.1, 8.0, 6.5, 4.9, 4.8, 3.3, 3.0, 2.9, 12.1]
     };
 
-    var colors = [];
-    for(var i=0; i<data.name.length; i++){
-        colors.push('rgba(17,114,46,'+(1-0.04*i)+')');
-    }
-    var roundConfig = {
-        "color": colors,
-        defaultColor : '#11722e',
-        "plotOptions": {
-            "pie": {
-                "shadow": {
-                    enabled: false,
-                    size: 4,
-                    x: 0,
-                    y: 0,
-                    color: "rgba( 0, 0, 0, 0.3 )"
-                },
-                "innerRadius": 90,
-                "outerRadius": 110,
-                "incrementRadius": 20,
-                "stroke": {
-                    "width": 0
-                }
-            },
+    var fan = function(conf){
+        var player = document.createElement('div');
 
-            "label": {
-                "enabled": false
-            }
-        },
-        "legend": {
-            "enabled": false,
-            "level": "data"
-        },
+        var side = conf.outer * 2;
+        player.style.width = player.style.height = side + 'px';
 
-        animation: {
-            enabled : false,
-            duration: 600,
-            mode: 'ease'
-        },
 
-        series : [{
-            name : '搜索占比',
-            data : [{
-                name: "书籍文档",
-                value: 15.1
-            }, {
-                name: "生活服务",
-                value: 14.0
-            }, {
-                name: "在线工具服务",
-                value: 9.8
-            }, {
-                name: "健康保健",
-                value: 9.7
-            },{
-                name: "教育",
-                value: 9.1
-            }, {
-                name: "成人",
-                value: 8.0
-            }, {
-                name: "人物",
-                value: 6.5
-            }, {
-                name: "影视动画",
-                value: 4.9
-            },{
-                name: "新闻资讯",
-                value: 4.8
-            }, {
-                name: "商品购物",
-                value: 3.3
-            }, {
-                name: "音乐",
-                value: 3.0
-            }, {
-                name: "游戏",
-                value: 2.9
-            },{
-                name: "其他",
-                value: 12.1
-            }]
-        }]
+        player.classList.add('fan');
 
+        player.innerHTML = 
+            '<div class="rect" style="width:'+side+'px;height:'+side+'px;clip: rect(0, '+side+'px, '+side+'px, '+conf.outer+'px);">'+
+                '<div class="round"></div>'+
+            '</div>';
+
+        var angle = conf.angle;
+        angle > 360 && (angle = 360);
+        angle < 0 && (angle = 0);
+
+        var rightRotate = Math.max(180-angle, 0);
+        var thick = conf.outer - conf.inner;
+
+        var rightRound = player.querySelector('.rect .round');
+        var l = conf.inner * 2;
+        $(rightRound).css({
+            webkitTransform : 'rotate(-'+rightRotate+'deg)',
+            width  : l+'px',
+            height : l+'px',
+            border : conf.color + ' ' + thick + 'px solid',
+            clip   : 'rect(0, '+side+'px, '+side+'px, '+conf.outer+'px)'
+        });
+
+        $(player).css({
+            top : ($(conf.container).height()-side)/2+'px',
+            left : ($(conf.container).width()-side)/2+'px',
+            webkitTransform : 'rotate('+(conf.start||0)+'deg)',
+        });
+
+        conf.container.appendChild(player);
     };
 
     var curIndex = 1, total = data.name.length;
@@ -152,20 +107,21 @@
         return center;
     }
 
-    var fans, lastFan, lastIndex=0;
-    function addRing( conf ){
+    function addRects( conf ){
         var con = conf.container;
 
-        var round = new kc.PieChart('round');
-        round.setConfig(roundConfig);
-        round.setOption('plotOptions.pie.center', {
-            "x": con.width() / 2,
-            "y": con.height() / 2
-        });
+        for(var i=0; i<data.name.length; i++){//
+            fan({
+                inner : conf.r,
+                outer : conf.r + conf.h,
+                // color : 'rgba('+(243)+',229,'+(12)+',1)',
+                color : '#11722e',
+                container : con[0],
+                angle : data.angles[i]-1,
+                start : data.start[i]
+            });
+        }
 
-        round.update(roundConfig);
-
-        fans = round.getPlots().getElement('pies').getElementList();
     }
 
     var tip = Utils.addTip({
@@ -189,6 +145,11 @@
 
             var angle = angle/2 + data.start[i]-90,
                 isRight = (angle < 90 && angle > -90 )||( angle < 360 && angle > 270 );
+
+            // $('<div class="link-dot link-dot'+i+' link" index="' + i + '"></div>').css({
+            //     top : re.offsetTop+conf.h/2-3,
+            //     left : re.offsetLeft+conf.w/2-3
+            // }).appendTo(con);
 
             // 链接文本位置
             var txt = data.name[i],
@@ -227,12 +188,9 @@
     function select( i ){
 
         var s = data.start[i], c = data.name.length;
-
-        lastFan && lastFan.update({color:colors[lastIndex]});
-        fans[i].update({color:'#f3e50c'});
-        lastIndex = i;
-
-        lastFan = fans[i];
+        var fans = $('.fan .round');
+        fans.css('borderColor', '#11722e');
+        fans.eq(i).css('borderColor', '#f3e50c');
 
         $('.link-txt').show();
         var txt = $('.link-txt' + i).hide();
@@ -323,7 +281,7 @@
             
             setTimeout(function(){
 
-                addRing(conf);
+                addRects(conf);
 
                 setTimeout(function(){
                     addLink(conf);

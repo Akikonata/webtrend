@@ -10,7 +10,7 @@ cp -rf ./img/* ./dist/img/
 rm -rf ./dist/img/old
 
 rm -rf ./dist/php
-cp ./distribute.php ./dist/distribute.php
+cp ./index.php ./dist/index.php
 cp -rf ./php ./dist/php
 
 rm -rf ./dist/min
@@ -20,4 +20,4 @@ cp -rf ./min ./dist/min
 grunt
 
 cp -rf ./dist/* /Users/baidu/百度云同步盘/MacFiles/VirtualBoxShare/MAMP/shushuo/act/webtrend
-rm -rf ./dist
+#rm -rf ./dist
