@@ -544,3 +544,6 @@ body {
   -webkit-animation-timing-function: linear;
 }
 
+#img1, #img2{
+  -webkit-transition: 200ms;
+}

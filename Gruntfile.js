@@ -59,7 +59,7 @@ module.exports = function (grunt) {
 
         replace: {
             online: {
-                src: 'dist/index.html',
+                src: 'dist/max.html',
                 overwrite: true,
                 replacements: [{
                     from: /<!-- script start -->[^]*<!-- script end -->/ig,

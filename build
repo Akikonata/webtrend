@@ -1,5 +1,5 @@
 mkdir ./dist
-cp -rf ./index.html ./dist/index.html
+cp -rf ./max.html ./dist/max.html
 
 mkdir ./dist/lib
 mkdir ./dist/lib/font

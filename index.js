@@ -219,51 +219,38 @@ function start() {
       webkitTransform: 'translate3d(0px, 0px, 0px)'
     });
   });
+
   //重力感应效果
-  var lastdeg = -25;
-  var lastleft = -110,
-    lastbottom = -50,
-    lastright = -42,
-    lasttop = 43;
+  var img1 = $('#img1'),
+      img2 = $('#img2'),
+      img3 = $('#img3');
 
   function deviceMotionHandler(eventData) {
     var acceleration = eventData.accelerationIncludingGravity;
-
-// console.log(acceleration.x, acceleration.y);
 
     if (Math.abs(acceleration.x) < 2 && Math.abs(acceleration.y) < 2) {
       return false;
     }
 
+    var left = -(acceleration.x|0) * 3;
+
+    img1.css({
+      webkitTransform : 'translate3d('+left+'px,0px,0px)'
+    }, 0);
 
 
-    var left = -acceleration.x * 3 - 110;
-    var bottom = acceleration.y * 3 - 50;
-    var dl = left - lastleft;
-    var db = bottom - lastbottom;
-    lastleft += dl / Math.abs(dl);
-    lastbottom += db / Math.abs(db);
-    $('#img1').css({
-      left: lastleft,
-      bottom: lastbottom
+    img2.css({
+      webkitTransform : 'translate3d('+left+'px,0px,0px)'
     }, 0);
-    var right = acceleration.x * 3 - 42;
-    var top = acceleration.y * 3 + 43;
-    var dr = right - lastright;
-    var dt = top - lasttop;
-    lastright += dr / Math.abs(dr);
-    lasttop += dt / Math.abs(dt);
-    $('#img2').css({
-      right: lastright,
-      top: lasttop
-    }, 0);
+
     var deg = -25 + acceleration.x * 10 / Math.PI;
-    var dd = deg - lastdeg;
-    lastdeg = deg;
-    $('#img3').css({
-      webkitTransform: 'rotateY(' + lastdeg + 'deg)'
+
+    img3.css({
+      webkitTransform: 'rotateY(' + deg + 'deg)'
     });
+    
   }
+
   if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', deviceMotionHandler, false);
   }
