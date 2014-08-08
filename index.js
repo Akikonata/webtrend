@@ -40,7 +40,7 @@ function start() {
     mode: 'vertical',
     resistance: '100%',
     slidesPerView: 'auto',
-    moveStartThreshold : 120,
+    moveStartThreshold : 80,
     speed: 1000,
     onSlideChangeEnd: function(e) {
       var idx = e.activeIndex;
