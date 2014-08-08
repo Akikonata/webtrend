@@ -41,10 +41,9 @@ function start() {
     resistance: '100%',
     slidesPerView: 'auto',
     moveStartThreshold : 120,
+    speed: 1000,
     onSlideChangeEnd: function(e) {
       var idx = e.activeIndex;
-
-      // togglePageContent(idx);
 
       if (inited[idx]) {
         return false;
@@ -53,20 +52,21 @@ function start() {
       inited[idx] = true;
       //初始化图表
       initPage(idx);
-    },
-    speed: 1000
+    }
   });
 
-  // var pageCount = $('.page').length;
-  // var pageChildren = $('.page').children();
+  // var pp = $('.page');
+  // var pageCount = pp.length;
+  // var pageChildren = pp.children();
   // function togglePageContent(index){
-  //   // return;
+  //   pageChildren.hide();
+
   //   for(var i=0; i<pageCount; i++){
-  //     if(Math.abs(i-index)<2){
-  //       console.log(i);
-  //       // pageChildren.hide();
-  //       // $('#page' + index).children().show();
-  //       if(i>=0 && i<pageCount && i != index) $('#page' + (i+1)).children().show();
+  //     if(Math.abs(i-index)<3){
+
+  //       if(i>=0 && i<pageCount  ){
+  //         $('#page' + (i+1)).children().show();
+  //       }
   //     }
   //   }
   // }
