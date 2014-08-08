@@ -170,6 +170,7 @@
 
     var tip = Utils.addTip({
         container : $('#round'),
+        bgColor : '#116165',
         content : '',
         style : {
             backgroundColor : '#116165',

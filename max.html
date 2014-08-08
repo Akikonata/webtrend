@@ -12,20 +12,26 @@
   <!-- style end -->
 </head>
 <body>
+<!--loading-->
+<div id="loading">
+  <div id="spinner"></div>
+</div>
+<!--loading-->
+
 <div id="cover" class="report-cover">
-    <img src="img/bg.png" alt="" class='l1' width='360' id='img1'>
-    <img src="img/bg02.png" alt="" class='l2' width='114' id='img2'>
-    <img src="img/covertitle.png" alt="" class='tl2' width='216' id='img3'>
+    <img src="img/bg.png" alt="" class='l1' width='360' id='img1' />
+    <img src="img/bg02.png" alt="" class='l2' width='114' id='img2' />
+    <img src="img/covertitle.png" alt="" class='tl2' width='216' id='img3' />
     <img src="img/MBU1_LOGO.png" width="105" id='img4'>
     <div class="cover-guide">
       <div class="arrow-up"></div>
-        <span style='color:white'>滑动查看</span>
+      <span style='color:white'>滑动查看</span>
     </div>
 </div>
 
 <div class="swiper-container" id='pages'>
   <div class="swiper-wrapper">
-      <div class="swiper-slide" id='page1'>
+      <div class="swiper-slide page" id="page1">
         <div class="title">
           <div class="page-num num-1"></div>
           智能机大盘<a class="toggle-tips" data-n='0'><span class="tips-icon"></span></a>增速不减，<br/>
@@ -54,7 +60,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide page" id="page2">
         <div class="title">
           <div class="page-num num-2"></div>三年来，智能机大盘中<br/>
           Android和iPhone阵营<br/>
@@ -80,7 +86,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide page" id="page3">
         <div class="title">
           <div class="page-num num-3"></div>iPhone用户日使用时长<a class="toggle-tips" data-n='1'><span class="tips-icon"></span></a>领<br/>
           先Android用户，在通信&<br/>
@@ -119,7 +125,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide page" id="page4">
           <div class="title"><div class="page-num num-4"></div>尽管两大平台的用户偏好<br/>
             不同，但用户需求的变化<br/>
             趋势基本一致<br/></div>
@@ -151,7 +157,7 @@
             </div>
           </div>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide page" id="page5">
         <div class="title"><div class="page-num num-5"></div>腾讯和百度在两大平台的<br/>
         领先地位均比较稳固<br/></div>
         <div id="bubble" class="chart-container bubble" onselect = "return false"></div>
@@ -170,7 +176,7 @@
             </div>
           </div>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide page" id="page6">
         <div class="title"><div class="page-num num-6"></div>百度移动搜索用户规模持续<br/>
         快速增长,MAU<a class="toggle-tips" data-n='4'><span class="tips-icon"></span></a>破5亿</div>
         <div id="p-donut" class="chart-container p-donut" onselect = "return false">
@@ -188,7 +194,7 @@
             </div>
           </div>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide page" id="page7">
         <div class="title"><div class="page-num num-7"></div>百度每日处理移动搜索总<br/>
         次数半年增长48%,全面连<br/>
         接用户与服务<br/></div>
@@ -203,7 +209,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide" id='page8'>
+      <div class="swiper-slide page" id="page8">
         <div class="title">
           <div class="page-num num-8"></div>
           移动搜索发展趋势
@@ -246,7 +252,7 @@
       <div style="border-top:#a49fae 1px solid;font-size:10px;text-indent:5px; padding-top:5px;marign-top:10px;">设计支持</div>
       <div style="background:url(img/logos.png) no-repeat 0px 0px;text-indent:60px;background-size: 45px;font-size:10px;margin:6px 5px;height: 14px;">百度移动用户体验部</div>
       <div style="border-top:#a49fae 1px solid;font-size:10px;text-indent:5px; padding-top:5px;marign-top:10px;">技术支持</div>
-      <div style="background:url(img/logos.png) no-repeat 0px -15px;text-indent:60px;background-size: 45px;font-size:10px;margin:6px 5px;height: 17px;">数说可视化团队</div>
+      <div style="background:url(img/logos.png) no-repeat 0px -15px;text-indent:60px;background-size: 45px;font-size:10px;margin:6px 5px;height: 17px;">数说可视化团队@FEX</div>
     </div>
 </div>
 <!--弹窗-->
@@ -257,32 +263,14 @@
   </div>
 </div>
 <!--弹窗-->
-<!--loading-->
-<div id="loading">
-  <div id="spinner">
-    <img src="img/loading.png" alt="正在加载……" width="45">
-  </div>
-</div>
-<!--loading-->
+
 <!-- script start -->
   <script src="js/detect.js"></script>
   <script src="js/libs/jquery-1.10.1.min.js"></script>
   <script src="js/libs/idangerous.swiper.js"></script>
   <script src="js/libs/hammer.min.js"></script>
   <script src="js/libs/jquery.hammer.js"></script>
-
   <script src="js/libs/kity.min.js"></script>
-  <!-- dev 版本 示例所需脚本文件 start -->
-<!--   // <script src="../../kity/dev-lib/dev-define.js"></script>
-  // <script>
-  //     inc.config({
-  //         base: '../../kity/src'
-  //     });
-  // </script>
-  // <script src="../../kity/dev-lib/exports.js"></script>
-  // <script src="../../kity/dev-lib/dev-start.js"></script> -->
-  <!-- dev 版本 示例所需脚本文件 end -->
-
   <script src="js/libs/kitychart.all.js"></script>
   <script src="js/charts/utils.js"></script>
   <script src="js/charts/charts.js"></script>

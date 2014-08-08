@@ -4,7 +4,6 @@ function start() {
   }
   var pageHeight = $('body').height();
   if (pageHeight < 458) pageHeight = 458;
-  var SwiperPages;
   var docs = [
     '<h1>智能机大盘：</h1>指智能机全体保有量中的日活跃（当天发生过至少一次联网行为的）设备数量',
     '<h1>日使用时长：</h1>指用户一天24小时中使用各类智能机应用的累计时长，不含短信和电话',
@@ -37,83 +36,101 @@ function start() {
     }
   }
 
-  SwiperPages = new Swiper('#pages', {
+  var SwiperPages = new Swiper('#pages', {
     mode: 'vertical',
     resistance: '100%',
     slidesPerView: 'auto',
     moveStartThreshold : 120,
     onSlideChangeEnd: function(e) {
       var idx = e.activeIndex;
+
+      togglePageContent(idx);
+
       if (inited[idx]) {
         return false;
       }
+
       inited[idx] = true;
       //初始化图表
-      switch (idx) {
-        case 0:
-          break;
-        case 1:
-          Charts.get('donut').init();
-          break;
-        case 2:
-          var _w = $('.pie').width();
-          $('.pie').height(_w);
-          var pie = Charts.get('pie');
-          pie.init('pie-1', [47, 73], '通信&<br>社交');
-          pie.init('pie-2', [33, 44], '娱乐');
-          pie.init('pie-3', [44, 24], '工具');
-          pie.init('pie-4', [19, 17], '其他');
-          break;
-        case 3:
-          (Utils.once(function() {
-            Charts.get('column').init();
-            colSwiper = new Swiper('.scroll-container2', {
-              scrollContainer: true,
-              onTouchEnd: setColTip2
-            });
-
-
-            colSwiper.wrapperTransitionEnd(setColTip2, true);
-
-            setTimeout(function() {
-              $('.scroll-container2 .swiper-wrapper').css({
-                webkitTransition: '3.5s'
-              });
-              colSwiper.setWrapperTranslate(-520, 0, 0);
-            }, 800);
-
-          }))();
-          break;
-        case 4:
-          Charts.get('bubble').init();
-          break;
-        case 5:
-          Charts.get('p-donut').init();
-          break;
-        case 6:
-          Charts.get('round').init();
-          break;
-        case 7:
-          page8animate();
-          break;
-        default:
-          break;
-      }
+      initPage(idx);
     },
     speed: 1000
   });
-  /*测试代码*/
-  // SwiperPages.swipeTo(7, 0);
-  // page8animate();
-  /**/
+
+  var pageCount = $('.page').length;
+
+  function togglePageContent(index){
+    // return;
+    for(var i=0; i<pageCount; i++){
+      if(Math.abs(i-index)<2){
+        $('page').children().hide();
+        $('#page' + index).show();
+        if(i>=0 && i<pageCount && i != index) $('#page' + i).show();
+      }
+    }
+  }
+
+  function initPage(index){
+    switch (index) {
+      case 0:
+        break;
+      case 1:
+        Charts.get('donut').init();
+        break;
+      case 2:
+        var p = $('.pie');
+        p.height( p.width() );
+        var pie = Charts.get('pie');
+        pie.init('pie-1', [47, 73], '通信&<br>社交');
+        pie.init('pie-2', [33, 44], '娱乐');
+        pie.init('pie-3', [44, 24], '工具');
+        pie.init('pie-4', [19, 17], '其他');
+        break;
+      case 3:
+        (Utils.once(function() {
+          Charts.get('column').init();
+          colSwiper = new Swiper('.scroll-container2', {
+            scrollContainer: true,
+            onTouchEnd: setColTip2
+          });
+
+          colSwiper.wrapperTransitionEnd(setColTip2, true);
+
+          setTimeout(function() {
+            $('.scroll-container2 .swiper-wrapper').css({
+              webkitTransition: '3.5s'
+            });
+            colSwiper.setWrapperTranslate(-520, 0, 0);
+          }, 800);
+
+        }))();
+        break;
+      case 4:
+        Charts.get('bubble').init();
+        break;
+      case 5:
+        Charts.get('p-donut').init();
+        break;
+      case 6:
+        Charts.get('round').init();
+        break;
+      case 7:
+        page8animate();
+        break;
+      default:
+        break;
+    }
+  }
+
   //初始化提示弹窗
-  var msgwindow = $('#alert').find('.msg-window');
+  var alert = $('#alert');
+  var msgwindow = $('.msg-window', alert);
   $('.swiper-slide').on('touchstart', '.toggle-tips', function() {
     var $this = $(this);
     var n = $this.data('n');
     var doc = docs[n];
-    $('#alert').find('.msg-content').html(doc);
-    $('#alert').show();
+    alert.find('.msg-content').html(doc);
+    alert.show();
     setTimeout(function() {
       msgwindow.css({
         webkitTransition: '500ms',
@@ -123,16 +140,20 @@ function start() {
     }, 0)
 
   })
-  $('#alert').on('touchstart', '.btn-ok', function() {
+
+  alert.on('touchstart', '.btn-ok', function() {
     msgwindow.css({
       webkitTransition: '200ms',
       webkitTransform: 'translate3d(0px, 0px, 0px)',
       opacity: 0
     });
+
     setTimeout(function() {
-      $('#alert').hide();
+      alert.hide();
     }, 200);
+
   });
+
   $(document).ready(function() {
     function stopScrolling(touchEvent) {
       touchEvent.preventDefault();

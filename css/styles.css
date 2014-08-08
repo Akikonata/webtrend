@@ -525,23 +525,22 @@ body {
   z-index: 100;
 }
 
-@-webkit-keyframes rotate {
-  from {-webkit-transform:rotate(0deg);}
-  to {-webkit-transform:rotate(360deg);}
-}
 #spinner {
+  position: relative;
   height: 45px;
   width: 45px;
-  overflow: hidden;
-  position: relative;
   left: 50%;
   top: 50%;
   margin-left: -22px;
   margin-top: -22px;
-  -webkit-animation-name: rotate;
-  -webkit-animation-duration: 1.5s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
+  background: url(../img/loading.png);
+  background-size: 45px;
+  -webkit-animation: rotate 1.5s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
 }
 
 #img1, #img2{
