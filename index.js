@@ -193,8 +193,9 @@ function start() {
     .hammer()
     .bind("panup", function(ev) {
       cover.css({
-        webkitTransition: '500ms',
-        webkitTransform: 'translate3d(0px, ' + (-pageHeight) + 'px, 0px)'
+        webkitTransition: '600ms',
+        webkitTransform: 'translate3d(0px, ' + (-pageHeight) + 'px, 0px)',
+        zoom:1
       });
 
       setTimeout(function() {

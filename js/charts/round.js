@@ -316,10 +316,9 @@
             setTimeout(function(){
 
                 addRing(conf);
-
                 setTimeout(function(){
                     addLink(conf);
-                }, count * conf.rectInterval);
+                }, 200);
 
             }, timer + 500);
 
