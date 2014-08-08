@@ -44,7 +44,7 @@ function start() {
     onSlideChangeEnd: function(e) {
       var idx = e.activeIndex;
 
-      togglePageContent(idx);
+      // togglePageContent(idx);
 
       if (inited[idx]) {
         return false;
@@ -57,18 +57,19 @@ function start() {
     speed: 1000
   });
 
-  var pageCount = $('.page').length;
-
-  function togglePageContent(index){
-    // return;
-    for(var i=0; i<pageCount; i++){
-      if(Math.abs(i-index)<2){
-        $('page').children().hide();
-        $('#page' + index).show();
-        if(i>=0 && i<pageCount && i != index) $('#page' + i).show();
-      }
-    }
-  }
+  // var pageCount = $('.page').length;
+  // var pageChildren = $('.page').children();
+  // function togglePageContent(index){
+  //   // return;
+  //   for(var i=0; i<pageCount; i++){
+  //     if(Math.abs(i-index)<2){
+  //       console.log(i);
+  //       // pageChildren.hide();
+  //       // $('#page' + index).children().show();
+  //       if(i>=0 && i<pageCount && i != index) $('#page' + (i+1)).children().show();
+  //     }
+  //   }
+  // }
 
   function initPage(index){
     switch (index) {

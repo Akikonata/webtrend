@@ -313,16 +313,6 @@ h2{
     100% { -webkit-transform: scale(1); }
 }
 
-.beat1{
-    -webkit-animation: beat1 0.4s;
-}
-
-@-webkit-keyframes beat1{
-    0%   { -webkit-transform: scale(1); }
-    70%   { -webkit-transform: scale(1.5); }
-    100% { -webkit-transform: scale(1); }
-}
-
 .beat2{
     -webkit-animation: beat2 0.2s;
 }

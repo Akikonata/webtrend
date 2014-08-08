@@ -5,10 +5,10 @@
         value : [15.1, 14.0, 9.8, 9.7, 9.1, 8.0, 6.5, 4.9, 4.8, 3.3, 3.0, 2.9, 12.1]
     };
 
-    var colors = [];
-    for(var i=0; i<data.name.length; i++){
-        colors.push('rgba(17,114,46,'+(1-0.04*i)+')');
-    }
+    var colors = [
+        '#433769', '#333369', '#1f3164', '#0f376d', '#13426d', '#0f4d6c', '#125768', '#166164', '#1a6b5f', '#1e755a', '#238953', '#279350', '#29a54a'
+    ];
+
     var roundConfig = {
         "color": colors,
         defaultColor : '#11722e',
@@ -116,31 +116,59 @@
         data.start = start;
     }
 
-    function addCenter(conf, fin, timer){
+    function setLabel(center, cw, ch){
+        var lb = center.find('.label').css({
+            position: 'absolute',
+            top : (ch/2-50) +  'px',
+            color : '#388742',
+            fontSize : '20px'
+        });
+
+        lb.css({
+            left: (cw-lb.width())/2 + 'px',
+        });
+    }
+
+    function setSearchIcon(center, width, cw, ch){
+        var oW = 164, oH = 145, hW = 71;
+
+        var bz = width / 80 * 343;
+        var icon = center.find('.search-icon').css({
+            width: width + 'px',
+            height: width/oW*oH + 'px',
+            backgroundSize : 343 + 'px',
+            left: (cw/2 - width/oW*hW) + 'px',
+            top : (ch/2-width*0.15) +  'px'
+        });
+    }
+
+    function addCenter(conf, timer){
         var con = conf.container;
         var r = conf.radius;
 
-        var center = $('<div class="center"></div>').css({
+        var center = $('<div class="center"><div class="label">' + conf.label + '</div><div class="search-icon"></div></div>').css({
 
             position : 'absolute',
             width : 2*r + 'px',
             height : 2*r + 'px',
             left : (con.width()/2-r) + 'px',
             top : (con.height()/2-r) + 'px',
+            webkitTransform : 'scale(' + conf.startScale + ')',
             zIndex : 100
 
         }).appendTo( con );
 
+        var cw = center.width(), ch = center.height();
+        setLabel(center, cw, ch);
+
+        setSearchIcon(center, 80, cw, ch);
+
+
         setTimeout(function(){
-            var fr = fin.radius;
             center.css({
-                width : 2*fr + 'px',
-                height : 2*fr + 'px',
-                left : (con.width()/2-fr) + 'px',
-                top : (con.height()/2-fr) + 'px'
+                webkitTransform : 'scale(1)',
             });
         }, timer);
-
 
         center.on('touchstart', function(){
             center.animClass('beat2');
@@ -252,43 +280,6 @@
             tip.addClass('tip-anim');
         }, 0);
     }
-
-    function addSearchIcon(conf){
-        var con = conf.container,
-            oW = 164, oH = 145, hW = 71,
-            width = conf.width;
-
-        var bz = width / 80 * 343;
-        var icon = $('<div class="search-icon"></div>').appendTo(con).css({
-            width: width + 'px',
-            height: width/oW*oH + 'px',
-            backgroundSize : bz + 'px',
-            left: (con.width()/2 - width/oW*hW) + 'px',
-            top : (con.height()/2-width*0.15) +  'px',
-            webkitTransform: 'scale(0.1)'
-        });
-
-        setTimeout(function(){
-            icon.css({
-                webkitTransform: 'scale(1)',
-                webkitTransition:'0.5s'
-            });
-
-        }, 50);
-    }
-
-    function addLabel(txt, con){
-        var h = $('<div">' + txt + '</div>').appendTo(con).css({
-            position: 'absolute',
-            top : (con.height()/2-50) +  'px',
-            color : '#388742',
-            fontSize : '20px'
-        });
-
-        return h.css({
-            left: (con.width()-h.width())/2 + 'px',
-        });
-    }
     
     Charts.add('round', {
 
@@ -302,12 +293,12 @@
                 rectCount : 48,
                 container : con,
                 rectInterval : 15,
-                centerStartR : 10,
-                centerEndR : 80,
+                centerStartR : 0.2,
+                centerRadius : 80,
                 centerTimer : 800
             };
 
-            conf.r = conf.centerEndR + 10
+            conf.r = conf.centerRadius + 10
 
             var count = conf.rectCount;
             initData(count);
@@ -315,10 +306,10 @@
             var timer = conf.centerTimer;
 
             var center = addCenter({
-                radius : conf.centerStartR,
-                container : con
-            }, {
-                radius : conf.centerEndR
+                radius : conf.centerRadius,
+                startScale : conf.centerStartR,
+                container : con,
+                label : '14Q2'
             }, timer);
 
             
@@ -328,12 +319,6 @@
 
                 setTimeout(function(){
                     addLink(conf);
-                    addLabel('14Q2', center).animClass('beat1');
-                    addSearchIcon({
-                        container : center,
-                        width : 80
-                    });
-                    
                 }, count * conf.rectInterval);
 
             }, timer + 500);
