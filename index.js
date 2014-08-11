@@ -291,4 +291,34 @@ function start() {
     window.open(link, '_blank');
   });
 
+
+  /*global WeixinJSBridge: true*/
+  document.addEventListener('WeixinJSBridgeReady', function(e) {
+    // if (configs.onWeixinReady) {
+    //   configs.onWeixinReady(e);
+    // }
+
+    WeixinJSBridge.on('menu:share:appmessage', function() {
+      WeixinJSBridge.invoke('sendAppMessage', {
+        img_width: 300,
+        img_height: 300,
+        img_url: 'http://shushuo.baidu.com/act/webtrend/img/weixin_pic.jpg',
+        link: 'http://shushuo.baidu.com/act/webtrend/',
+        desc: '2014Q2百度移动互联网发展趋势报告',
+        title: '2014Q2百度移动互联网发展趋势报告'
+      });
+    });
+
+    WeixinJSBridge.on('menu:share:timeline', function() {
+      WeixinJSBridge.invoke('shareTimeline', {
+        img_width: 300,
+        img_height: 300,
+        img_url: 'http://shushuo.baidu.com/act/webtrend/img/weixin_pic.jpg',
+        link: 'http://shushuo.baidu.com/act/webtrend/',
+        desc: '2014Q2百度移动互联网发展趋势报告',
+        title: '2014Q2百度移动互联网发展趋势报告'
+      });
+    });
+  });
+
 };
