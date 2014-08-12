@@ -291,9 +291,9 @@ function start() {
     window.open(link, '_blank');
   });
 
-  $('#shushuo').on('touchstart', function(){
-    window.open('http://shushuo.baidu.com/', '_blank');
-  });
+  // $('#shushuo').on('touchstart', function(){
+  //   window.open('http://shushuo.baidu.com/', '_blank');
+  // });
 
   /*global WeixinJSBridge: true*/
   document.addEventListener('WeixinJSBridgeReady', function(e) {
